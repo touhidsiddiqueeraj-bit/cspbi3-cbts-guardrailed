@@ -30,7 +30,7 @@ ax.text(2.5, -5.95, "VBO +0.08 (shallow, favourable side)", ha="center", fontsiz
 ax.set_xlim(-0.6, 4.6); ax.set_ylim(-8.6, -3.2)
 ax.set_ylabel("Energy (eV, vacuum = 0)")
 ax.set_xticks([])
-ax.set_title("Champion band alignment (absorber CB 0.07 eV above ETL; absorber VB 0.08 eV below HTL)", pad=10)
+ax.set_title("Champion band alignment\n(absorber CB 0.07 eV above ETL; absorber VB 0.08 eV below HTL)", pad=10)
 fig.tight_layout(); fig.savefig(FIG + "fig_align.png", dpi=150)
 
 # --- interface dose-response ---
