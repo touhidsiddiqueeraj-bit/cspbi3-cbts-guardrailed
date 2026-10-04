@@ -1,0 +1,196 @@
+{
+ "combos": 93,
+ "top10": [
+  {
+   "id": "A087_th2.0_na10000000000000000_nt1000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 2.0,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233294,
+    "Jsc": 21.18212618,
+    "FF": 89.8356,
+    "eta": 23.4685
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A063_th1.8_na10000000000000000_nt1000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 1.8,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233443,
+    "Jsc": 21.16026855,
+    "FF": 89.847,
+    "eta": 23.4501
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A039_th1.5_na10000000000000000_nt1000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 1.5,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233644,
+    "Jsc": 21.10900392,
+    "FF": 89.8647,
+    "eta": 23.4017
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A027_th1.5_na1000000000000000_nt1000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 1.5,
+    "layer2.NA": 1000000000000000.0,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233254,
+    "Jsc": 21.10978369,
+    "FF": 89.4684,
+    "eta": 23.2919
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A075_th2.0_na1000000000000000_nt1000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 2.0,
+    "layer2.NA": 1000000000000000.0,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.232842,
+    "Jsc": 21.18307149,
+    "FF": 89.1773,
+    "eta": 23.289
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A015_th1.0_na10000000000000000_nt1000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 1.0,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233813,
+    "Jsc": 20.89504375,
+    "FF": 89.8961,
+    "eta": 23.1757
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A003_th1.0_na1000000000000000_nt1000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 1.0,
+    "layer2.NA": 1000000000000000.0,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233483,
+    "Jsc": 20.8955359,
+    "FF": 89.6527,
+    "eta": 23.1073
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A067_th1.8_na10000000000000000_nt10000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 1.8,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 10000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.220879,
+    "Jsc": 21.15866796,
+    "FF": 89.1754,
+    "eta": 23.0359
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A091_th2.0_na10000000000000000_nt10000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 2.0,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 10000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.219487,
+    "Jsc": 21.18023169,
+    "FF": 89.1627,
+    "eta": 23.0298
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "A043_th1.5_na10000000000000000_nt10000000000000_nd900000000000000000_eg1.65",
+   "params": {
+    "layer2.thickness": 1.5,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 10000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.222911,
+    "Jsc": 21.10783656,
+    "FF": 89.2095,
+    "eta": 23.0276
+   },
+   "npts": 81,
+   "error": null
+  }
+ ],
+ "note": "Rs=0 upper bounds; FF-derate x0.965 for Rs~1. Strict floors: Nt>=1e12, NA<=1e17."
+}

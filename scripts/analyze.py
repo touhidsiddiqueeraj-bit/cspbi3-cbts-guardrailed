@@ -1,0 +1,120 @@
+"""Paper figures + cheap ML + contours from persistent data. No sims. No /tmp."""
+import json, pathlib
+import numpy as np
+import matplotlib
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
+BASE = pathlib.Path("/home/touhid/Documents/leadpaper")
+FIG = BASE / "outputs" / "figs"
+char = {json.loads(l)["id"]: json.loads(l) for l in
+        (BASE / "outputs" / "char.jsonl").read_text().splitlines() if l.strip()}
+
+# ---- 1. QE overlay ----
+plt.figure()
+for k, lab in [("qe_base", "baseline 800nm"), ("qe_champ", "champion 2.2um/Eg1.65")]:
+    d = char[k]["data"]["table"]
+    plt.plot(d["lambda"], d["QE"], label=lab)
+plt.xlabel("Wavelength (nm)"); plt.ylabel("QE (%)"); plt.legend(); plt.grid(True)
+plt.title("Quantum efficiency: baseline vs champion")
+plt.savefig(FIG / "fig_QE.png", dpi=100)
+
+# ---- 2. C-V + Mott-Schottky ----
+fig, ax = plt.subplots(1, 2, figsize=(10, 4))
+for k, lab in [("cv_base", "baseline"), ("cv_champ", "champion")]:
+    d = char[k]["data"]["table"]
+    V = np.array(d["V"]); C = np.array(d["C"])
+    ax[0].plot(V, C, label=lab)
+    ax[1].plot(V, 1 / np.array(C) ** 2, label=lab)
+ax[0].set(xlabel="V (V)", ylabel="C (nF/cm2)"); ax[1].set(xlabel="V (V)", ylabel="1/C2")
+for a in ax: a.legend(); a.grid(True)
+fig.suptitle("C-V (1 MHz) and Mott-Schottky"); fig.savefig(FIG / "fig_CV_MS.png", dpi=100)
+
+# ---- 3. Band diagram + 4. G/R ----
+d = char["eb0_champ"]["data"]["table"]
+x = np.array(d["x_um"])
+plt.figure()
+for c in ["Ec", "Ev", "Fn", "Fp"]:
+    plt.plot(x, d[c], label=c)
+plt.xlabel("x (um, 0=back/CBTS)"); plt.ylabel("Energy (eV)")
+plt.legend(); plt.grid(True); plt.title("Champion band diagram @0V illuminated")
+plt.savefig(FIG / "fig_EB.png", dpi=100)
+plt.figure()
+plt.semilogy(x, d["gen"], label="generation")
+plt.semilogy(x, d["rec"], label="recombination")
+plt.xlabel("x (um)"); plt.ylabel("#/cm3.s"); plt.legend(); plt.grid(True)
+plt.title("Generation / recombination profiles @0V")
+plt.savefig(FIG / "fig_GR.png", dpi=100)
+
+# ---- 5. T sweep ----
+Ts = [275, 300, 350, 400, 475]
+Trows = [(T, char[f"T{T}"]["data"]["deduced"]) for T in Ts]
+plt.figure()
+plt.plot(Ts, [r["eta"] for _, r in Trows], "o-", label="PCE")
+plt.plot(Ts, [r["Voc"] for _, r in Trows], "s-", label="Voc")
+plt.xlabel("T (K)"); plt.legend(); plt.grid(True); plt.title("Temperature dependence (champion)")
+plt.savefig(FIG / "fig_T.png", dpi=100)
+
+# ---- 6. audit bars ----
+pairs = [("th1.5", "audit_IF_th1.5", "audit_noIF_th1.5"),
+         ("th2.0", "audit_IF_th2.0", "audit_noIF_th2.0"),
+         ("champ", "dup_champ", "audit_noIF_champ")]
+labels, v_if, v_no = [], [], []
+for lab, a, b in pairs:
+    labels.append(lab)
+    v_if.append(char[a]["data"]["deduced"]["eta"])
+    v_no.append(char[b]["data"]["deduced"]["eta"])
+X = np.arange(len(labels))
+plt.figure(); plt.bar(X - 0.2, v_if, 0.4, label="interfaces ON (strict)")
+plt.bar(X + 0.2, v_no, 0.4, label="interfaces OFF (literature-style)")
+plt.xticks(X, labels); plt.ylabel("PCE (%)"); plt.legend(); plt.grid(True, axis="y")
+plt.title("Guardrail audit: same cells, interfaces on/off")
+plt.savefig(FIG / "fig_audit.png", dpi=100)
+
+# ---- 7. contour th x Nt (slice NA1e16/Eg1.65/ND9e17 from roundA) ----
+ra = [json.loads(l) for l in (BASE / "outputs" / "roundA.jsonl").read_text().splitlines()]
+M = {}
+for r in ra:
+    p = r["params"]
+    if p["layer2.NA"] == 1e16 and p["layer2.Eg"] == 1.65 and p["layer3.ND"] == 9e17 and r["deduced"]:
+        M[(p["layer2.thickness"], p["layer2.defect1.Ntotal"])] = r["deduced"]["eta"]
+ths = sorted({k[0] for k in M}); nts = sorted({k[1] for k in M})
+Z = np.array([[M[(t, n)] for n in nts] for t in ths])
+plt.figure()
+cs = plt.contourf(np.log10(nts), ths, Z, levels=12)
+plt.colorbar(cs, label="PCE (%)")
+plt.xlabel("log10 Nt (cm-3)"); plt.ylabel("thickness (um)")
+plt.title("PCE map: thickness x defect density (NA1e16, Eg1.65)")
+plt.savefig(FIG / "fig_contour.png", dpi=100)
+
+# ---- 8. cheap ML ----
+ml = {"attempted": True}
+try:
+    from sklearn.ensemble import RandomForestRegressor
+    rows = []
+    for f in ["roundA.jsonl", "roundB.jsonl"]:
+        for l in (BASE / "outputs" / f).read_text().splitlines():
+            r = json.loads(l)
+            if not r.get("deduced") or r["deduced"].get("eta") is None:
+                continue
+            p = r["params"]
+            rows.append([[p["layer2.thickness"], np.log10(p["layer2.NA"]),
+                          np.log10(p["layer2.defect1.Ntotal"]),
+                          np.log10(p.get("layer3.ND", 9e17)), p["layer2.Eg"]],
+                         r["deduced"]["eta"]])
+    Xa = np.array([r[0] for r in rows]); y = np.array([r[1] for r in rows])
+    rf = RandomForestRegressor(n_estimators=300, random_state=0).fit(Xa, y)
+    ml = {"n": len(rows), "R2_train": float(rf.score(Xa, y)),
+          "importance": dict(zip(["thickness", "logNA", "logNt", "logND_ETL", "Eg"],
+                                 [float(v) for v in rf.feature_importances_]))}
+except Exception as e:
+    ml = {"attempted": True, "fallback": str(e)[:200],
+          "note": "use contour/interaction slices instead"}
+
+(BASE / "outputs" / "analysis.json").write_text(json.dumps({
+    "T_sweep": [{"T": T, **r} for T, r in Trows],
+    "audit": [{"cell": lab, "IF": a, "noIF": b, "delta": b - a}
+              for lab, a, b in zip(labels, v_if, v_no)],
+    "ML": ml}, indent=1))
+print(json.dumps({"ML": ml, "audit_delta": [round(b - a, 2) for a, b in zip(v_if, v_no)]}, indent=1))
+print("figs saved")

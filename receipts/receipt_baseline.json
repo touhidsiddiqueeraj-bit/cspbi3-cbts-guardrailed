@@ -1,0 +1,107 @@
+{
+ "inputs": {
+  "base_800nm": {
+   "load": "csPbI3-CBTS-r7.def",
+   "workingpoint": {
+    "temperature": 300,
+    "illumination": 100
+   },
+   "iv": {
+    "start": 0,
+    "stop": 1.4,
+    "step": 0.02
+   }
+  },
+  "opt_1500nm": {
+   "load": "csPbI3-CBTS-r7.def",
+   "set": {
+    "layer2.thickness": 1.5
+   },
+   "workingpoint": {
+    "temperature": 300,
+    "illumination": 100
+   },
+   "iv": {
+    "start": 0,
+    "stop": 1.4,
+    "step": 0.02
+   }
+  },
+  "opt_NA16": {
+   "load": "csPbI3-CBTS-r7.def",
+   "set": {
+    "layer2.thickness": 1.5,
+    "layer2.NA": 1e+16
+   },
+   "workingpoint": {
+    "temperature": 300,
+    "illumination": 100
+   },
+   "iv": {
+    "start": 0,
+    "stop": 1.4,
+    "step": 0.02
+   }
+  },
+  "opt_Nt12": {
+   "load": "csPbI3-CBTS-r7.def",
+   "set": {
+    "layer2.thickness": 1.5,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0
+   },
+   "workingpoint": {
+    "temperature": 300,
+    "illumination": 100
+   },
+   "iv": {
+    "start": 0,
+    "stop": 1.4,
+    "step": 0.02
+   }
+  }
+ },
+ "summary": {
+  "opt_NA16": {
+   "deduced": {
+    "Voc": 1.152129,
+    "Jsc": 20.01678582,
+    "FF": 87.2095,
+    "eta": 20.1122
+   },
+   "pmax": 23163.74508,
+   "npts": 71,
+   "error": null
+  },
+  "opt_1500nm": {
+   "deduced": {
+    "Voc": 1.101294,
+    "Jsc": 20.14258906,
+    "FF": 86.4622,
+    "eta": 19.1798
+   },
+   "pmax": 23244.54944,
+   "npts": 71,
+   "error": null
+  },
+  "base_800nm": {
+   "deduced": {
+    "Voc": 1.122056,
+    "Jsc": 19.68194502,
+    "FF": 86.0002,
+    "eta": 18.9925
+   },
+   "pmax": 16708.121079999997,
+   "npts": 71,
+   "error": null
+  },
+  "opt_Nt12": {
+   "deduced": null,
+   "pmax": null,
+   "npts": null,
+   "error": "[Errno 2] No such file or directory: '/home/touhid/.scaps-runner/proc0/drive_c/Program Files (x86)/Scaps3309/results/pythonresult_opt_Nt12.txt'"
+  }
+ },
+ "def": "csPbI3-CBTS-r7.def",
+ "note": "Hossain NJC2023 repro; Nc/Nv capped (see REFERENCES T0a)"
+}

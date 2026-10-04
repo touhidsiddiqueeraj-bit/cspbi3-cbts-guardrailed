@@ -1,0 +1,71 @@
+{
+ "bounds": {
+  "d": [
+   0.4,
+   2.2
+  ],
+  "logNA": [
+   15,
+   16.5
+  ],
+  "logNt": [
+   12,
+   15
+  ],
+  "logND": [
+   16,
+   19
+  ],
+  "Eg": [
+   1.65,
+   1.75
+  ],
+  "logNif": [
+   8,
+   12
+  ]
+ },
+ "p": 4,
+ "r": 8,
+ "delta": 0.6666666666666666,
+ "seed": 7,
+ "summary": {
+  "d": {
+   "mu_star": 1.2924368537815711,
+   "sigma": 0.9909254401367821,
+   "n": 8,
+   "per_decade": 0.72
+  },
+  "logNA": {
+   "mu_star": 0.4782372608813694,
+   "sigma": 0.5613846828965942,
+   "n": 8,
+   "per_decade": 0.32
+  },
+  "logNt": {
+   "mu_star": 2.0494114752942623,
+   "sigma": 1.3970492624981479,
+   "n": 8,
+   "per_decade": 0.68
+  },
+  "logND": {
+   "mu_star": 0.6786559106720451,
+   "sigma": 1.040345674741837,
+   "n": 8,
+   "per_decade": 0.23
+  },
+  "Eg": {
+   "mu_star": 1.7521866239066886,
+   "sigma": 0.78601774042938,
+   "n": 8,
+   "per_decade": 17.52
+  },
+  "logNif": {
+   "mu_star": 4.075066712466645,
+   "sigma": 1.0842455236810011,
+   "n": 8,
+   "per_decade": 1.02
+  }
+ },
+ "note": "n=8 unique directed elementary effects per factor (deduped bidirectional pairs)"
+}

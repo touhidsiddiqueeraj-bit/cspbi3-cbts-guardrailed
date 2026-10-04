@@ -1,0 +1,11 @@
+# copyrighted reference PDFs + build artifacts (reproducible from manuscript/)
+sources/*.pdf
+manuscript/*.aux
+manuscript/*.bbl
+manuscript/*.blg
+manuscript/*.log
+manuscript/*.out
+manuscript/*.fls
+manuscript/*.fdb_latexmk
+__pycache__/
+*.pyc

@@ -1,0 +1,46 @@
+{
+ "device": "ITO/TiO2/CsPbI3/CBTS/Ni",
+ "absorber": {
+  "d_um": 2.2,
+  "Eg": 1.65,
+  "chi": 3.928,
+  "NA_cm3": 3e+16,
+  "Nt_cm3": 1000000000000.0,
+  "eps": 6.0,
+  "mun_mup_cm2Vs": 25,
+  "Nc_cm3": 1.1e+19,
+  "Nv_cm3": 8.2e+19
+ },
+ "etl": {
+  "mat": "TiO2",
+  "d_nm": 30,
+  "ND_cm3": 9e+17,
+  "Nt_cm3": 1000000000000000.0
+ },
+ "htl": {
+  "mat": "CBTS",
+  "d_nm": 100,
+  "NA_cm3": 1e+18,
+  "Nt_cm3": 1000000000000000.0
+ },
+ "interfaces_cm2": 10000000000.0,
+ "back_eV": 5.5,
+ "front_eV": 4.0,
+ "T_K": 300,
+ "sun": 1,
+ "deduced": {
+  "Voc": 1.234327,
+  "Jsc": 21.19450636,
+  "FF": 89.7804,
+  "eta": 23.4874
+ },
+ "cbo_etl_abs_eV": 0.072,
+ "vbo_abs_htl_eV": 0.08,
+ "caveats": [
+  "Rs=0 upper bound; measured 23.07% at Rs=1, 22.64% at Rs=2 (scripted external.Rs)",
+  "Eg1.65 below record gaps (~1.7eV); best 1.694eV grid point 22.51%",
+  "VBO +0.08 eV hole barrier (corrected); contacts tuned (Ni5.5/ITO4.0)",
+  "FF89.78 within 0.2pts of Green ideal (90.0); no headroom beyond Rs",
+  "40% SJ 1-sun impossible (SQ~30% at 1.65eV); tandem needed"
+ ]
+}

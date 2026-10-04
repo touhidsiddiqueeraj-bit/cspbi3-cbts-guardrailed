@@ -1,0 +1,195 @@
+{
+ "combos": 33,
+ "top10": [
+  {
+   "id": "B030_th2.2_na3e+16_nt1e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 2.2,
+    "layer2.NA": 3e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233943,
+    "Jsc": 21.19450636,
+    "FF": 89.8722,
+    "eta": 23.5041
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B018_th2.0_na3e+16_nt1e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 2.0,
+    "layer2.NA": 3e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.234025,
+    "Jsc": 21.17844713,
+    "FF": 89.8729,
+    "eta": 23.4881
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B024_th2.2_na1e+16_nt1e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 2.2,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233138,
+    "Jsc": 21.19824794,
+    "FF": 89.8243,
+    "eta": 23.4804
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B012_th2.0_na1e+16_nt1e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 2.0,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233294,
+    "Jsc": 21.18212618,
+    "FF": 89.8356,
+    "eta": 23.4685
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B006_th1.8_na3e+16_nt1e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 1.8,
+    "layer2.NA": 3e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.234101,
+    "Jsc": 21.15666934,
+    "FF": 89.8737,
+    "eta": 23.4656
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B033_th2.2_na3e+16_nt3e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 2.2,
+    "layer2.NA": 3e+16,
+    "layer2.defect1.Ntotal": 3000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.231584,
+    "Jsc": 21.19363825,
+    "FF": 89.8437,
+    "eta": 23.4508
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B000_th1.8_na1e+16_nt1e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 1.8,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 1000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.233443,
+    "Jsc": 21.16026855,
+    "FF": 89.847,
+    "eta": 23.4501
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B021_th2.0_na3e+16_nt3e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 2.0,
+    "layer2.NA": 3e+16,
+    "layer2.defect1.Ntotal": 3000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.231862,
+    "Jsc": 21.17768369,
+    "FF": 89.8454,
+    "eta": 23.4389
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B009_th1.8_na3e+16_nt3e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 1.8,
+    "layer2.NA": 3e+16,
+    "layer2.defect1.Ntotal": 3000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.232137,
+    "Jsc": 21.15601049,
+    "FF": 89.8471,
+    "eta": 23.4205
+   },
+   "npts": 81,
+   "error": null
+  },
+  {
+   "id": "B027_th2.2_na1e+16_nt3e+12_eg1.65",
+   "params": {
+    "layer2.thickness": 2.2,
+    "layer2.NA": 1e+16,
+    "layer2.defect1.Ntotal": 3000000000000.0,
+    "layer3.ND": 9e+17,
+    "layer2.Eg": 1.65,
+    "layer2.chi": 3.928
+   },
+   "deduced": {
+    "Voc": 1.229384,
+    "Jsc": 21.19776055,
+    "FF": 89.4712,
+    "eta": 23.3164
+   },
+   "npts": 81,
+   "error": null
+  }
+ ]
+}

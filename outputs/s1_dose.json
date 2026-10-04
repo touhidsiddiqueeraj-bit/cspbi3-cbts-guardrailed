@@ -1,0 +1,253 @@
+{
+ "if1e8": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "interface1.IFdefect1.Ntotal": 100000000.0,
+   "interface2.IFdefect1.Ntotal": 100000000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.336997,
+   "Jsc": 21.19956714,
+   "FF": 88.3413,
+   "eta": 25.0392
+  },
+  "e": null
+ },
+ "if3e9": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "interface1.IFdefect1.Ntotal": 3000000000.0,
+   "interface2.IFdefect1.Ntotal": 3000000000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.264147,
+   "Jsc": 21.19807797,
+   "FF": 89.887,
+   "eta": 24.0875
+  },
+  "e": null
+ },
+ "if3e10": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "interface1.IFdefect1.Ntotal": 30000000000.0,
+   "interface2.IFdefect1.Ntotal": 30000000000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.205839,
+   "Jsc": 21.18447715,
+   "FF": 89.5863,
+   "eta": 22.8849
+  },
+  "e": null
+ },
+ "if1e12": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "interface1.IFdefect1.Ntotal": 1000000000000.0,
+   "interface2.IFdefect1.Ntotal": 1000000000000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.119097,
+   "Jsc": 20.88747486,
+   "FF": 88.3139,
+   "eta": 20.6435
+  },
+  "e": null
+ },
+ "ifETL1e12": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "interface2.IFdefect1.Ntotal": 1000000000000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.130772,
+   "Jsc": 21.19379707,
+   "FF": 89.0788,
+   "eta": 21.348
+  },
+  "e": null
+ },
+ "ifHTL1e12": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "interface1.IFdefect1.Ntotal": 1000000000000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.145194,
+   "Jsc": 20.88818415,
+   "FF": 88.6233,
+   "eta": 21.1996
+  },
+  "e": null
+ },
+ "ifsigX10": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "interface1.IFdefect1.capture_cross_section.electron": 1e-18,
+   "interface1.IFdefect1.capture_cross_section.hole": 1e-18
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.25241,
+   "Jsc": 21.19960627,
+   "FF": 89.8528,
+   "eta": 23.8565
+  },
+  "e": null
+ },
+ "rs05": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "external.Rs": 0.5
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.234219,
+   "Jsc": 21.19448497,
+   "FF": 89.0272,
+   "eta": 23.2883
+  },
+  "e": null
+ },
+ "rs2": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "external.Rs": 2
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.23477,
+   "Jsc": 21.19441987,
+   "FF": 86.5192,
+   "eta": 22.6423
+  },
+  "e": null
+ },
+ "rsh4": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "external.Rsh": 10000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.23378,
+   "Jsc": 21.19450636,
+   "FF": 89.3936,
+   "eta": 23.3759
+  },
+  "e": null
+ },
+ "rs1rsh4": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "external.Rs": 1,
+   "external.Rsh": 10000.0
+  },
+  "load": "csPbI3-CBTS-r7.def",
+  "d": {
+   "Voc": 1.234285,
+   "Jsc": 21.1923442,
+   "FF": 87.7342,
+   "eta": 22.949
+  },
+  "e": null
+ },
+ "wfNi52": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928
+  },
+  "load": "csPbI3-CBTS-wfNi52.def",
+  "d": {
+   "Voc": 1.233942,
+   "Jsc": 21.1945057,
+   "FF": 89.8716,
+   "eta": 23.5039
+  },
+  "e": null
+ },
+ "wfITO47": {
+  "params": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928
+  },
+  "load": "csPbI3-CBTS-wfITO47.def",
+  "d": {
+   "Voc": 1.080251,
+   "Jsc": 21.18912432,
+   "FF": 81.2629,
+   "eta": 18.6007
+  },
+  "e": null
+ }
+}
