@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+plt.rcParams.update({'font.family': 'serif', 'font.size': 10})
 
 BASE = pathlib.Path("/home/touhid/Documents/leadpaper")
 FIG = BASE / "outputs" / "figs"
@@ -26,7 +27,7 @@ for k, lab in [("cv_base", "baseline"), ("cv_champ", "champion")]:
     V = np.array(d["V"]); C = np.array(d["C"])
     ax[0].plot(V, C, label=lab)
     ax[1].plot(V, 1 / np.array(C) ** 2, label=lab)
-ax[0].set(xlabel="V (V)", ylabel="C (nF/cm2)"); ax[1].set(xlabel="V (V)", ylabel="1/C2")
+ax[0].set(xlabel="V (V)", ylabel="C (nF/cm$^2$)"); ax[1].set(xlabel="V (V)", ylabel="1/$C^2$ (cm$^4$/F$^2$)")
 for a in ax: a.legend(); a.grid(True)
 fig.suptitle("C-V (1 MHz) and Mott-Schottky"); fig.savefig(FIG / "fig_CV_MS.png", dpi=100)
 
@@ -36,24 +37,30 @@ x = np.array(d["x_um"])
 plt.figure()
 for c in ["Ec", "Ev", "Fn", "Fp"]:
     plt.plot(x, d[c], label=c)
-plt.xlabel("x (um, 0=back/CBTS)"); plt.ylabel("Energy (eV)")
+plt.xlabel("x ($\mu$m, 0 = back/CBTS)"); plt.ylabel("Energy (eV)")
 plt.legend(); plt.grid(True); plt.title("Champion band diagram @0V illuminated")
 plt.savefig(FIG / "fig_EB.png", dpi=100)
 plt.figure()
 plt.semilogy(x, d["gen"], label="generation")
 plt.semilogy(x, d["rec"], label="recombination")
-plt.xlabel("x (um)"); plt.ylabel("#/cm3.s"); plt.legend(); plt.grid(True)
+plt.xlabel("x ($\mu$m)"); plt.ylabel("rate (cm$^{-3}$ s$^{-1}$)"); plt.legend(); plt.grid(True)
 plt.title("Generation / recombination profiles @0V")
 plt.savefig(FIG / "fig_GR.png", dpi=100)
 
 # ---- 5. T sweep ----
 Ts = [275, 300, 350, 400, 475]
 Trows = [(T, char[f"T{T}"]["data"]["deduced"]) for T in Ts]
-plt.figure()
-plt.plot(Ts, [r["eta"] for _, r in Trows], "o-", label="PCE")
-plt.plot(Ts, [r["Voc"] for _, r in Trows], "s-", label="Voc")
-plt.xlabel("T (K)"); plt.legend(); plt.grid(True); plt.title("Temperature dependence (champion)")
-plt.savefig(FIG / "fig_T.png", dpi=100)
+figT, axT = plt.subplots(figsize=(7.6, 4.2))
+axT.plot(Ts, [r["eta"] for _, r in Trows], "o-", color="black", label="PCE (%) (left)")
+axT.set_xlabel("T (K)"); axT.set_ylabel("PCE (%)")
+axT.set_ylim(14, 27); axT.grid(True, alpha=0.3)
+ax2 = axT.twinx()
+ax2.plot(Ts, [r["Voc"] for _, r in Trows], "s--", color="tab:blue", label="$V_{oc}$ (V, right)")
+ax2.set_ylabel("$V_{oc}$ (V)"); ax2.set_ylim(0.90, 1.32)
+h1, l1 = axT.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
+axT.legend(h1 + h2, l1 + l2, loc="center right", framealpha=1.0)
+axT.set_title("Temperature dependence (surveyed base)")
+figT.tight_layout(); figT.savefig(FIG / "fig_T.png", dpi=150)
 
 # ---- 6. audit bars ----
 pairs = [("th1.5", "audit_IF_th1.5", "audit_noIF_th1.5"),
@@ -83,7 +90,7 @@ Z = np.array([[M[(t, n)] for n in nts] for t in ths])
 plt.figure()
 cs = plt.contourf(np.log10(nts), ths, Z, levels=12)
 plt.colorbar(cs, label="PCE (%)")
-plt.xlabel("log10 Nt (cm-3)"); plt.ylabel("thickness (um)")
+plt.xlabel("log$_{10}$ $N_t$ (cm$^{-3}$)"); plt.ylabel("thickness ($\mu$m)")
 plt.title("PCE map: thickness x defect density (NA1e16, Eg1.65)")
 plt.savefig(FIG / "fig_contour.png", dpi=100)
 

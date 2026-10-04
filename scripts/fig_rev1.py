@@ -36,15 +36,20 @@ fig.tight_layout(); fig.savefig(FIG + "fig_align.png", dpi=150)
 # --- interface dose-response ---
 fig, ax = plt.subplots(figsize=(7.6, 4.4))
 nif = np.array([8, 9, 10, 11, 12]); eta = np.array([25.11, 24.77, 23.84, 22.62, 21.20])
-ax.plot(nif, eta, "o-", color="black", label="This work, both interfaces")
-ax.axvline(10, ls=":", color="0.5"); ax.text(10.03, 20.9, "guardrail $10^{10}$", fontsize=8.5, color="0.35")
-ax.axhspan(24.17, 24.24, color="C1", alpha=0.25)
-ax.text(8.15, 23.55, "literature claims 24.17 / 24.24\n(scale reference only)", fontsize=7.5, color="C1")
-ax.scatter([12.6], [25.16], s=60, facecolors="none", edgecolors="black")
-ax.text(12.15, 25.25, "noIF 25.16", fontsize=8.5)
+ax.axvline(10, ls=":", color="0.5", zorder=1)
+ax.axhspan(24.17, 24.24, xmin=0.0, xmax=0.30, color="C1", alpha=0.30, zorder=1)
+ax.plot(nif, eta, "o-", color="black", label="both interfaces (own cell)", zorder=3)
+ax.text(10.06, 20.9, "guardrail $10^{10}$", fontsize=8.5, color="0.35", zorder=5,
+        bbox=dict(fc="white", ec="none", pad=0.8))
+ax.text(7.95, 24.19, "literature claims\n24.17 / 24.24\n(scale only)", fontsize=7.5, color="C1",
+        ha="left", va="center", zorder=5, bbox=dict(fc="white", ec="none", pad=0.8))
+ax.scatter([12.7], [25.16], s=60, facecolors="none", edgecolors="black", zorder=3, label="interfaces removed")
+ax.text(12.25, 24.82, "noIF 25.16", fontsize=8.5, zorder=5,
+        bbox=dict(fc="white", ec="none", pad=0.8))
 ax.set_xlabel(r"Interface defect density (log$_{10}$ cm$^{-2}$, both sides)")
 ax.set_ylabel("PCE (%)")
-ax.set_xlim(7.7, 13.0); ax.set_ylim(20.6, 25.6)
+ax.set_xlim(7.7, 13.2); ax.set_ylim(20.5, 25.7)
+ax.legend(loc="lower left", framealpha=1.0, fontsize=8)
 ax.set_title("Interface dose-response (own cell): 23.84% at the guardrail", pad=10)
 fig.tight_layout(); fig.savefig(FIG + "fig_audit.png", dpi=150)
 
