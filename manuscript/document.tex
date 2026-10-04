@@ -434,7 +434,7 @@ Grid screening under interface-inclusive guardrails finds a 23.49\%-efficient be
 
 \section*{Data availability}
 
-All definition files (\texttt{csPbI3-CBTS-r7.def} with interfaces, \texttt{csPbI3-CBTS-noIF.def} without, plus work-function and cross-section variants), sweep receipts (\texttt{roundA.jsonl}, \texttt{roundB.jsonl}, \texttt{char.jsonl}, \texttt{s0\_verify.json}, \texttt{s1\_dose.json}, \texttt{s4\_sig.json}, \texttt{s5\_morris.jsonl}), raw curves (\texttt{champion\_JV.json}), analysis outputs and figure scripts are archived with the project under \texttt{leadpaper/} (inventory in Table~\ref{tab:runs}; directories \texttt{defs/}, \texttt{outputs/}, \texttt{receipts/}, \texttt{logs/}). A public repository with DOI will be released on acceptance; until then all files are available from the authors.
+All definition files (\texttt{csPbI3-CBTS-r7.def} with interfaces, \texttt{csPbI3-CBTS-noIF.def} without, plus work-function and cross-section variants), sweep receipts (\texttt{roundA.jsonl}, \texttt{roundB.jsonl}, \texttt{char.jsonl}, \texttt{s0\_verify.json}, \texttt{s1\_dose.json}, \texttt{s4\_sig.json}, \texttt{s5\_morris.jsonl}), raw curves (\texttt{champion\_JV.json}), analysis outputs and figure scripts are archived in the public repository \texttt{github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed} (inventory in Table~\ref{tab:runs}; directories \texttt{defs/}, \texttt{outputs/}, \texttt{receipts/}, \texttt{scripts/}, \texttt{manuscript/}). Reference PDFs under \texttt{sources/} are copyrighted and listed in REFERENCES.md instead.
 
 \section*{Author contributions}
 
@@ -471,6 +471,7 @@ Set-command verification & 5 & \texttt{s0\_verify.json} \\
 Interface dose + Rs/Rsh + WF & 14 & \texttt{s1\_dose.json} \\
 $N_t\times\sigma$ joint & 3 & \texttt{s4\_sig.json} + \texttt{s4b\_sig.json} \\
 Morris screen & 56 (0 errors) & \texttt{s5\_morris.jsonl} \\
+$\sigma$ verify + $\chi_{\mathrm{CBTS}}$ + Nt1e15 grid + realistic + noIF-JV & 16 (1 worker retry) & \texttt{s6\_rev2.json} + \texttt{noIF\_JV.json} \\
 \hline\hline
 \end{tabular}
 \end{table}
