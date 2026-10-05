@@ -16,7 +16,7 @@ A0, D = 1e7, 2.2e-6          # SCAPS absorption A [m^-1 eV^-1/2], absorber 2.2 u
 OUT = {}
 
 
-def radiative_voc(Eg, jsc_mA):
+def radiative_voc(Eg, jsc_mA, T=300.0):
     """DB Voc: Voc = kT/q ln(Jsc/J0+1); J0 = q int B(E) A(E) dE over E>=Eg."""
     E = np.linspace(Eg, 4.0, 60001)
     EJ = E * Q
@@ -32,7 +32,11 @@ def radiative_voc(Eg, jsc_mA):
 for Eg, J in [(1.65, 21.1974), (1.70, 20.1787)]:
     v, j0 = radiative_voc(Eg, J)
     OUT[f"db_voc_Eg{Eg}"] = {"J0_A_per_m2": j0, "Voc_V": round(v, 4),
-                                 "absorptance": "single pass, opaque Ni"}
+                             "T_K": 300, "absorptance": "single pass, opaque Ni"}
+for Eg, J in [(1.65, 21.357113)]:
+    v, j0 = radiative_voc(Eg, J, T=275.0)
+    OUT[f"db_voc_Eg{Eg}_T275"] = {"J0_A_per_m2": j0, "Voc_V": round(v, 4),
+                                  "T_K": 275, "absorptance": "single pass, opaque Ni"}
 
 # ---- QE integral ----
 spe = []

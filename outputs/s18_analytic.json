@@ -2,11 +2,19 @@
  "db_voc_Eg1.65": {
   "J0_A_per_m2": 1.952027454397479e-21,
   "Voc_V": 1.3712,
+  "T_K": 300,
   "absorptance": "single pass, opaque Ni"
  },
  "db_voc_Eg1.7": {
   "J0_A_per_m2": 2.9923734675048334e-22,
   "Voc_V": 1.4184,
+  "T_K": 300,
+  "absorptance": "single pass, opaque Ni"
+ },
+ "db_voc_Eg1.65_T275": {
+  "J0_A_per_m2": 5.344208520271359e-24,
+  "Voc_V": 1.397,
+  "T_K": 275,
   "absorptance": "single pass, opaque Ni"
  },
  "qe_integral": {
