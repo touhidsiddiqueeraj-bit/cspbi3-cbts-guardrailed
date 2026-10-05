@@ -93,7 +93,7 @@ This work & TiO2/CBTS/Ni & Sim. & 24.95 & on \\
 
 Devices were simulated in SCAPS-1D v3.3.10 under AM1.5G illumination (100~mW/cm$^2$) at 300~K unless stated. The baseline reproduces \citet{Hossain2023}: ITO front contact (4.0~eV), 30~nm TiO2 electron transport layer (donor density $9\times10^{16}$~cm$^{-3}$), CsPbI3 absorber (800~nm initial, $E_g=1.694$~eV, $\chi=3.95$~eV, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{15}$~cm$^{-3}$), 100~nm CBTS hole transport layer ($N_A=10^{18}$~cm$^{-3}$), and Ni back contact (5.5~eV). Crucially, neutral interface recombination blocks ($N=10^{10}$~cm$^{-2}$, $\sigma=10^{-19}$~m$^2$) are present at both heterojunctions, and the absorber uses the coefficients-A-and-B absorption model ($A=10^7$~m$^{-1}$eV$^{-1/2}$) so that bandgap sweeps act on the absorption edge rather than a frozen file spectrum. Our unmodified baseline yields 18.99\% (Voc 1.122~V, Jsc 19.68~mA/cm$^2$, FF 86.00\%), reproducing the published 17.9--19.06\% band; against the printed 17.90\% device (Voc 0.997~V, Jsc 21.07~mA/cm$^2$, FF 85.21\%~\cite{Hossain2022}) ours trades $\sim$1.4~mA/cm$^2$ of current for $\sim$0.12~V of voltage, as expected from added interface recombination with lower bulk defects---a single-scalar match is not claimed as validation. Optical settings: the definition file applies a flat 10\% front reflection with no dispersive parasitic absorption in ITO or TiO2, and the 80\% back-transmission filter faces an opaque Ni contact, i.e.\ no back reflector---both choices are conservative-or-neutral for Jsc except in the blue, where the flat QE plateau is an upper envelope (Section~6.0).
 
-Guardrails enforced throughout: bulk defect floor $10^{12}$~cm$^{-3}$ (single-crystal grade; nothing lower), absorber doping ceiling $3\times10^{16}$~cm$^{-3}$, an interface floor of $10^{10}$~cm$^{-2}$ that is part of the stated box rather than a post-hoc filter (dose points below it are audit, not candidates), conduction-band offset held near zero by linking $\chi$ to $E_g$ ($\chi=3.95+0.5(E_g-1.694)$), and two energetic screens applied on inspection: a run with Voc above the detailed-balance value computed from the model's own Eg-sqrt absorption (1.371~V at 1.65~eV with $A=10^7$~m$^{-1}$eV$^{-1/2}$ and 2.2~$\mu$m single-pass absorptance; the model sets $k_{rad}=0$) or FF above Green's ideal-diode value at the computed Voc (90.5\% at the joint optimum) would be discarded. Box constraints above are enforced per run by construction; these two energetic screens are \emph{not} wired into the batch scripts---no run in the archive was rejected by them---so they are an audit applied after the fact, and we say so rather than claim an automated gate. The $E_g/q-0.28$~V rule of earlier drafts is retired: it sat above the radiative limit and could not adjudicate anything. Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \texttt{scriptdescription3310.txt}), so this section reports computed parasitic sweeps. Sweeps ran in parallel on four workers with checkpointed receipts; of 132 grid configurations, 126 converged and enter the analysis (6 runs excluded and listed in the receipts: three Round-A runs---A010 (1.0~$\mu$m, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{14}$, $E_g=1.694$~eV), A081 (2.0~$\mu$m, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{14}$) and A051 (1.8~$\mu$m, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{12}$)---and three Round-B runs, all at 1.8~$\mu$m thickness. All six are missing-result-file worker crashes, not solver divergence, and none is a top-ten entry; because they cluster at low $N_A$ we cannot rule out that region being harder to converge, and we note it rather than claim the exclusions are unbiased. A duplicate champion run reproduces the coarse-grid value exactly, confirming determinism; a confirmatory run at finer IV step gives 23.4874\% at the surveyed affinity (FF 89.78\%) against its coarse partner 23.5041\%, a 0.017-point IV-step uncertainty against which all reported differences should be read. SCAPS batch scripts expose no mesh control, so no mesh-refinement study is possible in this harness; results are quoted to two decimals in the text (four only where digit-identical receipt comparisons require it). Absorber densities of states are capped at $N_c=1.1\times10^{19}$/$N_v=8.2\times10^{19}$~cm$^{-3}$, ten times below the source paper's Table~1 print ($10^{20}$~cm$^{-3}$, above solid density and hence unphysical).
+Guardrails enforced throughout: bulk defect floor $10^{12}$~cm$^{-3}$ (single-crystal grade; nothing lower), absorber doping ceiling $3\times10^{16}$~cm$^{-3}$, an interface floor of $10^{10}$~cm$^{-2}$ that is part of the stated box rather than a post-hoc filter (dose points below it are audit, not candidates), conduction-band offset held near zero by linking $\chi$ to $E_g$ ($\chi=3.95+0.5(E_g-1.694)$), and two energetic screens applied on inspection: a run with Voc above the detailed-balance value computed from the model's own Eg-sqrt absorption (1.371~V at 1.65~eV with $A=10^7$~m$^{-1}$eV$^{-1/2}$ and 2.2~$\mu$m single-pass absorptance; the model sets $k_{rad}=0$) or FF above Green's ideal-diode value at the computed Voc (90.5\% at the joint optimum) would be discarded. Box constraints above are enforced per run by construction; these two energetic screens are \emph{not} wired into the batch scripts---no run in the archive was rejected by them---so they are an audit applied after the fact, and we say so rather than claim an automated gate. The $E_g/q-0.28$~V rule of earlier drafts is retired: it sat above the radiative limit and could not adjudicate anything. Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \discretionary{}{}{}\texttt{scriptdescription3310.txt}), so this section reports computed parasitic sweeps. Sweeps ran in parallel on four workers with checkpointed receipts; of 132 grid configurations, 126 converged and enter the analysis (6 runs excluded and listed in the receipts: three Round-A runs---A010 (1.0~$\mu$m, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{14}$, $E_g=1.694$~eV), A081 (2.0~$\mu$m, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{14}$) and A051 (1.8~$\mu$m, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{12}$)---and three Round-B runs, all at 1.8~$\mu$m thickness. All six are missing-result-file worker crashes, not solver divergence, and none is a top-ten entry; because they cluster at low $N_A$ we cannot rule out that region being harder to converge, and we note it rather than claim the exclusions are unbiased. A duplicate champion run reproduces the coarse-grid value exactly, confirming determinism; a confirmatory run at finer IV step gives 23.4874\% at the surveyed affinity (FF 89.78\%) against its coarse partner 23.5041\%, a 0.017-point IV-step uncertainty against which all reported differences should be read. SCAPS batch scripts expose no mesh control, so no mesh-refinement study is possible in this harness; results are quoted to two decimals in the text (four only where digit-identical receipt comparisons require it). Absorber densities of states are capped at $N_c=1.1\times10^{19}$/$N_v=8.2\times10^{19}$~cm$^{-3}$, ten times below the source paper's Table~1 print ($10^{20}$~cm$^{-3}$, above solid density and hence unphysical).
 
 
 SCAPS-1D solves the Poisson equation coupled to electron and hole continuity with drift-diffusion transport~\cite{Khattak2019,BurgelmanSCAPS}:
@@ -317,7 +317,7 @@ Temperature dependence (Figure~\ref{fig:t}, Table~\ref{tab:temp}) follows the es
 \subsection{Parasitic-resistance accounting}
 
 \sloppy
-Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \texttt{scriptdescription3310.txt}). Computed scripted sweeps at the joint-optimum base give 24.73\% at $R_s=0.5~\Omega$cm$^2$, \textbf{24.52\%} at $R_s=1~\Omega$cm$^2$, and 24.09\% at $R_s=2~\Omega$cm$^2$ (Table~\ref{tab:rs}); a lumped-series analytic derate $\eta=\eta_0/[1+J_{sc}R_s/(10^{3}FF_0V_{oc})]$---the $10^3$ putting $FF_0V_{oc}$ on the same millivolt scale as $J_{sc}R_s$, with $FF_0=0.891083$ the 89.11\% of Table~\ref{tab:champ} as a fraction---tracks the computed sweep to within 0.011 points at all three $R_s$ (24.7237/24.5050/24.0790 against 24.7311/24.5160/24.0866). Shunt paths cost 0.14 points at $R_{sh}=10^4~\Omega$cm$^2$ at the prior base; combined $R_s=1$/$R_{sh}=10^4$ at the joint optimum gives 24.38\%. The best point therefore survives parasitics, but only just: at $R_s=2~\Omega$cm$^2$ the margin over the 22.02\% certified record is about two points. At routine defects $R_s=1$ costs 0.40 points (20.82 to 20.42\%).
+Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \discretionary{}{}{}\texttt{scriptdescription3310.txt}). Computed scripted sweeps at the joint-optimum base give 24.73\% at $R_s=0.5~\Omega$cm$^2$, \textbf{24.52\%} at $R_s=1~\Omega$cm$^2$, and 24.09\% at $R_s=2~\Omega$cm$^2$ (Table~\ref{tab:rs}); a lumped-series analytic derate $\eta=\eta_0/[1+J_{sc}R_s/(10^{3}FF_0V_{oc})]$---the $10^3$ putting $FF_0V_{oc}$ on the same millivolt scale as $J_{sc}R_s$, with $FF_0=0.891083$ the 89.11\% of Table~\ref{tab:champ} as a fraction---tracks the computed sweep to within 0.011 points at all three $R_s$ (24.7237/24.5050/24.0790 against 24.7311/24.5160/24.0866). Shunt paths cost 0.14 points at $R_{sh}=10^4~\Omega$cm$^2$ at the prior base; combined $R_s=1$/$R_{sh}=10^4$ at the joint optimum gives 24.38\%. The best point therefore survives parasitics, but only just: at $R_s=2~\Omega$cm$^2$ the margin over the 22.02\% certified record is about two points. At routine defects $R_s=1$ costs 0.40 points (20.82 to 20.42\%).
 
 \begin{figure}[tbp]
 \centering
@@ -543,31 +543,16 @@ Receipts & definition files + raw outputs & public repository \\
 
 \section*{Data availability}
 
-\begingroup\raggedright
-All definition files (\texttt{csPbI3-CBTS-r7.def} with interfaces,
-\texttt{csPbI3-CBTS-noIF.def} without, plus work-function and cross-section
-variants),
-sweep receipts
-(\texttt{roundA.jsonl}, \texttt{roundB.jsonl}, \texttt{char.jsonl},
-\texttt{s0\_verify.json}, \texttt{s1\_dose.json}, \texttt{s4\_sig.json},
-\texttt{s5\_morris.jsonl}, \texttt{s7\_r3.json}, \texttt{s8\_champ38.json},
-\texttt{s9\_nt15base.json}, \texttt{s10\_r4.json}, \texttt{s11\_joint\_chi.json},
-\texttt{s12\_fine.json}, \texttt{s13\_opt.json}, \texttt{s13\_analysis.json},
-\texttt{s14.json}, \texttt{s16.json}, \texttt{s17.json},
-\texttt{sobol\_surrogate.json}),
-raw curves
-(\texttt{newchamp\_JV.json}, \texttt{newchamp\_iv\_raw.txt},
-\texttt{champion\_JV.json}, \texttt{noIF\_JV.json},
-\texttt{adopted\_qe\_raw.txt}),
-derived summaries
-(\texttt{s5\_morris\_summary.json}, \texttt{s5\_morris\_ci.json},
-\texttt{analysis.json}, \texttt{s18\_analytic.json},
-\texttt{s13\_opt.jsonl}, \texttt{s16.jsonl}, \texttt{s10\_sigverify.json},
-\texttt{retry\_nt.json}, \texttt{probe\_qecv.json}),
-analysis outputs and figure scripts are archived in the public repository
-\url{https://github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed}
-(inventory in Table~\ref{tab:runs}; directories \texttt{defs/}, \texttt{outputs/}, \texttt{receipts/}, \texttt{scripts/}, \texttt{manuscript/}). Reference PDFs under \texttt{sources/} are copyrighted and listed in \mbox{REFERENCES.md} instead.
-\endgroup
+Every artefact named in this paper is archived in the public repository
+\url{https://github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed}.
+Definition files (\texttt{defs/}) carry the base cell with interfaces, the
+no-interface variant, and the work-function and cross-section variants;
+\texttt{outputs/} holds every sweep receipt and raw curve, including the
+per-run logs; \texttt{scripts/} regenerates each receipt from the archived
+definitions; \texttt{receipts/} and \texttt{manuscript/} hold the
+verification receipts and the typeset source. Table~\ref{tab:runs} is the
+itemised inventory. Reference PDFs under \texttt{sources/} are copyrighted
+and listed in \mbox{REFERENCES.md} instead.
 
 \section*{Author contributions}
 
@@ -594,40 +579,44 @@ All simulation batches are inventoried in Table~\ref{tab:runs}.
 \begin{table}[tbp]
 \centering
 \small\caption{Simulation batches archived in the repository (run counts; solo reruns noted where they occurred).}
+\begingroup
 \label{tab:runs}
-\footnotesize
-\begin{tabular}{|l|l|l|}
+\small
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+\begin{tabular}{|p{0.27\linewidth}|p{0.27\linewidth}|p{0.37\linewidth}|}
 \hline\hline
 Batch & Configurations & Receipt \\
 \hline
-Baseline validation & 4 (one worker-crash retry) & \texttt{baseline\_results.json} \\
-Unit diagnostics & 6 + 4 retries & \texttt{diag\_units.json} \\
+Baseline validation & 4 (one worker-crash retry) & \discretionary{}{}{}\texttt{baseline\_results.json} \\
+Unit diagnostics & 6 + 4 retries & \discretionary{}{}{}\texttt{diag\_units.json} \\
 Round~A grid & 96 (3 non-converged) & \texttt{roundA.jsonl} \\
 Round~B refine & 36 (3 non-converged) & \texttt{roundB.jsonl} \\
 Characterisation + audit + T & 17 + 6 re-runs & char.jsonl \\
-Set-command verification & 5 & \texttt{s0\_verify.json} \\
+Set-command verification & 5 & \discretionary{}{}{}\texttt{s0\_verify.json} \\
 Interface dose + Rs/Rsh + WF & 14 & \texttt{s1\_dose.json} \\
 $N_t\times\sigma$ joint & 3 & \texttt{s4\_sig.json} + \texttt{s4b\_sig.json} \\
-Morris screen & 56 (0 errors) & \texttt{s5\_morris.jsonl} \\
+Morris screen & 56 (0 errors) & \discretionary{}{}{}\texttt{s5\_morris.jsonl} \\
 $\sigma$ verify + $\chi_{\mathrm{CBTS}}$ + Nt1e15 grid + realistic + noIF-JV & 16 (1 worker retry) & \texttt{s6\_rev2.json} + \texttt{noIF\_JV.json} \\
-Affinity adoption ($\chi_{\mathrm{TiO2}}$) + adopted-base anchors & 12 & \texttt{s7\_r3.json} + \texttt{s8\_champ38.json} \\
-Morris bootstrap intervals & 5000 resamples & \texttt{s5\_morris\_ci.json} \\
-Routine-defect $\sigma\times1$ baseline & 1 & \texttt{s9\_nt15base.json} \\
+Affinity adoption ($\chi_{\mathrm{TiO2}}$) + adopted-base anchors & 12 & \texttt{s7\_r3.json} + \discretionary{}{}{}\texttt{s8\_champ38.json} \\
+Morris bootstrap intervals & 5000 resamples & \discretionary{}{}{}\texttt{s5\_morris\_ci.json} \\
+Routine-defect $\sigma\times1$ baseline & 1 & \discretionary{}{}{}\texttt{s9\_nt15base.json} \\
 Attainable gap + $E_t$ sweep & 6 & \texttt{s10\_r4.json} \\
-Fine-IV confirmatory (surveyed base) & 1 & \texttt{s12\_fine.json} \\
-Joint affinities + ITO/Ni & 52 (3 solo reruns merged) & \texttt{s11\_joint\_chi.json} \\
+Fine-IV confirmatory (surveyed base) & 1 & \discretionary{}{}{}\texttt{s12\_fine.json} \\
+Joint affinities + ITO/Ni & 52 (3 solo reruns merged) & \discretionary{}{}{}\texttt{s11\_joint\_chi.json} \\
 Box optimiser (LHS + pattern) & 104 (9 worker-file misses) & \texttt{s13\_opt.json} \\
-Paired Morris bootstrap + $\tau$/$S$ & analysis only & \texttt{s13\_analysis.json} \\
-Routine Rs + adopted Rs/Rsh + QE & 3 & \texttt{s14.json} + \texttt{adopted\_qe\_raw.txt} \\
+Paired Morris bootstrap + $\tau$/$S$ & analysis only & \discretionary{}{}{}\texttt{s13\_analysis.json} \\
+Routine Rs + adopted Rs/Rsh + QE & 3 & \texttt{s14.json} + \discretionary{}{}{}\texttt{adopted\_qe\_raw.txt} \\
 Affinity-peak extension + new-base T/Eg/Rs & 26 + 6 (4 solo reruns merged) & \texttt{s16.json} + \texttt{s17.json} \\
-Sobol-on-surrogate & RF, $N=4096$ Saltelli & \texttt{sobol\_surrogate.json} \\
-Morris summary + CI + $\tau$/$S$ & derived, 5000 resamples & \texttt{s5\_morris\_summary.json} + \texttt{s5\_morris\_ci.json} \\
-$N_t$ 1e12 step retry & 1 & \texttt{retry\_nt.json} \\
-Analytic: DB Voc, QE integral, SQ Jsc & closed form & \texttt{s18\_analytic.json} \\
-Probes + set-key verification + analysis & 4 + 5 + derived & \texttt{probe\_qecv.json}, \texttt{s10\_sigverify.json}, \texttt{analysis.json} \\
-Raw per-run logs (jsonl) & -- & \texttt{s13\_opt.jsonl}, \texttt{s16.jsonl} \\
+Sobol-on-surrogate & RF, $N=4096$ Saltelli & \discretionary{}{}{}\texttt{sobol\_surrogate.json} \\
+Morris summary + CI + $\tau$/$S$ & derived, 5000 resamples & \discretionary{}{}{}\texttt{s5\_morris\_summary.json} + \discretionary{}{}{}\texttt{s5\_morris\_ci.json} \\
+$N_t$ 1e12 step retry & 1 & \discretionary{}{}{}\texttt{retry\_nt.json} \\
+Analytic: DB Voc, QE integral, SQ Jsc & closed form & \discretionary{}{}{}\texttt{s18\_analytic.json} \\
+Probes + set-key verification + analysis & 4 + 5 + derived & \discretionary{}{}{}\texttt{probe\_qecv.json}, \discretionary{}{}{}\texttt{s10\_sigverify.json}, \texttt{analysis.json} \\
+Raw per-run logs (jsonl) & -- & \discretionary{}{}{}\texttt{s13\_opt.jsonl}, \texttt{s16.jsonl} \\
 \hline\hline
 \end{tabular}
+\endgroup
 \end{table}
 
 

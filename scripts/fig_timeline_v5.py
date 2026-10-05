@@ -9,7 +9,7 @@ exp = [(2016, 10.8), (2017, 17.0), (2018, 15.1), (2019, 18.4),
        (2025, 22.05), (2026, 21.71), (2026.2, 22.60), (2026.35, 21.43)]
 sim = [(2022, 17.9), (2023, 19.06), (2023.15, 24.24),
        (2025, 24.17), (2026, 23.10), (2026.5, 23.84)]
-fig, ax = plt.subplots(figsize=(8.4, 5.0))
+fig, ax = plt.subplots(figsize=(12.6, 7.5))
 ax.scatter([e[0] for e in exp], [e[1] for e in exp], s=60, marker='s',
            color='black', label='Experiment', zorder=4)
 ax.scatter([s[0] for s in sim], [s[1] for s in sim], s=60, facecolors='none',
@@ -41,5 +41,5 @@ ax.set_xlabel('Year'); ax.set_ylabel('PCE (%)')
 ax.set_xlim(2015.5, 2029.5); ax.set_ylim(8, 26.8)
 ax.set_title('CsPbI3 record race (* = no interface layers)', pad=10)
 ax.legend(loc='upper left', borderpad=0.6, framealpha=1.0)
-fig.tight_layout(); fig.savefig(FIG + 'fig_timeline.png', dpi=150)
+fig.tight_layout(); fig.savefig(FIG + 'fig_timeline.png', dpi=300)
 print('timeline v5 done')
