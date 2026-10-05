@@ -13,7 +13,7 @@ char = {json.loads(l)["id"]: json.loads(l) for l in
 
 # ---- 1. QE overlay ----
 plt.figure()
-for k, lab in [("qe_base", "baseline 800nm"), ("qe_champ", "champion 2.2um/Eg1.65")]:
+for k, lab in [("qe_base", "baseline 800 nm"), ("qe_champ", "champion 2.2 $\mu$m / $E_g$ 1.65")]:
     d = char[k]["data"]["table"]
     plt.plot(d["lambda"], d["QE"], label=lab)
 plt.xlabel("Wavelength (nm)"); plt.ylabel("QE (%)"); plt.legend(); plt.grid(True)
@@ -21,7 +21,7 @@ plt.title("Quantum efficiency: baseline vs champion")
 plt.savefig(FIG / "fig_QE.png", dpi=100)
 
 # ---- 2. C-V + Mott-Schottky ----
-fig, ax = plt.subplots(1, 2, figsize=(10, 4))
+fig, ax = plt.subplots(2, 1, figsize=(7.4, 7.0), sharex=True)
 for k, lab in [("cv_base", "baseline"), ("cv_champ", "champion")]:
     d = char[k]["data"]["table"]
     V = np.array(d["V"]); C = np.array(d["C"])

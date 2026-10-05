@@ -1,0 +1,117 @@
+{
+ "base_c38": {
+  "d": {
+   "Voc": 1.249687,
+   "Jsc": 21.19260319,
+   "FF": 89.9564,
+   "eta": 23.8241
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "base_c4_r2": {
+  "d": null,
+  "e": "missing-result-file",
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "base_c4": {
+  "d": null,
+  "e": "missing-result-file",
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "base_c4_r3": {
+  "d": null,
+  "e": "missing-result-file",
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "base_c38_r2": {
+  "d": {
+   "Voc": 1.249687,
+   "Jsc": 21.19260319,
+   "FF": 89.9564,
+   "eta": 23.8241
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "sig_set_1e18_both": {
+  "d": {
+   "Voc": 1.359027,
+   "Jsc": 21.19961345,
+   "FF": 87.2914,
+   "eta": 25.1494
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "sig_set_1e15_both": {
+  "d": {
+   "Voc": 1.233943,
+   "Jsc": 21.19450636,
+   "FF": 89.8722,
+   "eta": 23.5041
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "base_c38_r3": {
+  "d": {
+   "Voc": 1.249687,
+   "Jsc": 21.19260319,
+   "FF": 89.9564,
+   "eta": 23.8241
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "sig_set_1e14_both": {
+  "d": {
+   "Voc": 1.174921,
+   "Jsc": 21.15130005,
+   "FF": 89.3754,
+   "eta": 22.2108
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "sig_set_1e14_if1": {
+  "d": {
+   "Voc": 1.191091,
+   "Jsc": 21.15136468,
+   "FF": 89.6309,
+   "eta": 22.5809
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "sig_set_1e14_if2": {
+  "d": {
+   "Voc": 1.189802,
+   "Jsc": 21.19444172,
+   "FF": 89.3998,
+   "eta": 22.5441
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-r7.def"
+ },
+ "sig_def_x10_both": {
+  "d": {
+   "Voc": 1.174921,
+   "Jsc": 21.15130005,
+   "FF": 89.3754,
+   "eta": 22.2108
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-sigX10new.def"
+ },
+ "sig_def_div1000_both": {
+  "d": {
+   "Voc": 1.359027,
+   "Jsc": 21.19961345,
+   "FF": 87.2914,
+   "eta": 25.1494
+  },
+  "e": null,
+  "load": "csPbI3-CBTS-sigdiv1000.def"
+ }
+}

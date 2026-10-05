@@ -37,7 +37,7 @@ fig.tight_layout(); fig.savefig(FIG + "fig_align.png", dpi=150)
 fig, ax = plt.subplots(figsize=(7.6, 4.4))
 nif = np.array([8, 9, 10, 11, 12]); eta = np.array([25.11, 24.77, 23.84, 22.62, 21.20])
 ax.axvline(10, ls=":", color="0.5", zorder=1)
-ax.axhspan(24.17, 24.24, xmin=0.0, xmax=0.30, color="C1", alpha=0.30, zorder=1)
+ax.axhspan(24.17, 24.24, xmin=0.0, xmax=0.30, color="C1", alpha=0.45, zorder=1)
 ax.plot(nif, eta, "o-", color="black", label="both interfaces (own cell)", zorder=3)
 ax.text(10.06, 20.9, "guardrail $10^{10}$", fontsize=8.5, color="0.35", zorder=5,
         bbox=dict(fc="white", ec="none", pad=0.8))
@@ -49,7 +49,7 @@ ax.text(12.25, 24.82, "noIF 25.16", fontsize=8.5, zorder=5,
 ax.set_xlabel(r"Interface defect density (log$_{10}$ cm$^{-2}$, both sides)")
 ax.set_ylabel("PCE (%)")
 ax.set_xlim(7.7, 13.2); ax.set_ylim(20.5, 25.7)
-ax.legend(loc="lower left", framealpha=1.0, fontsize=8)
+ax.legend(loc="center right", bbox_to_anchor=(0.98, 0.30), framealpha=1.0, fontsize=8)
 ax.set_title("Interface dose-response (own cell): 23.84% at the guardrail", pad=10)
 fig.tight_layout(); fig.savefig(FIG + "fig_audit.png", dpi=150)
 
