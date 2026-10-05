@@ -23,7 +23,7 @@ ax.hlines(-5.5, 3.7, 4.3, colors="black", lw=2.5)
 ax.text(4.0, -5.35, "Ni 5.5 eV", ha="center", fontsize=9)
 ax.annotate("", xy=(1.28, -3.70), xytext=(1.72, -3.93),
             arrowprops=dict(arrowstyle="<->", lw=1.2))
-ax.text(1.5, -3.30, "spike +0.23 (raises $E_a$)", ha="center", fontsize=9)
+ax.text(1.5, -3.55, "spike +0.23 (raises $E_a$)", ha="center", fontsize=8.5)
 ax.annotate("", xy=(2.28, -5.58), xytext=(2.72, -5.80),
             arrowprops=dict(arrowstyle="<->", lw=1.2, color="red"))
 ax.text(2.5, -6.15, "VBO +0.22 (barrier side: yet best)", ha="center", fontsize=9, color="red")
@@ -46,7 +46,7 @@ ax.text(12.25, 24.82, "noIF 25.16 (unphysical)", fontsize=8.5, zorder=5,
 ax.set_xlabel(r"Interface defect density (log$_{10}$ cm$^{-2}$, both sides)")
 ax.set_ylabel("PCE (%)")
 ax.set_xlim(7.7, 13.2); ax.set_ylim(20.5, 25.7)
-ax.legend(loc="lower left", framealpha=1.0, fontsize=8)
+ax.legend(loc="upper left", framealpha=1.0, fontsize=8)
 ax.set_title("Interface dose-response (own cell): 23.84% at the guardrail", pad=10)
 fig.tight_layout(); fig.savefig(FIG + "fig_audit.png", dpi=150)
 

@@ -47,19 +47,20 @@ plt.xlabel("x ($\mu$m)"); plt.ylabel("rate (cm$^{-3}$ s$^{-1}$)"); plt.legend();
 plt.title("Generation / recombination profiles @0V")
 plt.savefig(FIG / "fig_GR.png", dpi=100)
 
-# ---- 5. T sweep ----
+# ---- 5. T sweep (joint-optimum base, s17) ----
 Ts = [275, 300, 350, 400, 475]
-Trows = [(T, char[f"T{T}"]["data"]["deduced"]) for T in Ts]
+s17 = json.load(open(BASE / "outputs" / "s17.json"))
+Trows = [(T, s17[f"T{T}"]["d"]) for T in Ts]
 figT, axT = plt.subplots(figsize=(7.6, 4.2))
 axT.plot(Ts, [r["eta"] for _, r in Trows], "o-", color="black", label="PCE (%) (left)")
 axT.set_xlabel("T (K)"); axT.set_ylabel("PCE (%)")
 axT.set_ylim(14, 27); axT.grid(True, alpha=0.3)
 ax2 = axT.twinx()
 ax2.plot(Ts, [r["Voc"] for _, r in Trows], "s--", color="tab:blue", label="$V_{oc}$ (V, right)")
-ax2.set_ylabel("$V_{oc}$ (V)"); ax2.set_ylim(0.90, 1.32)
+ax2.set_ylabel("$V_{oc}$ (V)"); ax2.set_ylim(0.95, 1.40)
 h1, l1 = axT.get_legend_handles_labels(); h2, l2 = ax2.get_legend_handles_labels()
 axT.legend(h1 + h2, l1 + l2, loc="center right", framealpha=1.0)
-axT.set_title("Temperature dependence (surveyed base)")
+axT.set_title("Temperature dependence (joint-optimum base)")
 figT.tight_layout(); figT.savefig(FIG / "fig_T.png", dpi=150)
 
 # ---- 6. audit bars ---- REMOVED: Fig 10 is the interface dose-response curve,

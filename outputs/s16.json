@@ -1,8 +1,12 @@
 {
  "D_ch4.00_ce3.6": {
-  "id": "D_ch4.00_ce3.6",
-  "d": null,
-  "e": "missing-result-file",
+  "d": {
+   "Voc": 1.307707,
+   "Jsc": 21.19722615,
+   "FF": 89.3648,
+   "eta": 24.7717
+  },
+  "e": null,
   "set": {
    "layer2.thickness": 2.2,
    "layer2.NA": 3e+16,
@@ -13,7 +17,8 @@
    "layer1.chi": 4.0,
    "layer3.chi": 3.6
   },
-  "load": "csPbI3-CBTS-r7.def"
+  "load": "csPbI3-CBTS-r7.def",
+  "note": "solo rerun after parallel worker-file misses"
  },
  "D_ch3.95_ce3.8": {
   "id": "D_ch3.95_ce3.8",
@@ -37,9 +42,13 @@
   "load": "csPbI3-CBTS-r7.def"
  },
  "D_ch3.95_ce3.7": {
-  "id": "D_ch3.95_ce3.7",
-  "d": null,
-  "e": "missing-result-file",
+  "d": {
+   "Voc": 1.319528,
+   "Jsc": 21.19739561,
+   "FF": 89.149,
+   "eta": 24.9355
+  },
+  "e": null,
   "set": {
    "layer2.thickness": 2.2,
    "layer2.NA": 3e+16,
@@ -50,7 +59,8 @@
    "layer1.chi": 3.95,
    "layer3.chi": 3.7
   },
-  "load": "csPbI3-CBTS-r7.def"
+  "load": "csPbI3-CBTS-r7.def",
+  "note": "solo rerun after parallel worker-file misses"
  },
  "D_ch3.95_ce3.6": {
   "id": "D_ch3.95_ce3.6",
@@ -158,9 +168,13 @@
   "load": "csPbI3-CBTS-r7.def"
  },
  "D_ch4.05_ce3.8": {
-  "id": "D_ch4.05_ce3.8",
-  "d": null,
-  "e": "missing-result-file",
+  "d": {
+   "Voc": 1.276799,
+   "Jsc": 21.19607381,
+   "FF": 89.8525,
+   "eta": 24.3169
+  },
+  "e": null,
   "set": {
    "layer2.thickness": 2.2,
    "layer2.NA": 3e+16,
@@ -171,7 +185,8 @@
    "layer1.chi": 4.05,
    "layer3.chi": 3.8
   },
-  "load": "csPbI3-CBTS-r7.def"
+  "load": "csPbI3-CBTS-r7.def",
+  "note": "solo rerun after parallel worker-file misses"
  },
  "D_ch4.10_ce3.7": {
   "id": "D_ch4.10_ce3.7",
@@ -279,9 +294,13 @@
   "load": "csPbI3-CBTS-r7.def"
  },
  "N_rs05": {
-  "id": "N_rs05",
-  "d": null,
-  "e": "missing-result-file",
+  "d": {
+   "Voc": 1.320745,
+   "Jsc": 21.19740692,
+   "FF": 88.3368,
+   "eta": 24.7311
+  },
+  "e": null,
   "set": {
    "layer2.thickness": 2.2,
    "layer2.NA": 3e+16,
@@ -293,7 +312,8 @@
    "layer3.chi": 3.7,
    "external.Rs": 0.5
   },
-  "load": "csPbI3-CBTS-r7.def"
+  "load": "csPbI3-CBTS-r7.def",
+  "note": "solo rerun after parallel worker-file misses"
  },
  "N_eg1.68": {
   "id": "N_eg1.68",

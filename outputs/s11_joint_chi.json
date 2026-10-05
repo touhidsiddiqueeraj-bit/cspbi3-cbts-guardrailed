@@ -1029,51 +1029,48 @@
   "load": "csPbI3-CBTS-ni5.2.def"
  },
  "C_ch3.8_ce3.8_ni5.2": {
-  "id": "C_ch3.8_ce3.8_ni5.2",
-  "d": null,
-  "e": "missing-result-file",
+  "d": {
+   "Voc": 1.124997,
+   "Jsc": 19.67961255,
+   "FF": 85.0624,
+   "eta": 18.8324
+  },
+  "e": null,
   "set": {
-   "layer2.thickness": 2.2,
-   "layer2.NA": 3e+16,
-   "layer2.defect1.Ntotal": 1000000000000.0,
-   "layer3.ND": 9e+17,
-   "layer2.Eg": 1.65,
-   "layer2.chi": 3.928,
    "layer1.chi": 3.8,
    "layer3.chi": 3.8
   },
-  "load": "csPbI3-CBTS-ni5.2.def"
+  "load": "csPbI3-CBTS-ni5.2.def",
+  "note": "solo rerun merged from s16 after s11 worker-file misses"
  },
  "C_ch3.6_ce4.0_ni5.0": {
-  "id": "C_ch3.6_ce4.0_ni5.0",
-  "d": null,
-  "e": "missing-result-file",
+  "d": {
+   "Voc": 1.122151,
+   "Jsc": 19.68138679,
+   "FF": 85.1658,
+   "eta": 18.8093
+  },
+  "e": null,
   "set": {
-   "layer2.thickness": 2.2,
-   "layer2.NA": 3e+16,
-   "layer2.defect1.Ntotal": 1000000000000.0,
-   "layer3.ND": 9e+17,
-   "layer2.Eg": 1.65,
-   "layer2.chi": 3.928,
    "layer1.chi": 3.6,
    "layer3.chi": 4.0
   },
-  "load": "csPbI3-CBTS-ni5.0.def"
+  "load": "csPbI3-CBTS-ni5.0.def",
+  "note": "solo rerun merged from s16 after s11 worker-file misses"
  },
  "C_ch3.8_ce3.8_ni5.0": {
-  "id": "C_ch3.8_ce3.8_ni5.0",
-  "d": null,
-  "e": "missing-result-file",
+  "d": {
+   "Voc": 1.009171,
+   "Jsc": 19.67878998,
+   "FF": 78.6888,
+   "eta": 15.627
+  },
+  "e": null,
   "set": {
-   "layer2.thickness": 2.2,
-   "layer2.NA": 3e+16,
-   "layer2.defect1.Ntotal": 1000000000000.0,
-   "layer3.ND": 9e+17,
-   "layer2.Eg": 1.65,
-   "layer2.chi": 3.928,
    "layer1.chi": 3.8,
    "layer3.chi": 3.8
   },
-  "load": "csPbI3-CBTS-ni5.0.def"
+  "load": "csPbI3-CBTS-ni5.0.def",
+  "note": "solo rerun merged from s16 after s11 worker-file misses"
  }
 }
