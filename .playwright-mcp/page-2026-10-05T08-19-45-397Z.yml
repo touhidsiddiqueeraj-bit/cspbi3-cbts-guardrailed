@@ -1,0 +1,49 @@
+- generic [ref=e2]:
+  - navigation [ref=e3]:
+    - generic [ref=e5]:
+      - generic [ref=e6]:
+        - link "Gmail" [ref=e8] [cursor=pointer]:
+          - /url: https://mail.google.com/mail/&ogbl
+        - link "ছবি সার্চ করুন" [ref=e10] [cursor=pointer]:
+          - /url: https://www.google.com/imghp?hl=bn&ogbl
+          - text: Images
+      - button "Google অ্যাপ্লিকেশানগুলি" [ref=e13] [cursor=pointer]
+      - link "সাইন-ইন করুন" [ref=e18] [cursor=pointer]:
+        - /url: https://accounts.google.com/ServiceLogin?hl=bn&passive=true&continue=https://www.google.com/&ec=futura_exp_og_so_72776762_e
+  - img "Google" [ref=e22]
+  - search [ref=e30]:
+    - generic [ref=e32]:
+      - generic [ref=e34]:
+        - button "ফাইল ও টুল যোগ করুন" [ref=e39] [cursor=pointer]
+        - combobox "সার্চ করুন" [active] [ref=e44]
+        - generic [ref=e45]:
+          - generic [ref=e46]:
+            - button "ইনপুট টুল" [ref=e49] [cursor=pointer]
+            - button "ভয়েস দ্বারা সার্চ" [ref=e55] [cursor=pointer]
+            - button "ছবি দিয়ে সার্চ করুন" [ref=e60] [cursor=pointer]
+          - link "AI মোড" [ref=e63] [cursor=pointer]
+      - generic [ref=e71]:
+        - button "Google Search" [ref=e72] [cursor=pointer]
+        - button "ভাগ্যবান অনুভব করছি" [ref=e73] [cursor=pointer]
+  - generic [ref=e76]:
+    - text: "Google এই ভাষায় উপলব্ধ:"
+    - link "English" [ref=e77] [cursor=pointer]:
+      - /url: https://www.google.com/setprefs?sig=0_-cPClECJh3Ttk4DjrFGS6cgJ8RM%3D&hl=en&source=homepage&sa=X&ved=0ahUKEwiwqI3buKKXAxUglOEIHYnlHCwQ2ZgBCCY
+  - contentinfo [ref=e79]:
+    - generic [ref=e80]: বাংলাদেশ
+    - generic [ref=e81]:
+      - generic [ref=e82]:
+        - link "সম্পর্কে" [ref=e83] [cursor=pointer]:
+          - /url: https://about.google/?utm_source=google-BD&utm_medium=referral&utm_campaign=hp-footer&fg=1
+        - link "বিজ্ঞাপন" [ref=e84] [cursor=pointer]:
+          - /url: https://www.google.com/intl/bn_bd/ads/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1
+        - link "ব্যবসা" [ref=e85] [cursor=pointer]:
+          - /url: https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1
+        - link "সার্চ কীভাবে কাজ করে" [ref=e86] [cursor=pointer]:
+          - /url: https://google.com/search/howsearchworks/?fg=1
+      - generic [ref=e87]:
+        - link "গোপনীয়তা" [ref=e88] [cursor=pointer]:
+          - /url: https://policies.google.com/privacy?hl=bn&fg=1
+        - link "শর্তাদি" [ref=e89] [cursor=pointer]:
+          - /url: https://policies.google.com/terms?hl=bn&fg=1
+        - button "সেটিংস" [ref=e93] [cursor=pointer]

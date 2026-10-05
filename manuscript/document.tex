@@ -543,10 +543,31 @@ Receipts & definition files + raw outputs & public repository \\
 
 \section*{Data availability}
 
-\sloppy
-All definition files (\texttt{csPbI3-CBTS-r7.def} with interfaces, \texttt{csPbI3-CBTS-noIF.def} without, plus work-function and cross-section variants), sweep receipts (\texttt{roundA.jsonl}, \texttt{roundB.jsonl}, \texttt{char.jsonl}, \texttt{s0\_verify.json}, \texttt{s1\_dose.json}, \texttt{s4\_sig.json}, \texttt{s5\_morris.jsonl}, \texttt{s7\_r3.json}, \texttt{s8\_champ38.json}, \texttt{s9\_nt15base.json}, \texttt{s10\_r4.json}, \texttt{s11\_joint\_chi.json}, \texttt{s12\_fine.json}, \texttt{s13\_opt.json}, \texttt{s13\_analysis.json}, \texttt{s14.json}, \texttt{s16.json}, \texttt{s17.json}, \texttt{sobol\_surrogate.json}), raw curves (\texttt{newchamp\_JV.json}, \texttt{newchamp\_iv\_raw.txt}, \texttt{champion\_JV.json}, \texttt{noIF\_JV.json}, \texttt{adopted\_qe\_raw.txt}), derived summaries (\texttt{s5\_morris\_summary.json}, \texttt{s5\_morris\_ci.json}, \texttt{analysis.json}, \texttt{s18\_analytic.json}, \texttt{s13\_opt.jsonl}, \texttt{s16.jsonl}, \texttt{s10\_sigverify.json}, \texttt{retry\_nt.json}, \texttt{probe\_qecv.json}), analysis outputs and figure scripts are archived in the public repository
+\begingroup\raggedright
+All definition files (\texttt{csPbI3-CBTS-r7.def} with interfaces,
+\texttt{csPbI3-CBTS-noIF.def} without, plus work-function and cross-section
+variants),
+sweep receipts
+(\texttt{roundA.jsonl}, \texttt{roundB.jsonl}, \texttt{char.jsonl},
+\texttt{s0\_verify.json}, \texttt{s1\_dose.json}, \texttt{s4\_sig.json},
+\texttt{s5\_morris.jsonl}, \texttt{s7\_r3.json}, \texttt{s8\_champ38.json},
+\texttt{s9\_nt15base.json}, \texttt{s10\_r4.json}, \texttt{s11\_joint\_chi.json},
+\texttt{s12\_fine.json}, \texttt{s13\_opt.json}, \texttt{s13\_analysis.json},
+\texttt{s14.json}, \texttt{s16.json}, \texttt{s17.json},
+\texttt{sobol\_surrogate.json}),
+raw curves
+(\texttt{newchamp\_JV.json}, \texttt{newchamp\_iv\_raw.txt},
+\texttt{champion\_JV.json}, \texttt{noIF\_JV.json},
+\texttt{adopted\_qe\_raw.txt}),
+derived summaries
+(\texttt{s5\_morris\_summary.json}, \texttt{s5\_morris\_ci.json},
+\texttt{analysis.json}, \texttt{s18\_analytic.json},
+\texttt{s13\_opt.jsonl}, \texttt{s16.jsonl}, \texttt{s10\_sigverify.json},
+\texttt{retry\_nt.json}, \texttt{probe\_qecv.json}),
+analysis outputs and figure scripts are archived in the public repository
 \url{https://github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed}
 (inventory in Table~\ref{tab:runs}; directories \texttt{defs/}, \texttt{outputs/}, \texttt{receipts/}, \texttt{scripts/}, \texttt{manuscript/}). Reference PDFs under \texttt{sources/} are copyrighted and listed in \mbox{REFERENCES.md} instead.
+\endgroup
 
 \section*{Author contributions}
 
@@ -572,9 +593,9 @@ All simulation batches are inventoried in Table~\ref{tab:runs}.
 
 \begin{table}[tbp]
 \centering
-\small\caption{Simulation batches archived in the repository (run counts; worker retries noted where they occurred).}
+\small\caption{Simulation batches archived in the repository (run counts; solo reruns noted where they occurred).}
 \label{tab:runs}
-\resizebox{\linewidth}{!}{%
+\footnotesize
 \begin{tabular}{|l|l|l|}
 \hline\hline
 Batch & Configurations & Receipt \\
@@ -600,13 +621,13 @@ Paired Morris bootstrap + $\tau$/$S$ & analysis only & \texttt{s13\_analysis.jso
 Routine Rs + adopted Rs/Rsh + QE & 3 & \texttt{s14.json} + \texttt{adopted\_qe\_raw.txt} \\
 Affinity-peak extension + new-base T/Eg/Rs & 26 + 6 (4 solo reruns merged) & \texttt{s16.json} + \texttt{s17.json} \\
 Sobol-on-surrogate & RF, $N=4096$ Saltelli & \texttt{sobol\_surrogate.json} \\
-Morris summary + CI + $\tau$/$S$ & derived | 5000 resamples & \texttt{s5\_morris\_summary.json} + \texttt{s5\_morris\_ci.json} \\
-$N_t$ 1e12 step retry & 1 | \texttt{retry\_nt.json} \\
+Morris summary + CI + $\tau$/$S$ & derived, 5000 resamples & \texttt{s5\_morris\_summary.json} + \texttt{s5\_morris\_ci.json} \\
+$N_t$ 1e12 step retry & 1 & \texttt{retry\_nt.json} \\
 Analytic: DB Voc, QE integral, SQ Jsc & closed form & \texttt{s18\_analytic.json} \\
 Probes + set-key verification + analysis & 4 + 5 + derived & \texttt{probe\_qecv.json}, \texttt{s10\_sigverify.json}, \texttt{analysis.json} \\
 Raw per-run logs (jsonl) & -- & \texttt{s13\_opt.jsonl}, \texttt{s16.jsonl} \\
 \hline\hline
-\end{tabular}}
+\end{tabular}
 \end{table}
 
 
