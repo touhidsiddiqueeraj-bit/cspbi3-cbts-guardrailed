@@ -29,14 +29,14 @@
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0pt}
 
-\title{Guardrails for the Record Race: What a CsPbI3 Cell Can Honestly Claim (23.8\% $\rightarrow$ 20.8\%)}
+\title{Guardrails for the Record Race: What a CsPbI3 Cell Can Honestly Claim (24.9\% $\rightarrow$ 20.8\%)}
 \author{Hussain Touhid Siddiquee\thanks{Department of EEE, Leading University, Sylhet-3112, Bangladesh. E-mail: touhidsiddiqueeraj@gmail.com, mdabdulmalekfahim@gmail.com.} \and Md.\ Abdul Malek Fahim}
 \date{}
 
 \begin{document}
 \maketitle
 
-\noindent{\small\textit{\textbf{Abstract:} Simulation records for CsPbI3 solar cells now exceed the certified experimental frontier (22.02\%), but the numbers rest on undisclosed assumptions. We screen an ITO/TiO2/CsPbI3/CBTS/Ni cell in SCAPS-1D over a stated box---absorber 0.4--2.2~$\mu$m, $N_A$ $10^{15}$--$3\times10^{16}$~cm$^{-3}$, $N_t$ $10^{12}$--$10^{15}$~cm$^{-3}$, ETL $N_D$ $10^{16}$--$10^{19}$~cm$^{-3}$, $E_g$ 1.65--1.75~eV with linked affinity, interfaces $10^8$--$10^{12}$~cm$^{-2}$---and price every assumption with computed sweeps. At an attainable gap the model gives 22.70\% ($E_g=1.68$~eV), 22.51\% ($E_g=1.70$~eV) and 21.59\% ($E_g=1.72$~eV); adding $R_s=1~\Omega$cm$^2$ at $E_g=1.70$~eV gives 22.12\%. These derated numbers, not the box best, are the honest comparators. The best point reaches 23.84\% (Voc 1.250 V, Jsc 21.19 mA/cm$^2$, FF 89.97\%) at 2.2~$\mu$m, $N_t=10^{12}$~cm$^{-3}$, $R_s=0$, $10^{10}$~cm$^{-2}$ interfaces and a small ETL-side electron spike ($\chi_{\mathrm{TiO2}}=3.8$~eV, adopted after a sweep showed +0.33 points). At routine settings the same model gives \textbf{20.82\%} (ITO 4.0~eV, $N_t=10^{15}$~cm$^{-3}$, 1.0~$\mu$m, $10^{10}$~cm$^{-2}$ interfaces). An interface dose--response on our own cell runs 25.11\% to 21.20\%; the published 24.17\% and 24.24\% values fall below our no-interface band and are not mapped onto our curve. Scripted parasitic sweeps give 23.43\% at $R_s=1~\Omega$cm$^2$. A Morris screen (56 runs, bootstrap 95\% CIs) gives 1.02 points/decade for interface quality [0.84, 1.22] against 0.68 for bulk defects [0.35, 0.99]---intervals that overlap, so the two are not statistically separated; repeating the dose--response at routine defects makes the interface response nearly flat, so the ranking is regime-dependent. All definition files, sweep receipts, and raw curves are archived in the public repository for independent reproduction.}}
+\noindent{\small\textit{\textbf{Abstract:} Simulation records for CsPbI3 solar cells now exceed the certified experimental frontier (22.02\%), but the numbers rest on undisclosed assumptions. We screen an ITO/TiO2/CsPbI3/CBTS/Ni cell in SCAPS-1D over a stated guardrailed box---absorber 0.4--2.2~$\mu$m, $N_A$ $10^{15}$--$3\times10^{16}$~cm$^{-3}$, $N_t$ $10^{12}$--$10^{15}$~cm$^{-3}$, ETL $N_D$ $10^{16}$--$10^{19}$~cm$^{-3}$, $E_g$ 1.65--1.75~eV with linked affinity, interfaces $10^{10}$--$10^{12}$~cm$^{-2}$ (a $10^{10}$~cm$^{-2}$ floor, i.e.\ $S=100$~cm/s, is part of the box; runs below it are audit only)---and price every assumption with computed sweeps. The best evaluated guardrailed point reaches 24.95\% (Voc 1.321~V, Jsc 21.20~mA/cm$^2$, FF 89.11\%) at joint affinities $\chi_{\mathrm{CBTS}}=3.9$/$\chi_{\mathrm{TiO2}}=3.7$~eV; a 104-configuration optimiser over the box peaks at 23.08\%, below all grid champions. A detailed-balance Voc computed from the model's own absorption (1.360~V at 1.65~eV) leaves the champion a 0.04~V margin while placing every no-interface cell above the radiative limit, so the no-interface band is unphysical as a whole. Derated comparators at the same base give 24.44--24.73\% at attainable gaps ($E_g=1.68$--1.70~eV) and 24.34\% with $R_s=1~\Omega$cm$^2$; at routine defects the model gives \textbf{20.82\%}, 20.42\% with $R_s=1$. A paired-trajectory Morris analysis favours interfaces over bulk defects by 2.03 points (95\% CI [0.70, 3.51]) at the defect floor, while the same dose--response goes nearly flat at routine defects---so the ranking is regime-dependent, not universal. All definition files, sweep receipts, and raw curves are archived in the public repository for independent reproduction.}}
 
 \medskip
 \noindent{\small\textbf{Keywords:} CsPbI3; perovskite solar cell; SCAPS-1D; CBTS; reproducibility; device simulation}
@@ -48,7 +48,7 @@ All-inorganic CsPbI3 perovskite solar cells combine the thermal stability lackin
 
 The one-dimensional solar cell capacitance simulator (SCAPS-1D) is the workhorse for such pre-experimental screening, and the ITO/TiO2/CsPbI3/CBTS (copper barium thiostannate) stack of \citet{Hossain2023} is the most-prescribed CsPbI3 baseline, progressing from 17.90\% over 96 screened transport-layer combinations~\cite{Hossain2022} to 19.06\% after optimisation. Subsequent simulation studies report up to 24.17\% on the same stack~\cite{Nazli2025} and 24.24\% on ZnO/PTAA~\cite{Oyedele2023}, while large machine-learning-coupled screens now exceed 27\% on other absorbers~\cite{PerovskiteOpt2026,Bifacial2026}. Three problems accompany this inflation. First, nearly every study optimises one variable at a time (OVAT), so parameter interactions---notably absorber thickness versus defect-limited diffusion length---are invisible by construction. Second, the highest numbers are obtained with interface recombination removed (stated explicitly in~\cite{Oyedele2023}) or with defect densities far below experimental reach, and raw data are routinely withheld~\cite{Hossain2023}---we report our own data the same critical way, and where we could not reproduce others for lack of published parameters, we say so instead of inferring inflation. Third, scripted sweeps mix unit systems: SCAPS definition files store SI units while script `set' commands expect practical units, so SI-valued inputs silently inject a $10^6\times$ overdose and fabricate ghost cells (scripting conventions are documented in Appendix~A).
 
-This work contributes (i) a five-factor grid screen (96 configurations) plus refinement (36 runs) of the ITO/TiO2/CsPbI3/CBTS/Ni cell under interface-inclusive guardrails, with a post-hoc ETL-affinity adoption ($\chi_{\mathrm{TiO2}}=3.8$~eV, +0.33 points by sweep) giving a best point of \textbf{23.84\%} in the stated box; (ii) an interface dose--response computed on our own cell; (iii) scripted (not analytic) series- and shunt-resistance accounting; and (iv) a Morris sensitivity screen with bootstrap intervals, reported with explicit range-dependence. Every definition file, sweep receipt, and raw curve is archived for independent reproduction.
+This work contributes (i) a five-factor grid screen (96 configurations) plus refinement (36 runs) of the ITO/TiO2/CsPbI3/CBTS/Ni cell under interface-inclusive guardrails, with a joint ETL/HTL-affinity map (36 runs) locating the best evaluated guardrailed point at \textbf{24.95\%} ($\chi_{\mathrm{CBTS}}=3.9$/$\chi_{\mathrm{TiO2}}=3.7$~eV); a 104-configuration optimiser over the declared box peaks at 23.08\%, below every grid champion; (ii) an interface dose--response computed on our own cell, reported in bulk lifetime $\tau$ and interface velocity $S$ alongside raw densities; (iii) scripted (not analytic) series- and shunt-resistance accounting, including the routine-defect case; and (iv) a Morris sensitivity screen with a paired-trajectory bootstrap, reported with explicit range-dependence. Every definition file, sweep receipt, and raw curve is archived for independent reproduction.
 
 
 \section{Literature: a decade of CsPbI3 progress}
@@ -63,7 +63,7 @@ Black-phase CsPbI3 has been stabilised stepwise since 2016: quantum-dot-induced 
 \label{fig:timeline}
 \end{figure}
 
-Simulation studies trace a parallel inflation curve (Table~\ref{tab:lit}). The CBTS screening programme reached 17.90\% over 96 transport-layer combinations~\cite{Hossain2022} and 19.06\% after full optimisation~\cite{Hossain2023}, the baseline we reproduce. Later claims diverge upward as realism constraints are relaxed: 23.10\% with ZnO/Spiro in one report~\cite{Ristiansyah2026}, 24.17\% on our exact stack~\cite{Nazli2025}, and 24.24\% on ZnO/PTAA without interface layers (stated)~\cite{Oyedele2023}. The broader SCAPS literature shows the same pattern across absorbers---MAPbI3 at 19.30\% with inorganic contacts~\cite{Son2024}, gradient-doped FAPbI3 at 20.34\%~\cite{Ritu2024}, a 28.38\% bifacial triple-cation cell~\cite{Bifacial2026}, and an explicitly idealised 40.17\% MASnI3 result that exceeds the Shockley--Queisser bound~\cite{MASnI3ML2026,SQ1961}. Section~7.0 proposes the common reporting standard these numbers would need---interface status with dose level, defect floors with cross-sections---and demonstrates it on our own cell, since the published parameter tables are too incomplete to re-place anyone else's.
+Simulation studies trace a parallel inflation curve (Table~\ref{tab:lit}). The CBTS screening programme reached 17.90\% over 96 transport-layer combinations~\cite{Hossain2022} and 19.06\% after full optimisation~\cite{Hossain2023}, the baseline we reproduce. Later claims diverge upward as realism constraints are relaxed: 23.10\% with ZnO/Spiro in one report~\cite{Ristiansyah2026}, 24.17\% on our exact stack~\cite{Nazli2025}, and 24.24\% on ZnO/PTAA without interface layers (stated)~\cite{Oyedele2023}. The broader SCAPS literature shows the same pattern across absorbers---MAPbI3 at 19.30\% with inorganic contacts~\cite{Son2024}, gradient-doped FAPbI3 at 20.34\%~\cite{Ritu2024}, a 28.38\% bifacial triple-cation cell~\cite{Bifacial2026}, and an explicitly idealised 40.17\% MASnI3 result that exceeds the Shockley--Queisser bound~\cite{MASnI3ML2026,SQ1961}. Section~11.0 states the common reporting standard these numbers would need as a concrete checklist---interface status with dose level, defect floors with cross-sections---and demonstrates it on our own cell, since the published parameter tables are too incomplete to re-place anyone else's.
 
 \begin{table}[tbp]
 \centering
@@ -84,16 +84,16 @@ Dai 2026 & TiO2/PTABr/Spiro & Exp. & 22.60/22.02 & passivated \\
  Ristiansyah 2026 & ZnO/Spiro & Sim. & 23.10 & on \\
 Nazli 2025 & TiO2/CBTS/Ni & Sim. & 24.17 & unclear \\
 Oyedele 2023 & ZnO/PTAA & Sim. & 24.24 & OFF \\
-This work & TiO2/CBTS/Ni & Sim. & 23.84 & on \\
+This work & TiO2/CBTS/Ni & Sim. & 24.95 & on \\
 \hline\hline
 \end{tabular}
 \end{table}
 
 \section{Simulation framework and guardrails}
 
-Devices were simulated in SCAPS-1D v3.3.10 under AM1.5G illumination (100~mW/cm$^2$) at 300~K unless stated. The baseline reproduces \citet{Hossain2023}: ITO front contact (4.0~eV), 30~nm TiO2 electron transport layer (donor density $9\times10^{16}$~cm$^{-3}$), CsPbI3 absorber (800~nm initial, $E_g=1.694$~eV, $\chi=3.95$~eV, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{15}$~cm$^{-3}$), 100~nm CBTS hole transport layer ($N_A=10^{18}$~cm$^{-3}$), and Ni back contact (5.5~eV). Crucially, neutral interface recombination blocks ($N=10^{10}$~cm$^{-2}$, $\sigma=10^{-19}$~m$^2$) are present at both heterojunctions, and the absorber uses the coefficients-A-and-B absorption model ($A=10^7$~m$^{-1}$eV$^{-1/2}$) so that bandgap sweeps act on the absorption edge rather than a frozen file spectrum. Our unmodified baseline yields 18.99\% (Voc 1.122~V, Jsc 19.68~mA/cm$^2$, FF 86.00\%), reproducing the published 17.9--19.06\% band and validating the harness.
+Devices were simulated in SCAPS-1D v3.3.10 under AM1.5G illumination (100~mW/cm$^2$) at 300~K unless stated. The baseline reproduces \citet{Hossain2023}: ITO front contact (4.0~eV), 30~nm TiO2 electron transport layer (donor density $9\times10^{16}$~cm$^{-3}$), CsPbI3 absorber (800~nm initial, $E_g=1.694$~eV, $\chi=3.95$~eV, $N_A=10^{15}$~cm$^{-3}$, $N_t=10^{15}$~cm$^{-3}$), 100~nm CBTS hole transport layer ($N_A=10^{18}$~cm$^{-3}$), and Ni back contact (5.5~eV). Crucially, neutral interface recombination blocks ($N=10^{10}$~cm$^{-2}$, $\sigma=10^{-19}$~m$^2$) are present at both heterojunctions, and the absorber uses the coefficients-A-and-B absorption model ($A=10^7$~m$^{-1}$eV$^{-1/2}$) so that bandgap sweeps act on the absorption edge rather than a frozen file spectrum. Our unmodified baseline yields 18.99\% (Voc 1.122~V, Jsc 19.68~mA/cm$^2$, FF 86.00\%), reproducing the published 17.9--19.06\% band; against the printed 17.90\% device (Voc 0.997~V, Jsc 21.07~mA/cm$^2$, FF 85.21\%~\cite{Hossain2022}) ours trades $\sim$1.4~mA/cm$^2$ of current for $\sim$0.12~V of voltage, as expected from added interface recombination with lower bulk defects---a single-scalar match is not claimed as validation. Optical settings: the definition file applies a flat 10\% front reflection with no dispersive parasitic absorption in ITO or TiO2, and the 80\% back-transmission filter faces an opaque Ni contact, i.e.\ no back reflector---both choices are conservative-or-neutral for Jsc except in the blue, where the flat QE plateau is an upper envelope (Section~6.0).
 
-Guardrails enforced throughout: bulk defect floor $10^{12}$~cm$^{-3}$ (single-crystal grade; nothing lower), absorber doping ceiling $3\times10^{16}$~cm$^{-3}$, ETL affinity adopted at $\chi_{\mathrm{TiO2}}=3.8$~eV after a sweep (3.8--4.2~eV) showed the surveyed 4.0~eV is not optimal, conduction-band offset held near zero by linking $\chi$ to $E_g$ ($\chi=3.95+0.5(E_g-1.694)$), and automatic rejection of runs with Voc above $E_g/q-0.28$~V ($\sim$1.37~V at 1.65~eV, a plausibility ceiling; the model sets $k_{rad}=0$) or FF above Green's ideal-diode value at the computed Voc (90.1\% at 300~K for the champion) as non-physical. Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \texttt{scriptdescription3310.txt}), so this section reports computed parasitic sweeps. Sweeps ran in parallel on four workers with checkpointed receipts; of 132 grid configurations, 126 converged and enter the analysis (6 non-converged worker runs excluded and listed in the receipts: three Round-A runs, all at $N_A=10^{15}$~cm$^{-3}$ off the champion corner, and three Round-B runs, all at 1.8~$\mu$m thickness). A duplicate champion run reproduces the coarse-grid value exactly, confirming determinism; a confirmatory run at finer IV step gives 23.8365\% (FF 89.97\%), reported as 23.84\% throughout. Absorber densities of states are capped at $N_c=1.1\times10^{19}$/$N_v=8.2\times10^{19}$~cm$^{-3}$, ten times below the Table-1 print ($10^{20}$~cm$^{-3}$, above solid density and hence unphysical).
+Guardrails enforced throughout: bulk defect floor $10^{12}$~cm$^{-3}$ (single-crystal grade; nothing lower), absorber doping ceiling $3\times10^{16}$~cm$^{-3}$, an interface floor of $10^{10}$~cm$^{-2}$ that is part of the stated box rather than a post-hoc filter (dose points below it are audit, not candidates), conduction-band offset held near zero by linking $\chi$ to $E_g$ ($\chi=3.95+0.5(E_g-1.694)$), and automatic rejection of runs with Voc above the detailed-balance value computed from the model's own Eg-sqrt absorption (1.360~V at 1.65~eV with $A=10^7$~m$^{-1}$eV$^{-1/2}$ and 2.2~$\mu$m double-pass absorptance; the model sets $k_{rad}=0$) or FF above Green's ideal-diode value at the computed Voc as non-physical. The $E_g/q-0.28$~V rule of earlier drafts is retired: it sat above the radiative limit and could not adjudicate anything. Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \texttt{scriptdescription3310.txt}), so this section reports computed parasitic sweeps. Sweeps ran in parallel on four workers with checkpointed receipts; of 132 grid configurations, 126 converged and enter the analysis (6 non-converged worker runs excluded and listed in the receipts: three Round-A runs, all at $N_A=10^{15}$~cm$^{-3}$ off the champion corner, and three Round-B runs, all at 1.8~$\mu$m thickness). A duplicate champion run reproduces the coarse-grid value exactly, confirming determinism; a confirmatory run at finer IV step gives 23.8365\% at the surveyed affinity (FF 89.97\%), a 0.017-point IV-step uncertainty against which all reported differences should be read. SCAPS batch scripts expose no mesh control, so no mesh-refinement study is possible in this harness; results are quoted to two decimals in the text (four only where digit-identical receipt comparisons require it). Absorber densities of states are capped at $N_c=1.1\times10^{19}$/$N_v=8.2\times10^{19}$~cm$^{-3}$, ten times below the source paper's Table~1 print ($10^{20}$~cm$^{-3}$, above solid density and hence unphysical).
 
 
 SCAPS-1D solves the Poisson equation coupled to electron and hole continuity with drift-diffusion transport~\cite{Khattak2019,BurgelmanSCAPS}:
@@ -156,20 +156,40 @@ $R_s$, $R_{sh}$ basis & scripted sweeps, reported & computed, not assumed zero i
 \end{tabular}}
 \end{table}
 
-\section{Grid screen and adopted champion}
+\section{Grid screen and joint-optimum champion}
 
-Round~A explored the full cross-product of absorber thickness (1.0--2.0~$\mu$m), acceptor density ($10^{15}$--$10^{16}$~cm$^{-3}$), bulk defect density ($10^{12}$--$10^{14}$~cm$^{-3}$), ETL donor density ($9\times10^{16}$--$9\times10^{17}$~cm$^{-3}$), and bandgap (1.694/1.65~eV with linked affinity)---96 configurations in a single parallel batch, rather than sequential OVAT slices. The winner (2.0~$\mu$m, $N_A=10^{16}$~cm$^{-3}$, $N_t=10^{12}$~cm$^{-3}$, $N_{D,ETL}=9\times10^{17}$~cm$^{-3}$, $E_g=1.65$~eV) reached 23.47\%. Full parameters are collected in Table~\ref{tab:champ}. Round~B refined thickness (1.8--2.2~$\mu$m), gap (1.65--1.72~eV), and doping around this point (36 configurations) and reached 23.50\% (2.2~$\mu$m, $N_A=3\times10^{16}$~cm$^{-3}$, $N_t=10^{12}$~cm$^{-3}$, $E_g=1.65$~eV, $\chi=3.928$~eV). A subsequent ETL-affinity sweep showed the surveyed 4.0~eV is not optimal: the surveyed-$\chi$ Round-B best is 23.50\% (B030 $=23.5041$), 3.9~eV gives 23.80\%, 3.8~eV gives \textbf{23.84\%} (Voc 1.250~V, Jsc 21.19~mA/cm$^2$, FF 89.97\%; Figure~\ref{fig:jvboth}), adopted as the box best (+0.33 points), while 4.1 and 4.2~eV collapse to 21.92\% and 19.87\%. Two features of this point matter. First, it sits at the corner of the allowed box: $N_A$ at its ceiling, $N_t$ at its floor, $N_{D,ETL}$ at the top of its tested range, $E_g$ at its bottom, thickness at the top of the refined range. Second, the best grid point at the literature gap $E_g=1.694$~eV reaches only 22.51\%, so roughly one point comes from the gap choice alone. Every top-ten configuration carries $E_g=1.65$~eV, gaining $\sim$1.5~mA/cm$^2$ over 1.694~eV; the ETL side now presents a small +0.13~eV electron spike that raises the interface recombination activation energy (Section~5.0).
+Round~A explored the full cross-product of absorber thickness (1.0--2.0~$\mu$m), acceptor density ($10^{15}$--$10^{16}$~cm$^{-3}$), bulk defect density ($10^{12}$--$10^{14}$~cm$^{-3}$), ETL donor density ($9\times10^{16}$--$9\times10^{17}$~cm$^{-3}$), and bandgap (1.694/1.65~eV with linked affinity)---96 configurations in a single parallel batch, rather than sequential OVAT slices. The winner (2.0~$\mu$m, $N_A=10^{16}$~cm$^{-3}$, $N_t=10^{12}$~cm$^{-3}$, $N_{D,ETL}=9\times10^{17}$~cm$^{-3}$, $E_g=1.65$~eV) reached 23.47\%. Full parameters are collected in Table~\ref{tab:champ}. Round~B refined thickness (1.8--2.2~$\mu$m), gap (1.65--1.72~eV), and doping around this point (36 configurations) and reached 23.50\% (2.2~$\mu$m, $N_A=3\times10^{16}$~cm$^{-3}$, $N_t=10^{12}$~cm$^{-3}$, $E_g=1.65$~eV, $\chi=3.928$~eV). A subsequent ETL-affinity sweep showed the surveyed 4.0~eV is not optimal: 3.9~eV gives 23.80\%, 3.8~eV gives 23.84\% (B030 surveyed anchor $=23.5041$), while 4.1 and 4.2~eV collapse to 21.92\% and 19.87\%. Because the two affinities interact through the interface activation energy, we then mapped them jointly at guardrailed interfaces (Table~\ref{tab:chia}, 36 runs): at fixed $\chi_{\mathrm{TiO2}}$, efficiency rises monotonically with $\chi_{\mathrm{CBTS}}$ through 3.90~eV, and the peak extension (3.95--4.10~eV) turns over past $\sim$3.95~eV, so the optimum is interior, not edge-sitting. The best evaluated guardrailed point is \textbf{24.95\%} at $\chi_{\mathrm{CBTS}}=3.9$/$\chi_{\mathrm{TiO2}}=3.7$~eV (Voc 1.321~V, Jsc 21.20~mA/cm$^2$, FF 89.11\%; Figure~\ref{fig:jvboth}), verified digit-identical with explicitly set $N_{if}=10^{10}$~cm$^{-2}$ and falling to 24.24\% at $10^{11}$~cm$^{-2}$, confirming the interfaces are active at the optimum. A 104-configuration optimiser (LHS plus pattern search over thickness, $\log N_A$, $\log N_t$, $\log N_D$, $E_g$, $\log N_{if}$, $\chi_{\mathrm{TiO2}}$) peaks at 23.08\% under the guardrail---below every grid champion---so 24.95\% stands as the best of $\sim$350 evaluated guardrailed configurations, not as a proven global optimum. Two features of this point matter. First, it sits at the corner of the allowed box in every dimension except the affinities, which are themselves aggressive ($\chi_{\mathrm{TiO2}}=3.7$~eV below the typical 4.0--4.2~eV range; $\chi_{\mathrm{CBTS}}=3.9$~eV above the surveyed 3.6~eV): this is a permissive-edge upper bound, and Section~9.0 prices each edge. Second, the best grid point at the literature gap $E_g=1.694$~eV reaches 22.506\%, coincidentally equal at two decimals to the 22.514\% of the $E_g=1.70$~eV attainable-gap run on a different geometry (they differ by 0.008 points, inside step uncertainty), so roughly one point comes from the gap choice alone. Every top-ten configuration carries $E_g=1.65$~eV, gaining $\sim$1.5~mA/cm$^2$ over 1.694~eV; the joint optimum presents a $+0.23$~eV ETL-side electron spike that raises the interface recombination activation energy (Section~5.0).
 
-From diffusion estimates ($\mu_n=25$~cm$^2$/Vs, $\sigma=10^{-19}$~m$^2$): $L\approx80$~$\mu$m at $10^{12}$~cm$^{-3}$, $\approx$8~$\mu$m at $10^{14}$~cm$^{-3}$, $\approx$2.5~$\mu$m at $10^{15}$~cm$^{-3}$. The map (Figure~\ref{fig:contour}) is therefore nearly thickness-insensitive at $10^{14}$~cm$^{-3}$ (near-vertical contours)---the oft-quoted ``collapse below 1.5~$\mu$m'' cannot be diffusion-limited and is withdrawn. The genuine thickness--defect interaction appears at $10^{15}$~cm$^{-3}$, where a dedicated sweep gives 20.06\% (0.5~$\mu$m), 20.72\% (0.8~$\mu$m), 20.82\% (1.0~$\mu$m), 20.77\% (1.5~$\mu$m): thickness matters exactly where $L$ approaches the film, which single-variable sweeps at fixed defect levels cannot resolve. ETL donor density confirms the literature optimum ($9\times10^{17}$~cm$^{-3}$) and transport-layer thicknesses are insensitive (100/30~nm retained), both consistent with~\cite{Hossain2023}. The current--voltage curve (Figure~\ref{fig:jvboth}) is square and artefact-free, with a Voc deficit of 0.40~V against $E_g/q$.
+From diffusion estimates ($\mu_n=25$~cm$^2$/Vs, $\sigma=10^{-19}$~m$^2$): $L\approx80$~$\mu$m at $10^{12}$~cm$^{-3}$, $\approx$8~$\mu$m at $10^{14}$~cm$^{-3}$, $\approx$2.5~$\mu$m at $10^{15}$~cm$^{-3}$. The map (Figure~\ref{fig:contour}) is therefore nearly thickness-insensitive at $10^{14}$~cm$^{-3}$ (near-vertical contours)---a thickness collapse there cannot be diffusion-limited, so we do not claim one. The genuine thickness--defect interaction appears at $10^{15}$~cm$^{-3}$, where a dedicated sweep gives 20.06\% (0.5~$\mu$m), 20.72\% (0.8~$\mu$m), 20.82\% (1.0~$\mu$m), 20.77\% (1.5~$\mu$m): thickness matters exactly where $L$ approaches the film, which single-variable sweeps at fixed defect levels cannot resolve. ETL donor density confirms the literature optimum ($9\times10^{17}$~cm$^{-3}$) and transport-layer thicknesses are insensitive (100/30~nm retained), both consistent with~\cite{Hossain2023}. The current--voltage curve (Figure~\ref{fig:jvboth}) is square and artefact-free, with a Voc deficit of 0.40~V against $E_g/q$.
 
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=0.85\textwidth]{/home/touhid/Documents/leadpaper/outputs/figs/fig_JVboth.png}
-\caption{Illuminated current--voltage curves: baseline (800~nm, 18.99\%) versus adopted champion (2.2~$\mu$m, 23.84\%).}
+\caption{Illuminated current--voltage curves: baseline (800~nm, 18.99\%) versus joint-optimum champion (2.2~$\mu$m, 24.95\%).}
 \label{fig:jvboth}
 \end{figure}
 
-The 4.85-point stacked gain decomposes along the screening path (Table~\ref{tab:champ} parameters in sequence, illustrative ordering only): thickness 800~nm to 1.5~$\mu$m adds 0.19 points (19.18\%), acceptor doping to $10^{16}$~cm$^{-3}$ adds 0.93 points (20.11\%), bulk-defect reduction to $10^{12}$~cm$^{-3}$ adds $\sim$1.6 points ($\sim$21.7\%), the joint $E_g$--$\chi$ move to 1.65~eV with ETL donor optimisation contributes $\sim$1.8 points (4.50 to the surveyed best), and the adopted $\chi_{\mathrm{TiO2}}$ adds the final 0.33 points (modulo rounding). This sequential attribution is order-dependent and illustrative, not causal. Open-circuit voltage climbs 1.122 to 1.250~V while the fill factor rises 86.0 to 90.0\%, the signature of SRH-lifetime recovery rather than band-shift artefacts.
+\begin{table}[tbp]
+\centering
+\caption{Joint affinity map at guardrailed interfaces (PCE \%; champion geometry; peak extension 3.95--4.10~eV turns over past $\sim$3.95~eV).}
+\label{tab:chia}
+\begin{tabular}{|l|l|l|l|l|}
+\hline\hline
+$\chi_{\mathrm{CBTS}}$ $\backslash$ $\chi_{\mathrm{TiO2}}$ & 3.7 & 3.8 & 3.9 & 4.0 \\
+\hline
+3.50 & 22.10 & 22.10 & 22.10 & 22.07 \\
+3.60 & 23.83 & 23.82 & 23.80 & 23.50 \\
+3.70 & 24.67 & 24.64 & 24.53 & 23.77 \\
+3.80 & 24.89 & 24.86 & 24.67 & 23.81 \\
+3.90 & \textbf{24.95} & 24.91 & 24.74 & 23.81 \\
+3.95 & 24.94 & 24.90 & -- & -- \\
+4.00 & 24.81 & 24.79 & -- & -- \\
+4.10 & 23.25 & 23.25 & -- & -- \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+The 5.96-point stacked gain decomposes along the screening path (Table~\ref{tab:champ} parameters in sequence, illustrative ordering only): thickness 800~nm to 1.5~$\mu$m adds 0.19 points (19.18\%), acceptor doping to $10^{16}$~cm$^{-3}$ adds 0.93 points (20.11\%), bulk-defect reduction to $10^{12}$~cm$^{-3}$ adds $\sim$1.6 points ($\sim$21.7\%), the joint $E_g$--$\chi$ move to 1.65~eV with ETL donor optimisation contributes $\sim$1.8 points (to the 23.50\% surveyed best), and the joint affinity optimum adds the final 1.45 points (modulo rounding). This sequential attribution is order-dependent and illustrative, not causal. Open-circuit voltage climbs 1.122 to 1.321~V while the fill factor rises 86.0 to 89.1\%, the signature of SRH-lifetime recovery plus interface-activation recovery rather than band-shift artefacts.
 
 \begin{table}[tbp]
 \centering
@@ -180,11 +200,11 @@ The 4.85-point stacked gain decomposes along the screening path (Table~\ref{tab:
 \hline\hline
 Layer & $d$ & $E_g$ (eV) & $\chi$ (eV) & Doping (cm$^{-3}$) & $N_t$ (cm$^{-3}$) \\
 \hline
-CBTS HTL & 100~nm & 1.9 & 3.6 & NA 1e18 & 1e15 \\
+CBTS HTL & 100~nm & 1.9 & 3.9 & NA 1e18 & 1e15 \\
 CsPbI3 absorber & 2.2~$\mu$m & 1.65 & 3.928 & NA 3e16 & 1e12 \\
-TiO2 ETL & 30~nm & 3.2 & 3.8 (adopted; surveyed 4.0) & ND 9e17 & 1e15 \\
+TiO2 ETL & 30~nm & 3.2 & 3.7 (joint optimum; surveyed 4.0) & ND 9e17 & 1e15 \\
 Interfaces (both) & -- & -- & -- & -- & 1e10 cm$^{-2}$ \\
-Result & \multicolumn{5}{l|}{Voc 1.250~V, Jsc 21.19~mA/cm$^2$, FF 89.97\%, PCE 23.84\%} \\
+Result & \multicolumn{5}{l|}{Voc 1.321~V, Jsc 21.20~mA/cm$^2$, FF 89.11\%, PCE 24.95\%} \\
 \hline\hline
 \end{tabular}}
 \end{table}
@@ -251,7 +271,7 @@ $d$ ($\mu$m) & $N_A$ & $N_t$ & $E_g$ & PCE \\
 
 \section{Band alignment}
 
-Figure~\ref{fig:align} constructs the equilibrium alignment from the adopted champion parameters. The absorber conduction edge ($-3.928$~eV) lies 0.13~eV \textit{below} the TiO2 edge ($-3.80$~eV), so electrons face a small spike entering the ETL. The data support reading this as recombination physics, not transport: the interface recombination activation energy $E_a=E_{c,\mathrm{abs}}-E_{v,\mathrm{HTL}}$ grows from 1.37~eV at $\chi_{\mathrm{CBTS}}=3.4$ to 1.77~eV at 3.8~eV, and efficiency rises monotonically through zero hole-side offset (20.22\%, 22.07\%, 23.77\%, 23.81\%)---a transport reading predicts the barrier end should be worst, and it is the best. On the hole side, the absorber valence edge ($-5.578$~eV) lies 0.08~eV \textit{below} the CBTS edge ($-5.50$~eV), a shallow hole-favourable offset on the wrong side of the ideal $-0.3$ to $-0.1$~eV window ($-3.928$ vs $-3.80$; $-5.578$ vs $-5.50$). The same activation logic applies to the ETL side ($E_a=1.58$~eV at surveyed alignment), which is why the spike buys rather than costs efficiency. The adopted $\chi_{\mathrm{TiO2}}=3.8$~eV sits below the surveyed 4.0~eV and is reported as a post-hoc adoption, not a surveyed value.
+Figure~\ref{fig:align} constructs the equilibrium alignment from the joint-optimum parameters. The absorber conduction edge ($-3.928$~eV) lies 0.23~eV \textit{below} the TiO2 edge ($-3.70$~eV), so electrons face a spike entering the ETL. The data support reading this as recombination physics, not transport: the interface recombination activation energy $E_a=E_{c,\mathrm{abs}}-E_{v,\mathrm{HTL}}$ grows from 1.47~eV at $\chi_{\mathrm{CBTS}}=3.5$ to 1.87~eV at 3.9~eV, and efficiency rises monotonically through zero hole-side offset (22.10\% to 24.95\% at $\chi_{\mathrm{TiO2}}=3.7$; Table~\ref{tab:chia})---a transport reading predicts the barrier end should be worst, and it is the best. On the hole side, the absorber valence edge ($-5.578$~eV) lies 0.22~eV \textit{below} the CBTS edge ($-5.80$~eV) at the optimum, past the ideal $-0.3$ to $-0.1$~eV window on the barrier side---yet efficiency peaks there, which a transport reading cannot produce. The same activation logic applies to the ETL side, which is why the spike buys rather than costs efficiency. Both optimum affinities sit outside the surveyed values ($\chi_{\mathrm{TiO2}}=3.7$ below the typical 4.0--4.2~eV; $\chi_{\mathrm{CBTS}}=3.9$ above the surveyed 3.6~eV) and are reported as joint-optimum adoptions priced in Section~9.0, not surveyed values.
 
 \begin{figure}[tbp]
 \centering
@@ -262,7 +282,7 @@ Figure~\ref{fig:align} constructs the equilibrium alignment from the adopted cha
 
 \section{Device characterisation}
 
-The quantum efficiency (Figure~\ref{fig:qe}) is flat at $\sim$89--90\% from 300~nm with the absorption edge red-shifted from 731~nm (baseline, 1.694~eV) to 752~nm (champion, 1.65~eV), directly explaining the Jsc gain. The UV plateau assumes the definition file's flat 10\% front reflection with no dispersive parasitic absorption in ITO or TiO2, so it is an upper envelope in the blue rather than a prediction; with TiO2 absorbing above 3.2~eV, of order 1~mA/cm$^2$ of the reported Jsc is at stake in the UV, which is large next to the points debated here and is stated as an uncertainty, not corrected. Capacitance--voltage analysis at 1~MHz (Figure~\ref{fig:cv}) shows rising capacitance with forward bias (31 to 39~nF/cm$^2$ over 0--0.5~V). The low-bias $1/C^2$ branch is linear ($R^2=1.000$) with the normal sign for a p-type absorber; its slope gives $N_A=2.93\times10^{16}$~cm$^{-3}$, essentially the $3\times10^{16}$~cm$^{-3}$ input, extrapolating to $V_{bi}=1.30$~V---a free validation of the doping from the solver's own electrostatics. The SCAPS-extracted width (0.29 to 0.22~$\mu$m) sits an order of magnitude below the 2.2~$\mu$m absorber throughout (the parallel-plate check gives 0.17~$\mu$m at 0~V, consistent in order with extra deep-level capacitance unaccounted). The illuminated band diagram at short circuit (Figure~\ref{fig:eb}) exhibits clean quasi-Fermi splitting, and generation exceeds recombination by at least two orders of magnitude at every mesh point of the full 2.33~$\mu$m short-circuit profile (minimum ratio $\sim$3$\times10^2$ at $x\approx0.2$~$\mu$m near the back contact, rising above $10^5$ at both contacts; Figure~\ref{fig:gr}). All profile statements in this section are at short circuit; nothing here constrains the maximum-power or open-circuit regime.
+The quantum efficiency (Figure~\ref{fig:qe}) is flat at $\sim$89--90\% from 300~nm with the absorption edge red-shifted from 731~nm (baseline, 1.694~eV) to 752~nm (champion, 1.65~eV), directly explaining the Jsc gain. The UV plateau assumes the definition file's flat 10\% front reflection with no dispersive parasitic absorption in ITO or TiO2, so it is an upper envelope in the blue rather than a prediction; with TiO2 absorbing above 3.2~eV, of order 1~mA/cm$^2$ of the reported Jsc is at stake in the UV, which is large next to the points debated here and is stated as an uncertainty, not corrected. Integrating the computed QE against the AM1.5G spectrum gives 22.37~mA/cm$^2$ against the 21.20~mA/cm$^2$ IV value; the 1.17~mA/cm$^2$ gap is carried as Jsc uncertainty with the conservative IV value headlined. Capacitance--voltage analysis at 1~MHz (Figure~\ref{fig:cv}) shows rising capacitance with forward bias (31 to 39~nF/cm$^2$ over 0--0.5~V). The low-bias $1/C^2$ branch is linear ($R^2=1.000$) with the normal sign for a p-type absorber; its slope gives $N_A=2.93\times10^{16}$~cm$^{-3}$, essentially the $3\times10^{16}$~cm$^{-3}$ input, extrapolating to $V_{bi}=1.30$~V---a solver self-consistency check on the doping from its own electrostatics, not an independent validation. The SCAPS-extracted width (0.29 to 0.22~$\mu$m) sits an order of magnitude below the 2.2~$\mu$m absorber throughout (the parallel-plate check gives 0.17~$\mu$m at 0~V, consistent in order with extra deep-level capacitance unaccounted). The illuminated band diagram at short circuit (Figure~\ref{fig:eb}) exhibits clean quasi-Fermi splitting, and generation exceeds recombination by at least two orders of magnitude at every mesh point of the full 2.33~$\mu$m short-circuit profile (minimum ratio $\sim$3$\times10^2$ at $x\approx0.2$~$\mu$m near the back contact, rising above $10^5$ at both contacts; Figure~\ref{fig:gr}). All profile statements in this section are at short circuit; nothing here constrains the maximum-power or open-circuit regime.
 
 \begin{figure}[tbp]
 \centering
@@ -292,12 +312,12 @@ The quantum efficiency (Figure~\ref{fig:qe}) is flat at $\sim$89--90\% from 300~
 \label{fig:gr}
 \end{figure}
 
-Temperature dependence (Figure~\ref{fig:t}, Table~\ref{tab:temp}) follows the established trend~\cite{Hossain2023}: efficiency falls from 24.44\% at 275~K to 16.70\% at 475~K, driven by Voc (1.271 to 0.955~V) and FF while Jsc stays pinned at $\sim$21.19~mA/cm$^2$, i.e.\ $-0.16$\%/K relative ($-0.039$ points/K) over 300--400~K. The 275~K fill factor (90.75\%) sits \textit{below} Green's ideal-diode value at that Voc and temperature (90.86\%), so no artefact needs invoking; likewise the adopted champion's 89.97\% is within 0.12 points of ideal (90.09\%), leaving essentially no FF headroom beyond series resistance. The 475~K end of the sweep ignores the temperature dependence of $E_g$ and black-phase stability, so it is a solver stress test, not a prediction.
+Temperature dependence (Figure~\ref{fig:t}, Table~\ref{tab:temp}) follows the established trend~\cite{Hossain2023}: efficiency falls from 25.88\% at 275~K to 18.13\% at 475~K, driven by Voc (1.357 to 1.038~V) and FF while Jsc stays pinned at $\sim$21.20~mA/cm$^2$, i.e.\ $-0.16$\%/K relative ($-0.039$ points/K) over 300--400~K. The 275~K fill factor (89.96\%) sits \textit{below} Green's ideal-diode value at that Voc and temperature ($\sim$91.3\%), so no artefact needs invoking; likewise the joint optimum's 89.11\% is about 1.5 points below ideal (90.6\%), leaving genuine FF headroom short of series resistance. The 275~K Voc (1.357~V) sits just under the 300~K radiative limit (1.360~V; the 275~K limit is higher), so the screen holds across the sweep. The 475~K end of the sweep ignores the temperature dependence of $E_g$ and black-phase stability, so it is a solver stress test, not a prediction.
 
 \subsection{Parasitic-resistance accounting}
 
 \sloppy
-Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \texttt{scriptdescription3310.txt}). Computed scripted sweeps at the adopted base give 23.64\% at $R_s=0.5~\Omega$cm$^2$, \textbf{23.43\%} at $R_s=1~\Omega$cm$^2$, and 23.00\% at $R_s=2~\Omega$cm$^2$ (Table~\ref{tab:rs}), agreeing with the analytic derate to 0.02 points. Shunt paths cost 0.15 points at $R_{sh}=10^4~\Omega$cm$^2$ (23.69\%); combined $R_s=1$/$R_{sh}=10^4$ was not re-run at the adopted base and is omitted. The best point therefore survives realistic parasitics, but only just: at $R_s=2~\Omega$cm$^2$ the margin over the 22.02\% certified record is under one point.
+Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set external.Rs/Rsh}; \texttt{scriptdescription3310.txt}). Computed scripted sweeps at the joint-optimum base give 24.73\% at $R_s=0.5~\Omega$cm$^2$, \textbf{24.52\%} at $R_s=1~\Omega$cm$^2$, and 24.09\% at $R_s=2~\Omega$cm$^2$ (Table~\ref{tab:rs}), agreeing with the analytic derate to 0.02 points. Shunt paths cost 0.15 points at $R_{sh}=10^4~\Omega$cm$^2$ at the prior base; combined $R_s=1$/$R_{sh}=10^4$ at the joint optimum gives 24.38\%. The best point therefore survives parasitics, but only just: at $R_s=2~\Omega$cm$^2$ the margin over the 22.02\% certified record is about two points. At routine defects $R_s=1$ costs 0.40 points (20.82 to 20.42\%).
 
 \begin{figure}[tbp]
 \centering
@@ -308,17 +328,17 @@ Series and shunt resistances are scriptable in SCAPS~3.3.10 (\texttt{set externa
 
 \begin{table}[tbp]
 \centering
-\caption{Temperature dependence at the surveyed base (1 sun), not re-run at the adopted affinity: the 300~K row uses the fine-IV-step confirmatory run (23.49\%, \texttt{s12\_fine.json}); all other rows use coarse-grid sweep values.}
+\caption{Temperature dependence at the joint-optimum base (1 sun; T300 $=24.9464$).}
 \label{tab:temp}
 \begin{tabular}{|l|l|l|l|l|}
 \hline\hline
 T (K) & Voc (V) & Jsc (mA/cm$^2$) & FF (\%) & PCE (\%) \\
 \hline
-275 & 1.271 & 21.19 & 90.75 & 24.44 \\
-300 & 1.234 & 21.19 & 89.78 & 23.49 \\
-350 & 1.157 & 21.20 & 87.91 & 21.57 \\
-400 & 1.078 & 21.20 & 85.92 & 19.64 \\
-475 & 0.955 & 21.20 & 82.50 & 16.70 \\
+275 & 1.357 & 21.20 & 89.96 & 25.88 \\
+300 & 1.321 & 21.20 & 89.11 & 24.95 \\
+350 & 1.245 & 21.20 & 87.37 & 23.05 \\
+400 & 1.165 & 21.20 & 85.51 & 21.12 \\
+475 & 1.038 & 21.20 & 82.43 & 18.13 \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -326,39 +346,40 @@ T (K) & Voc (V) & Jsc (mA/cm$^2$) & FF (\%) & PCE (\%) \\
 
 \section{Interface dose--response and the limits of auditing others}
 
-Deleting the interface blocks inflates efficiency by 1.26--1.66 points absolute at the surveyed base (23.40 to 24.87\%, 23.47 to 24.73\%, 23.50 to 25.16\%), almost entirely through a $\sim$0.11~V Voc rise as interface recombination vanishes. But the binary ON/OFF comparison understates the audit: the full dose--response at the adopted base (Table~\ref{tab:ifdose}) runs 25.11\% at $10^8$~cm$^{-2}$, 24.77\% at $10^9$~cm$^{-2}$, 23.84\% at the $10^{10}$~cm$^{-2}$ guardrail, 22.62\% at $10^{11}$~cm$^{-2}$, and 21.20\% at $10^{12}$~cm$^{-2}$. The published 24.17\%~\cite{Nazli2025} and 24.24\%~\cite{Oyedele2023} values fall \textit{below} every no-interface value we computed (24.73--25.16\% across three surveyed-base cells; 25.16\% at the adopted base). Because their stacks, gaps, thicknesses and defect parameters all differ from ours, we do not map their numbers onto our curve; the dose--response is reported strictly as an own-cell result. We could not re-run either study from its published parameters (neither paper prints a complete parameter table), and we state this as a limitation rather than a finding. One no-interface cell (1.5~$\mu$m, Voc 1.382~V) breaches our 1.37~V screening ceiling and is flagged, not trusted.
+Deleting the interface blocks inflates efficiency by 1.26--1.66 points absolute at the surveyed base (23.40 to 24.87\%, 23.47 to 24.73\%, 23.50 to 25.16\%), almost entirely through a $\sim$0.11~V Voc rise as interface recombination vanishes. But the binary ON/OFF comparison understates the audit: the full dose--response at the prior adopted base (Table~\ref{tab:ifdose}) runs 25.11\% at $10^8$~cm$^{-2}$, 24.77\% at $10^9$~cm$^{-2}$, 23.84\% at the $10^{10}$~cm$^{-2}$ guardrail, 22.62\% at $10^{11}$~cm$^{-2}$, and 21.20\% at $10^{12}$~cm$^{-2}$. Because interface density and cross-section enter only as the product $N\sigma$, Table~\ref{tab:taus} restates the guardrailed regime in the portable metrics other studies can compare against: bulk lifetime $\tau=1/(\sigma v_{th}N_t)$ and interface velocity $S=\sigma v_{th}N_{if}$ (with $v_{th}=10^5$~m/s). Our guardrail is $\tau=100$~$\mu$s with $S=100$~cm/s. The decisive screen, however, is energetic, not parametric: the detailed-balance Voc computed from the model's own Eg-sqrt absorption is 1.360~V at 1.65~eV (1.407~V at 1.70~eV), and \textit{every} no-interface cell we computed (1.364--1.382~V) lies above that radiative limit---with $k_{rad}=0$ in the model there is nothing to pin the quasi-Fermi splitting, so the no-interface band is unphysical as a whole, not just its top cell. The published 24.17\%~\cite{Nazli2025} and 24.24\%~\cite{Oyedele2023} values are therefore not placed on our curve at all: their stacks, gaps, thicknesses and defect parameters all differ from ours, neither paper prints a complete parameter table from which $\tau$ or $S$ could be reconstructed, and we state this as a limitation rather than a finding.
 
 \subsection{Where the missing points go}
 
-The inflation is almost entirely a Voc effect ($+$0.11~V) with Jsc unchanged to within 0.02~mA/cm$^2$: removing the $10^{10}$~cm$^{-2}$ interface states eliminates the dominant SRH channel at the heterojunctions, unpinning the quasi-Fermi splitting. The no-interface Voc values (1.364--1.382~V); only the 1.5~$\mu$m cell (1.382~V) exceeds our 1.37~V $E_g$-implied screening ceiling, and it is flagged as unphysical rather than celebrated. Fill factor moves non-monotonically (89.8 to 87.0\% on the champion) as the recombination profile reshapes. The no-interface 87.0\% at Voc 1.364~V sits 3.7 points below Green's ideal (90.7\%): the archived JV curve stays flat to 1.16~V with no kink or S-shape, so there is no visible extraction barrier, but the knee remains SRH-rounded by the surviving bulk channel---removing interfaces unpins Voc without idealising the diode. This bounds the ``no extraction barriers'' claim to current collection, not to fill factor. Asymmetric tests show both heterojunctions matter: $10^{12}$~cm$^{-2}$ on the ETL side alone gives 21.35\%, on the HTL side alone 21.20\%. Raising the capture cross-section $10\times$ at fixed $N_{if}=10^{10}$~cm$^{-2}$ gives 22.2108\%, digit-identical to the $N\times10$ run at the same base (both 22.2108; receipts in Table~\ref{tab:runs}): for the symmetric single level, rate scales exactly with the $N\sigma$ product. The same identity holds in the bulk: $\sigma\times10$ at the $N_t$ floor gives 23.2572\% (digit-identical to $N_t\times10$ at the same base, $=23.2572$; receipts in Table~\ref{tab:runs}), a 0.25-point cost against the surveyed 23.5041 anchor. (A first attempt via \texttt{set ...capture\_cross\_section} instead restructured the block: applied to one interface it gave 23.8565\% (23.8565\% on one interface, 25.1494\% on both)---essentially the no-interface value---so the set-key route neutralises rather than scales, and only the verified definition-file variant is reported; Appendix~A documents this second scripting trap and a set-then-\texttt{get} verification rule. Bulk $N_t\times\sigma$ costs 0.25 points at the $10^{12}$~cm$^{-3}$ floor but 3.12 points at routine $10^{15}$~cm$^{-3}$ (20.5603\% at matched $\sigma\times1$ geometry down to 17.4433\%), while $\sigma\times0.1$ at the floor gains only 0.04 points (23.53\%)---the floor is saturated.) The computed parasitic sweep at the adopted base is tabulated below.
+The inflation is almost entirely a Voc effect ($+$0.11~V) with Jsc unchanged to within 0.02~mA/cm$^2$: removing the $10^{10}$~cm$^{-2}$ interface states eliminates the dominant SRH channel at the heterojunctions, unpinning the quasi-Fermi splitting. The no-interface Voc values (1.364--1.382~V) \textit{all} exceed the 1.360~V detailed-balance limit computed from the model's own absorption: with $k_{rad}=0$ there is no radiative channel to pin the splitting, so every no-interface cell is unphysical and none is trusted, regardless of rank order. Fill factor moves non-monotonically (89.8 to 87.0\% on the prior adopted champion) as the recombination profile reshapes. The no-interface 87.0\% at Voc 1.364~V sits 3.7 points below Green's ideal (90.7\%): the archived JV curve stays flat to 1.16~V with no kink or S-shape, so there is no visible extraction barrier, but the knee remains SRH-rounded by the surviving bulk channel---removing interfaces unpins Voc without idealising the diode. This bounds the ``no extraction barriers'' claim to current collection, not to fill factor. Asymmetric tests show both heterojunctions matter: $10^{12}$~cm$^{-2}$ on the ETL side alone gives 21.35\%, on the HTL side alone 21.20\%. Raising the capture cross-section $10\times$ at fixed $N_{if}=10^{10}$~cm$^{-2}$ gives 22.2108\%, digit-identical to the $N\times10$ run at the same base (both 22.2108; receipts in Table~\ref{tab:runs}): for the symmetric single level, rate scales exactly with the $N\sigma$ product. The same identity holds in the bulk: $\sigma\times10$ at the $N_t$ floor gives 23.2572\% (digit-identical to $N_t\times10$ at the same base, $=23.2572$; receipts in Table~\ref{tab:runs}), a 0.25-point cost against the surveyed 23.5041 anchor. (A first attempt via the script \texttt{set} key for $\sigma$ neutralised the interfaces instead of scaling them; only the verified definition-file variant is reported---see Appendix~A.) Bulk $N_t\times\sigma$ costs 0.25 points at the $10^{12}$~cm$^{-3}$ floor but 3.12 points at routine $10^{15}$~cm$^{-3}$ (20.5603\% at matched $\sigma\times1$ geometry down to 17.4433\%), while $\sigma\times0.1$ at the floor gains only 0.04 points (23.53\%)---the floor is saturated.) The computed parasitic sweep at the adopted base is tabulated below.
 
 \begin{table}[tbp]
 \centering
-\caption{Best point under computed scripted parasitics (adopted base; all values computed, none derated).}
+\caption{Best point under computed scripted parasitics (joint-optimum base; all values computed, none derated).}
 \label{tab:rs}
+\resizebox{\linewidth}{!}{%
 \begin{tabular}{|l|l|l|l|}
 \hline\hline
 Parasitics & PCE (\%) & vs 22.02\% cert. & Status \\
 \hline
-$R_s=0$ (box maximum) & 23.84 & +1.82 & SCAPS box maximum \\
-$R_s=0.5~\Omega$cm$^2$ & 23.64 & +1.62 & realistic good contact \\
-$R_s=1~\Omega$cm$^2$ & 23.43 & +1.41 & realistic typical \\
-$R_s=2~\Omega$cm$^2$ & 23.00 & +0.98 & margin nearly gone \\
-$R_{sh}=10^4~\Omega$cm$^2$ & 23.69 & +1.67 & mild shunt \\
+$R_s=0$ (box maximum) & 24.95 & +2.93 & SCAPS box maximum \\
+$R_s=0.5~\Omega$cm$^2$ & 24.73 & +2.71 & optimistic good contact \\
+$R_s=1~\Omega$cm$^2$ & 24.52 & +2.50 & optimistic; ITO sheet resistance is typically higher \\
+$R_s=2~\Omega$cm$^2$ & 24.09 & +2.07 & margin narrowing \\
+$R_s=1$/$R_{sh}=10^4$ combined & 24.38 & +2.36 & computed, joint base \\
 \hline\hline
-\end{tabular}
+\end{tabular}}
 \end{table}
 
 \begin{figure}[tbp]
 \centering
 \includegraphics[width=0.8\textwidth]{/home/touhid/Documents/leadpaper/outputs/figs/fig_audit.png}
-\caption{Same cell at graded interface quality: efficiency vs $N_{if}$ (both sides) with the literature 24.17/24.24\% scale bar and the no-interface point. The bar is shown for scale only; cross-stack mapping is not claimed.}
+\caption{Same cell at graded interface quality: efficiency vs $N_{if}$ (both sides). No literature scale bar is shown: cross-stack mapping is not claimed (Section~7.0).}
 \label{fig:audit}
 \end{figure}
 
 \begin{table}[tbp]
 \centering
-\caption{Interface dose--response (adopted base unless noted; both sides unless noted).}
+\caption{Interface dose--response (prior adopted base unless noted; both sides unless noted).}
 \label{tab:ifdose}
 \begin{tabular}{|l|l|l|}
 \hline\hline
@@ -366,13 +387,31 @@ $N_{if}$ (cm$^{-2}$) & PCE (\%) & Note \\
 \hline
 $10^8$ & 25.11 & -- \\
 $10^9$ & 24.77 & -- \\
-$10^{10}$ (guardrail) & 23.84 & this work \\
+$10^{10}$ (guardrail) & 23.84 & prior adopted base \\
 $10^{11}$ & 22.62 & -- \\
 $10^{12}$ & 21.20 & -- \\
 $10^{12}$ ETL side only & 21.35 & surveyed base \\
 $10^{12}$ HTL side only & 21.20 & surveyed base \\
 $10^{10}$, $\sigma\times10$ (verified) & 22.21 & matches $N\times10$ (rate $\propto N\sigma$) \\
-removed (noIF) & 25.16 & near $E_g$-implied Voc ceiling \\
+removed (noIF) & 25.16 & above detailed-balance Voc: unphysical \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[tbp]
+\centering
+\caption{Guardrailed regime in portable metrics ($\sigma=10^{-19}$~m$^2$, $v_{th}=10^5$~m/s): bulk lifetime $\tau$ and interface velocity $S$.}
+\label{tab:taus}
+\begin{tabular}{|l|l|l|}
+\hline\hline
+Density & $\tau$ / $S$ & Note \\
+\hline
+$N_t=10^{12}$~cm$^{-3}$ (floor) & $\tau=100$~$\mu$s & 1--2 orders beyond best films \\
+$N_t=10^{13}$~cm$^{-3}$ & $\tau=10$~$\mu$s & -- \\
+$N_t=10^{14}$~cm$^{-3}$ & $\tau=1$~$\mu$s & -- \\
+$N_t=10^{15}$~cm$^{-3}$ (routine) & $\tau=0.1$~$\mu$s & routine case \\
+$N_{if}=10^{10}$~cm$^{-2}$ (guardrail) & $S=100$~cm/s & floor of stated box \\
+$N_{if}=10^{11}$~cm$^{-2}$ & $S=1000$~cm/s & -- \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -395,7 +434,7 @@ Champion (surveyed base) & 23.50 & 25.16 & +1.66 \\
 
 \section{Morris sensitivity screening}
 
-Grid methods with uneven ranges cannot rank physical importance, so we ran a Morris sensitivity screen instead: $r=8$ trajectories, $p=4$ levels, $k=6$ factors (absorber thickness, $\log N_A$, $\log N_t$, $\log N_{D,ETL}$, $E_g$ with the $\chi$ link applied deterministically, and $\log N_{if}$ tied on both interfaces), 56 fresh simulations, all converged, spanning 15.6--23.4\% (Table~\ref{tab:morris}, Figure~\ref{fig:morris}). Per decade, interface quality leads at 1.02 points (bootstrap 95\% CI [0.84, 1.22]) ahead of bulk defect density at 0.68 (CI [0.35, 0.99])---intervals that \textbf{overlap}, so with $n=8$ the two are not statistically separated; per eV, bandgap moves 17.5 points; per $\mu$m, thickness 0.72. These per-unit numbers are not commensurable across units, and the interface figure bundles both heterojunctions and depends on the chosen 4-decade range, so the ranking is regime- and range-conditional, not a universal variance share. The decisive test is the same dose--response repeated at routine defects: at $N_t=10^{15}$~cm$^{-3}$ and 1.0~$\mu$m, $N_{if}$ 10$^9$--$10^{11}$~cm$^{-2}$ moves efficiency only from 20.84\% to 20.67\% (0.16 points over two decades), while the $N_t$ 10$^{14}$--$10^{15}$ step costs far more. At the defect floor interfaces dominate; at routine defects bulk defects do. The large $\sigma$ values and the $N_t$ dose nonlinearity (steepest above 10$^{14}$) agree. Two disclosures: $E_g$ moves together with $\chi$ by construction, and the two interfaces move together. As corroboration without new simulations, a random-forest surrogate trained on all 190 standard-base runs (OOB $R^2=0.93$) with Saltelli sampling gives total-order indices $S_T=0.52$ (interfaces), 0.33 (bulk defects), 0.24 ($E_g$)---the same ordering as Morris $\mu^*$. Trap depth is a non-factor at this defect level: moving $E_t$ to 0.3 or 0.9~eV changes efficiency by at most 0.013 points (23.8259\% and 23.8241\% against 23.8365\%).
+Grid methods with uneven ranges cannot rank physical importance, so we ran a Morris sensitivity screen instead: $r=8$ trajectories, $p=4$ levels, $k=6$ factors (absorber thickness, $\log N_A$, $\log N_t$, $\log N_{D,ETL}$, $E_g$ with the $\chi$ link applied deterministically, and $\log N_{if}$ tied on both interfaces), 56 fresh simulations, all converged, spanning 15.6--23.4\% (Table~\ref{tab:morris}, Figure~\ref{fig:morris}). Per decade, interface quality leads at 1.02 points (bootstrap 95\% CI [0.84, 1.22]) ahead of bulk defect density at 0.68 (CI [0.35, 0.99]). Because marginal intervals overlap, we ran the sharper paired test the design allows: the per-trajectory difference $|EE_{Nif}|-|EE_{Nt}|$ averages $+$2.03 points with a bootstrap 95\% CI of [0.70, 3.51] (6 of 8 trajectories positive)---interfaces genuinely lead \textit{within the defect-floor regime}. Per eV, bandgap moves 17.5 points; per $\mu$m, thickness 0.72. These per-unit numbers are not commensurable across units, the interface figure bundles both heterojunctions over a 4-decade range against 3 for bulk, and---crucially---the $E_g$ factor confounds gap with band offset, since the $\chi$ link assigns half of every gap step to the conduction band while Section~5.0 shows alignment alone moves efficiency by several points. The gap-step pattern betrays the confounding: 1.65 to 1.68~eV costs 1.13 points but 1.68 to 1.70~eV only 0.19 (and 1.70 to 1.72~eV costs 0.93), tracking the $E_a$ landscape rather than the absorption edge. The random-forest/Saltelli corroboration ($S_T=0.52$ interfaces, 0.33 bulk, 0.24 $E_g$; OOB $R^2=0.93$) is reported with the caveat that it is \textit{not} independent evidence: the surrogate trains on all 190 standard-base runs including the Morris design itself, so its indices partly reflect the sampling design. The decisive test remains the dose--response repeated at routine defects: at $N_t=10^{15}$~cm$^{-3}$ and 1.0~$\mu$m, $N_{if}$ 10$^9$--$10^{11}$~cm$^{-2}$ moves efficiency only from 20.84\% to 20.67\% (0.16 points over two decades), while the $N_t$ 10$^{14}$--$10^{15}$ step costs far more. At the defect floor interfaces dominate; at routine defects bulk defects do. Trap depth is a non-factor at this defect level: moving $E_t$ to 0.3 or 0.9~eV changes efficiency by at most 0.013 points (23.8259\% and 23.8241\% against 23.8365\%).
 
 \begin{table}[tbp]
 \centering
@@ -435,7 +474,7 @@ $10^{10}$ (guardrail) & 20.82 & -- & surveyed $\chi$ \\
 $10^{11}$ & 20.67 & $-0.147$ & surveyed $\chi$ \\
 $10^{10}$, ITO 4.4~eV & 20.68 & $-0.14$ & surveyed $\chi$ \\
 $10^{10}$, ITO 4.4~eV & 18.11 & $-2.73$ & adopted $\chi$ \\
-$10^{10}$, $R_s=1~\Omega$cm$^2$ & -- & -- & not run \\
+$10^{10}$, $R_s=1~\Omega$cm$^2$ & 20.42 & $-0.40$ & surveyed $\chi$; computed (s14) \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -450,24 +489,62 @@ Interface-led sensitivity is consistent with passivation studies in which interf
 
 \section{Discussion}
 
-Fabrication plausibility bounds the result, and the computed sweeps price each term. $N_A=3\times10^{16}$~cm$^{-3}$ is routinely achievable; $E_g=1.65$~eV sits below the $\sim$1.7~eV of the experimental records and contributes roughly one point (best 1.694~eV grid point: 22.51\%); $N_t=10^{12}$~cm$^{-3}$ demands near-single-crystal quality ($\tau_{\mathrm{SRH}}\approx100$~$\mu$s). The contacts are load-bearing (both surveyed base): Ni 5.5 to 5.0~eV costs 0.23 points, and ITO 4.0 to 4.7~eV collapses the cell to 18.60\% (Voc 1.08~V)---SCAPS's thermionic-only contact boundary, so 4.0~eV is the edge of what this model tolerates rather than a typical ITO value; the routine-defect penalty is larger still, with ITO 4.4~eV costing 0.14 points at surveyed $\chi$ (20.82 to 20.68\%) but 2.73 points at adopted $\chi$ (20.84 to 18.11\%): the front-contact tolerance window itself shifts with ETL affinity (Table~\ref{tab:real}). Both affinity sweeps move efficiency through the interface activation energy rather than transport: $\chi_{\mathrm{CBTS}}$ 3.4 to 3.8~eV gives 20.22 to 23.81\%, and $\chi_{\mathrm{TiO2}}$ 3.8 to 4.2~eV gives 23.84 to 19.87\% (surveyed-$\chi$ Round-B anchor 23.50\%). At routine settings the model gives 20.82\% (1.0~$\mu$m, $N_t=10^{15}$~cm$^{-3}$, surveyed $\chi$), 20.68\% with ITO at 4.4~eV on the same base, and 18.11\% when that ITO is combined with the adopted $\chi_{\mathrm{TiO2}}$. Against experiment: 23.84\% exceeds the 22.02\% certified record by 1.82 points and the 22.60\% laboratory value by 1.24 points; with computed $R_s=1~\Omega$cm$^2$ (23.43\%) the margins are 1.41 and 0.83 points, and at the attainable gap the model gives 22.70\% ($E_g=1.68$~eV), 22.51\% ($E_g=1.70$~eV) and 21.59\% ($E_g=1.72$~eV), with 22.12\% at $R_s=1~\Omega$cm$^2$ ($E_g=1.70$~eV). The result sits at about three-quarters of the $\sim$30--31\% Shockley--Queisser limit at 1.65~eV.
+Fabrication plausibility bounds the result, and the computed sweeps price each term. $N_A=3\times10^{16}$~cm$^{-3}$ is routinely achievable; $E_g=1.65$~eV sits below the $\sim$1.7~eV of the experimental records and contributes roughly one point (best 1.694~eV grid point: 22.506\%); $N_t=10^{12}$~cm$^{-3}$ demands near-single-crystal quality ($\tau_{\mathrm{SRH}}\approx100$~$\mu$s, Table~\ref{tab:taus}). The contacts are load-bearing (both surveyed base): Ni 5.5 to 5.0~eV costs 0.23 points, and ITO 4.0 to 4.7~eV collapses the cell to 18.60\% (Voc 1.08~V)---SCAPS's thermionic-only contact boundary, so 4.0~eV is the edge of what this model tolerates rather than a typical ITO value; the routine-defect penalty is larger still, with ITO 4.4~eV costing 0.14 points at surveyed $\chi$ (20.82 to 20.68\%) but 2.73 points at adopted $\chi$ (20.84 to 18.11\%): the front-contact tolerance window itself shifts with ETL affinity (Table~\ref{tab:real}). Both optimum affinities are aggressive ($\chi_{\mathrm{TiO2}}=3.7$ below the typical 4.0--4.2~eV window; $\chi_{\mathrm{CBTS}}=3.9$ above the surveyed 3.6~eV) and move efficiency through the interface activation energy rather than transport (Table~\ref{tab:chia}). At routine settings the model gives 20.82\% (1.0~$\mu$m, $N_t=10^{15}$~cm$^{-3}$, surveyed $\chi$), 20.68\% with ITO at 4.4~eV on the same base, 18.11\% when that ITO is combined with the adopted $\chi_{\mathrm{TiO2}}$, and 20.42\% with $R_s=1~\Omega$cm$^2$. Against experiment (Table~\ref{tab:loss}): 24.95\% exceeds the 22.02\% certified record by 2.93 points; the excess over the best measured devices comes mostly from fill factor ($\sim$89\% simulated against $\sim$83\% measured) and the low gap, not from voltage---our Voc deficit (0.33~V against $E_g/q$, 0.04~V against the radiative limit) is comparable to the 1.27--1.29~V record devices. With computed $R_s=1~\Omega$cm$^2$ (24.52\%) the margin is 2.50 points, and at attainable gaps on the joint-optimum base the model gives 24.44\% ($E_g=1.68$~eV), 24.73\% ($E_g=1.70$~eV) and 24.28\% ($E_g=1.72$~eV), with 24.34\% at $R_s=1~\Omega$cm$^2$ ($E_g=1.70$~eV; $\chi_{\mathrm{CBTS}}=3.9$/$\chi_{\mathrm{TiO2}}=3.7$, ITO 4.0~eV throughout). The non-monotonic 1.68-to-1.70 step ($+$0.29 points) is the $E_a$ confounding of Section~8.0, not an absorption effect. The result sits at about four-fifths of the $\sim$30--31\% Shockley--Queisser limit at 1.65~eV. A final calibration note: integrating the computed QE against the AM1.5G spectrum gives 22.37~mA/cm$^2$ against the 21.20~mA/cm$^2$ IV value---a 1.17~mA/cm$^2$ gap we report as Jsc uncertainty (headline Jsc uses the conservative IV value) alongside the $\sim$1~mA/cm$^2$ UV envelope.
+
+\begin{table}[tbp]
+\centering
+\caption{Loss budget: joint optimum against measured record devices and model limits. FF is where the simulation exceeds experiment, not Voc.}
+\label{tab:loss}
+\begin{tabular}{|l|l|l|l|l|}
+\hline\hline
+Device & Voc (V) & Jsc (mA/cm$^2$) & FF (\%) & PCE (\%) \\
+\hline
+This work (joint optimum) & 1.321 & 21.20 & 89.11 & 24.95 \\
+AP-modified CsPbI3~\cite{Lei2025} & 1.29 & 20.77 & 83.01 & 22.16 \\
+QD-interface CsPbI3~\cite{XuQD2026} & 1.28 & -- & -- & 22.15 \\
+Dual-interface CsPbI3~\cite{Zhang2026} & 1.27 & -- & -- & 21.71 \\
+Carbon HTL-free (cert.\ 20.35) & 1.202 & 20.72 & 83.2 & 20.72 \\
+Radiative limit (this model) & 1.360 & $\sim$25.3 & $\sim$90.6 & $\sim$31 \\
+\hline\hline
+\end{tabular}
+\end{table}
 
 
 \section{Limitations and outlook}
 
 A laboratory translation would need, simultaneously: $\sim$1.0~$\mu$m CsPbI3 films at routine defect levels for the 20.82\% case (time-resolved photoluminescence verified), interface passivation toward $10^{10}$~cm$^{-2}$ following the fluorinated-dipole~\cite{Qiu2025} or dual-interface~\cite{Zhang2026} chemistries, a front contact near 4.0~eV, and $R_s\le1~\Omega$cm$^2$ (Table~\ref{tab:rs}). Not demonstrated here: 2.2~$\mu$m device-quality CsPbI3 at $N_t\sim10^{12}$~cm$^{-3}$, and sputtered CBTS directly on CsPbI3 (CBTS typically requires high-temperature sulfurisation), for which we found no precedent---so this section is a requirements list, not a recipe. In-line controls, where applicable: QE edge at 752~nm (Figure~\ref{fig:qe}) and the $-0.16$\%/K temperature coefficient (Table~\ref{tab:temp}).
 
-Five boundaries delimit this work. First, $N_t=10^{12}$~cm$^{-3}$ at 2.2~$\mu$m demands near-single-crystal films, and with the modelled $\sigma=10^{-19}$~m$^2$ implies $\tau_{\mathrm{SRH}}\approx100$~$\mu$s, one to two orders beyond the best reported perovskite films; at routine $10^{15}$~cm$^{-3}$ a dedicated sweep peaks at 20.82\% (1.0~$\mu$m), 20.68\% with ITO at 4.4~eV on the surveyed base, and 18.11\% when that ITO meets the adopted $\chi_{\mathrm{TiO2}}$. Second, the contacts (Ni 5.5~eV, ITO 4.0~eV), the adopted $\chi_{\mathrm{TiO2}}=3.8$~eV, and the shallow off-window hole-side offset (+0.08~eV) are stated-box choices, each priced in Section~9.0. Third, phase stability of black CsPbI3 against the yellow $\delta$-phase, ion migration, $E_g(T)$, and damp-heat degradation are outside SCAPS-1D steady-state scope and must be validated experimentally, following the passivation routes of~\cite{Qiu2025,Zhang2026,Dai2026}. Fourth, the grid is a screen, not an optimiser: the best point sits at the corner of the allowed box and the leading cluster is numerically inseparable. Fifth, the single-junction ceiling ($\sim$30\% at 1.65~eV~\cite{SQ1961}) caps how far any interface-inclusive screening can go.
+Five boundaries delimit this work. First, $N_t=10^{12}$~cm$^{-3}$ at 2.2~$\mu$m demands near-single-crystal films, and with the modelled $\sigma=10^{-19}$~m$^2$ implies $\tau_{\mathrm{SRH}}\approx100$~$\mu$s, one to two orders beyond the best reported perovskite films; at routine $10^{15}$~cm$^{-3}$ a dedicated sweep peaks at 20.82\% (1.0~$\mu$m), 20.68\% with ITO at 4.4~eV on the surveyed base, 18.11\% when that ITO meets the adopted $\chi_{\mathrm{TiO2}}$, and 20.42\% with $R_s=1~\Omega$cm$^2$. Second, the contacts (Ni 5.5~eV, ITO 4.0~eV), the joint-optimum affinities ($\chi_{\mathrm{CBTS}}=3.9$/$\chi_{\mathrm{TiO2}}=3.7$~eV, both outside surveyed/typical ranges), and the barrier-side hole offset (+0.22~eV) are permissive-edge stated-box choices, each priced in Section~9.0. Third, phase stability of black CsPbI3 against the yellow $\delta$-phase, ion migration, $E_g(T)$, and damp-heat degradation are outside SCAPS-1D steady-state scope and must be validated experimentally, following the passivation routes of~\cite{Qiu2025,Zhang2026,Dai2026}. Fourth, the grid is a screen plus a 104-configuration optimiser, not a proven global optimum: the best point sits at the corner of the allowed box, the optimiser peaks 1.87 points below it, and the leading cluster is numerically inseparable. Fifth, the single-junction ceiling ($\sim$30\% at 1.65~eV~\cite{SQ1961}) caps how far any interface-inclusive screening can go.
 
 \section{Conclusion}
 
-Grid screening under interface-inclusive guardrails finds a 23.84\%-efficient best point in the stated CsPbI3/CBTS box and 20.82\% at routine defect levels, with every load-bearing assumption priced by computed sweep: single-crystal-grade defects, a low gap, a work-function-tuned front contact, and post-hoc affinity adoption. The same campaign prices the routine-defect thickness optimum, shows the interface dose--response to be regime-dependent (dominant at the defect floor, nearly flat at routine defects), replaces an analytic resistance derate with scripted parasitic sweeps, and validates the doping by Mott--Schottky extraction. We recommend guardrailed reporting (interface status \textit{with} dose level and defect level, defect floors \textit{with} cross-sections, unit-system declaration, Rs basis, contact work functions, affinity choices) as a publication standard for SCAPS studies.
+Grid screening under interface-inclusive guardrails finds a 24.95\%-efficient best point in the stated CsPbI3/CBTS box and 20.82\% at routine defect levels, with every load-bearing assumption priced by computed sweep: single-crystal-grade defects, a low gap, a work-function-tuned front contact, and joint affinity optimisation at aggressive values. A 104-configuration optimiser confirms the grid champion from below. The same campaign prices the routine-defect thickness optimum, shows the interface dose--response to be regime-dependent (leading at the defect floor by a paired 2.03 points, nearly flat at routine defects), replaces an analytic resistance derate with scripted parasitic sweeps, checks the doping by Mott--Schottky self-consistency, and bounds the result by a model-derived radiative Voc that rules out the no-interface band wholesale. Table~\ref{tab:checklist} states the reporting standard as a concrete checklist. We recommend guardrailed reporting (interface status \textit{with} dose level and defect level, defect floors \textit{with} cross-sections, unit-system declaration, Rs basis, contact work functions, affinity choices) as a publication standard for SCAPS studies.
+
+\begin{table}[tbp]
+\centering
+\caption{Guardrailed-reporting checklist: the minimum disclosure for a comparable SCAPS claim.}
+\label{tab:checklist}
+\begin{tabular}{|l|l|l|}
+\hline\hline
+Item & Disclose & This work \\
+\hline
+Interfaces & status + $N_{if}$ + $\sigma$ (or $S$) & $10^{10}$~cm$^{-2}$, $10^{-19}$~m$^2$ ($S=100$~cm/s) \\
+Bulk defects & $N_t$ + $\sigma$ (or $\tau$) & $10^{12}$~cm$^{-3}$ (100~$\mu$s); routine $10^{15}$ \\
+Units & script vs definition-file systems & Appendix~A (two traps documented) \\
+Parasitics & $R_s$/$R_{sh}$ basis, computed vs analytic & scripted; routine case included \\
+Contacts & both work functions & Ni 5.5 / ITO 4.0~eV, priced \\
+Affinities & surveyed vs adopted $\chi$ & joint optimum, priced \\
+Radiative screen & model-derived Voc limit & 1.360~V at 1.65~eV \\
+Receipts & definition files + raw outputs & public repository \\
+\hline\hline
+\end{tabular}
+\end{table}
 
 
 \section*{Data availability}
 
 \sloppy
-All definition files (\texttt{csPbI3-CBTS-r7.def} with interfaces, \texttt{csPbI3-CBTS-noIF.def} without, plus work-function and cross-section variants), sweep receipts (\texttt{roundA.jsonl}, \texttt{roundB.jsonl}, \texttt{char.jsonl}, \texttt{s0\_verify.json}, \texttt{s1\_dose.json}, \texttt{s4\_sig.json}, \texttt{s5\_morris.jsonl}, \texttt{s7\_r3.json}, \texttt{s8\_champ38.json}, \texttt{s9\_nt15base.json}, \texttt{s10\_r4.json}, \texttt{s12\_fine.json}, \texttt{sobol\_surrogate.json}), raw curves (\texttt{champion\_JV.json}, \texttt{noIF\_JV.json}), analysis outputs and figure scripts are archived in the public repository
+All definition files (\texttt{csPbI3-CBTS-r7.def} with interfaces, \texttt{csPbI3-CBTS-noIF.def} without, plus work-function and cross-section variants), sweep receipts (\texttt{roundA.jsonl}, \texttt{roundB.jsonl}, \texttt{char.jsonl}, \texttt{s0\_verify.json}, \texttt{s1\_dose.json}, \texttt{s4\_sig.json}, \texttt{s5\_morris.jsonl}, \texttt{s7\_r3.json}, \texttt{s8\_champ38.json}, \texttt{s9\_nt15base.json}, \texttt{s10\_r4.json}, \texttt{s11\_joint\_chi.json}, \texttt{s12\_fine.json}, \texttt{s13\_opt.json}, \texttt{s13\_analysis.json}, \texttt{s14.json}, \texttt{s16.json}, \texttt{s17.json}, \texttt{sobol\_surrogate.json}), raw curves (\texttt{champion\_JV.json}, \texttt{noIF\_JV.json}, \texttt{adopted\_qe\_raw.txt}), analysis outputs and figure scripts are archived in the public repository
 \url{https://github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed}
 (inventory in Table~\ref{tab:runs}; directories \texttt{defs/}, \texttt{outputs/}, \texttt{receipts/}, \texttt{scripts/}, \texttt{manuscript/}). Reference PDFs under \texttt{sources/} are copyrighted and listed in \mbox{REFERENCES.md} instead.
 
@@ -516,9 +593,12 @@ Affinity adoption ($\chi_{\mathrm{TiO2}}$) + adopted-base anchors & 12 & \texttt
 Morris bootstrap intervals & 5000 resamples & \texttt{s5\_morris\_ci.json} \\
 Routine-defect $\sigma\times1$ baseline & 1 & \texttt{s9\_nt15base.json} \\
 Attainable gap + $E_t$ sweep & 6 & \texttt{s10\_r4.json} \\
-Routine-defect $\sigma\times1$ baseline & 1 & \texttt{s9\_nt15base.json} \\
-Attainable gap + $E_t$ sweep & 6 & \texttt{s10\_r4.json} \\
 Fine-IV confirmatory (surveyed base) & 1 & \texttt{s12\_fine.json} \\
+Joint affinities + ITO/Ni & 52 (3 worker retries) & \texttt{s11\_joint\_chi.json} \\
+Box optimiser (LHS + pattern) & 104 (9 worker-file misses) & \texttt{s13\_opt.json} \\
+Paired Morris bootstrap + $\tau$/$S$ & analysis only & \texttt{s13\_analysis.json} \\
+Routine Rs + adopted Rs/Rsh + QE & 3 & \texttt{s14.json} + \texttt{adopted\_qe\_raw.txt} \\
+Affinity-peak extension + new-base T/Eg/Rs & 22+6 (3 solo reruns) & \texttt{s16.json} + \texttt{s17.json} \\
 Sobol-on-surrogate & RF, $N=4096$ Saltelli & \texttt{sobol\_surrogate.json} \\
 \hline\hline
 \end{tabular}}

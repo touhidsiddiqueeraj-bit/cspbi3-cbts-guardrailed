@@ -1,0 +1,117 @@
+{
+ "T350": {
+  "d": {
+   "Voc": 1.244609,
+   "Jsc": 21.19755589,
+   "FF": 87.3673,
+   "eta": 23.0498
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7
+  }
+ },
+ "T400": {
+  "d": {
+   "Voc": 1.164935,
+   "Jsc": 21.19769559,
+   "FF": 85.5099,
+   "eta": 21.1158
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7
+  }
+ },
+ "T300": {
+  "d": {
+   "Voc": 1.320708,
+   "Jsc": 21.19740913,
+   "FF": 89.1083,
+   "eta": 24.9464
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7
+  }
+ },
+ "T275": {
+  "d": {
+   "Voc": 1.357113,
+   "Jsc": 21.19733337,
+   "FF": 89.9633,
+   "eta": 25.8799
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7
+  }
+ },
+ "T475": {
+  "d": {
+   "Voc": 1.037605,
+   "Jsc": 21.197886,
+   "FF": 82.4288,
+   "eta": 18.1302
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7
+  }
+ },
+ "N_eg170_rs1": {
+  "d": {
+   "Voc": 1.365176,
+   "Jsc": 20.23237967,
+   "FF": 88.1261,
+   "eta": 24.3411
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.943,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7,
+   "external.Rs": 1
+  }
+ }
+}
