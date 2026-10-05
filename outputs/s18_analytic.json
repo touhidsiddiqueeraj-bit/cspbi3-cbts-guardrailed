@@ -1,0 +1,23 @@
+{
+ "db_voc_Eg1.65": {
+  "J0_A_per_m2": 1.952027454397479e-21,
+  "Voc_V": 1.3712,
+  "absorptance": "single pass, opaque Ni"
+ },
+ "db_voc_Eg1.7": {
+  "J0_A_per_m2": 2.9923734675048334e-22,
+  "Voc_V": 1.4184,
+  "absorptance": "single pass, opaque Ni"
+ },
+ "qe_integral": {
+  "Jsc_integrated_mA_cm2": 22.39,
+  "Jsc_IV_mA_cm2": 21.1974,
+  "gap_mA_cm2": 1.19,
+  "plateau_350_700": 0.903,
+  "n_points": 56,
+  "spectrum": "/home/touhid/.wine/drive_c/Program Files (x86)/Scaps3309/spectrum/AM1_5G 1 sun.spe"
+ },
+ "sq_jsc_Eg165_mA_cm2": 39.2,
+ "green_ff_V1.357113_T275": 91.35,
+ "green_ff_V1.320708_T300": 90.54
+}
