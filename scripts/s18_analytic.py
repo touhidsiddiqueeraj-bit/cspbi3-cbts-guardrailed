@@ -84,7 +84,7 @@ for wl, Pw in spe:
     J += Pw * scale * (wl * 1e-9) / (H * C)
 OUT["sq_jsc_Eg165_mA_cm2"] = round(float(J * Q * 0.1), 1)
 # Green's ideal single-diode FF: (v - V_T ln(v/V_T + 1)) / (v + V_T)
-for v, t in [(1.357113, 275), (1.320708, 300)]:
+for v, t in [(1.357113, 275), (1.320708, 300), (1.363445, 300)]:
     VT = 0.025692 * (t / 300.0)
     FF = (v - VT * np.log(v / VT + 1)) / (v + VT) * 100
     OUT[f"green_ff_V{v}_T{t}"] = round(float(FF), 2)
