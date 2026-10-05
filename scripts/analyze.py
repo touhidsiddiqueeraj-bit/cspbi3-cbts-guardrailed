@@ -27,7 +27,7 @@ for k, lab in [("cv_base", "baseline"), ("cv_champ", "champion")]:
     V = np.array(d["V"]); C = np.array(d["C"])
     ax[0].plot(V, C, label=lab)
     ax[1].plot(V, 1 / np.array(C) ** 2, label=lab)
-ax[0].set(xlabel="V (V)", ylabel="C (nF/cm$^2$)"); ax[1].set(xlabel="V (V)", ylabel="1/$C^2$ (cm$^4$/F$^2$)")
+ax[0].set(xlabel="V (V)", ylabel="C (nF/cm$^2$)"); ax[1].set(xlabel="V (V)", ylabel="1/$C^2$ (cm$^4$/nF$^2$)")
 for a in ax: a.legend(); a.grid(True)
 fig.suptitle("C-V (1 MHz) and Mott-Schottky"); fig.savefig(FIG / "fig_CV_MS.png", dpi=100)
 
