@@ -1,0 +1,44 @@
+{
+ "J_if1e10_explicit": {
+  "d": {
+   "Voc": 1.320708,
+   "Jsc": 21.19740913,
+   "FF": 89.1083,
+   "eta": 24.9464
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7,
+   "interface1.IFdefect1.Ntotal": 10000000000.0,
+   "interface2.IFdefect1.Ntotal": 10000000000.0
+  }
+ },
+ "J_if1e11": {
+  "d": {
+   "Voc": 1.270788,
+   "Jsc": 21.19632296,
+   "FF": 89.9826,
+   "eta": 24.2377
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 2.2,
+   "layer2.NA": 3e+16,
+   "layer2.defect1.Ntotal": 1000000000000.0,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.65,
+   "layer2.chi": 3.928,
+   "layer1.chi": 3.9,
+   "layer3.chi": 3.7,
+   "interface1.IFdefect1.Ntotal": 100000000000.0,
+   "interface2.IFdefect1.Ntotal": 100000000000.0
+  }
+ }
+}
