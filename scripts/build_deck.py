@@ -1,4 +1,4 @@
-"""Build record-race-deck.pptx: 20 slides, 16:9, notes, embedded graphs."""
+"""Build record-race-deck.pptx: 20 slides, plain language, 16:9, notes, embedded graphs."""
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from pptx.enum.text import PP_ALIGN
@@ -80,80 +80,82 @@ def note(s, text):
     s.notes_slide.notes_text_frame.text = text
 
 
-S = []
 # 1
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "CsPbI3 perovskites · simulation audit · group seminar",
+title(s, "Solar cells · computer models · group seminar",
       "Guardrails for the record race: what a CsPbI3 cell can honestly claim", 1)
 t = tb(s, 0.8, 2.9, 11.7, 1.2); t.word_wrap = True
 p = t.paragraphs[0]; p.text = "Hussain Touhid Siddiquee & Md. Abdul Malek Fahim · Dept. of EEE, Leading University"
 p.font.size, p.font.name = Pt(20), "Georgia"
-t = tb(s, 0.8, 4.4, 11.7, 1.4); t.word_wrap = True
-p = t.paragraphs[0]; p.text = "24.9% box best  →  20.8% defensible"
-p.font.size, p.font.color.rgb, p.font.name = Pt(54), ACC, "Georgia"
-note(s, "Open with the punchline: two numbers, not one. 24.9 is the best point inside stated guardrails; 20.8 is the number for an experimentalist. Ask the room which they would publish.")
-S.append(s)
+t = tb(s, 0.8, 4.2, 11.7, 2.0); t.word_wrap = True
+p = t.paragraphs[0]; p.text = "We checked how much of a record solar-cell number is real, and how much comes from optimistic settings."
+p.font.size, p.font.name = Pt(30), "Georgia"
+t = tb(s, 0.8, 5.6, 11.7, 1.0); t.word_wrap = True
+p = t.paragraphs[0]; p.text = "24.9% best case  →  20.8% honest case"
+p.font.size, p.font.color.rgb, p.font.name = Pt(44), ACC, "Georgia"
+note(s, "Open with the punchline in plain words: two numbers, not one. 24.9 is the best our simulation could build inside fixed rules; 20.8 is the number for real-world dirt. Ask the room which one they would publish.")
 # 2
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "The problem", "Simulation records keep climbing past experiment", 2)
-bullets(s, ["Certified CsPbI3 record: 22.02% — simulation claims reach 24.2% and beyond",
-            "Highest numbers come with interfaces removed or unreachable defect densities",
-            "Raw inputs routinely withheld — nobody can re-run anyone else"])
-note(s, "The inflation dynamic: 22.02 certified vs 24.17/24.24 simulated. The question is what each number assumes.")
-S.append(s)
+title(s, "The problem", "Computer models now beat the best real solar cells — on paper", 2)
+bullets(s, ["The best certified cesium-lead-iodide cell turns 22.02 percent of sunlight into electricity.",
+            "Computer simulations of similar cells claim over 24 percent.",
+            "The gap is not fraud. It is hidden assumptions: missing dirt, perfect contacts, ideal materials."])
+note(s, "Set up the puzzle simply: the computer beats the lab, but only because the computer is allowed to assume a perfect world.")
 # 3
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Where the numbers come from", "Our parameters come from the Hossain programme", 3)
-table(s, [["Device", "Voc", "Jsc", "FF"],
-          ["Hossain 2022 printed (17.90%)", "0.997 V", "21.07", "85.2%"],
-          ["Our baseline (18.99%)", "1.122 V", "19.68", "86.0%"]])
-bullets(s, ["2022: 96 transport-layer combos screened, TiO2/CBTS wins",
-            "2023: full optimisation, complete table printed — we reproduce, then switch interfaces on"], y=5.2, size=20)
-note(s, "Provenance: every def number traces to a printed table. We add only interface blocks and the absorption model, both stated.")
-S.append(s)
+title(s, "Where our settings come from", "Every setting we used comes from a published table", 3)
+table(s, [["Cell", "Voltage", "Current", "Fill factor"],
+          ["Hossain 2022, printed (17.90%)", "0.997 V", "21.07", "85.2%"],
+          ["Our rebuild (18.99%)", "1.122 V", "19.68", "86.0%"]])
+bullets(s, ["In 2022, the Hossain team tested 96 layer combinations and picked the winning stack.",
+            "In 2023 they tuned it fully and printed every setting, so anyone can rebuild it.",
+            "We rebuilt their cell in software and landed nearby — then added the dirt layers they left out."], y=5.2, size=20)
+note(s, "Provenance in one sentence: nothing in our files is invented; everything traces to a printed table, and our additions are stated.")
 # 4
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "The device", "The stack, with interfaces switched on", 4)
-table(s, [["Layer", "Thickness", "Key setting"],
-          ["ITO front contact", "—", "4.0 eV work function"],
-          ["TiO2 ETL", "30 nm", "ND 9e17, χ 3.7 eV at optimum"],
-          ["CsPbI3 absorber", "2.2 µm", "NA 3e16, Nt 1e12, Eg 1.65 eV"],
-          ["CBTS HTL", "100 nm", "NA 1e18, χ 3.9 eV at optimum"],
-          ["Ni back contact", "—", "5.5 eV work function"],
-          ["Interfaces, both sides", "—", "N = 1e10 cm⁻² (S = 100 cm/s)"]], fs=16)
-note(s, "Walk the stack top to bottom. The last row is what matters: deleting it is how inflated numbers are made.")
-S.append(s)
+title(s, "The device", "The cell has five layers, and we model the dirt between them", 4)
+table(s, [["Layer", "Thickness", "Setting"],
+          ["Transparent front contact (ITO)", "—", "energy level 4.0 eV"],
+          ["Electron-carrying layer (titanium dioxide)", "30 nm", "doping 9e17, energy 3.7 eV at best"],
+          ["Light absorber (cesium lead iodide)", "2.2 µm", "doping 3e16, defects 1e12, gap 1.65 eV"],
+          ["Hole-carrying layer (CBTS)", "100 nm", "doping 1e18, energy 3.9 eV at best"],
+          ["Nickel back contact", "—", "energy level 5.5 eV"],
+          ["Dirt traps at both joints", "—", "a fixed, stated amount at each boundary"]], fs=16)
+t = tb(s, 0.8, 6.0, 11.7, 0.75); t.word_wrap = True
+p = t.paragraphs[0]
+p.text = ("Names in brackets are the materials: ITO = transparent conductor, CBTS = copper barium tin sulfide. "
+          "nm = billionth of a meter, µm = thousandth of a millimeter, eV = energy unit. "
+          "Doping and defect numbers are atoms per cubic centimeter, written as powers of ten (9e17 means 9 followed by 17 zeros).")
+p.font.size, p.font.name = Pt(15), "Georgia"
+note(s, "Where two layers meet, electrons get trapped and lost — that is what an interface block models. Deleting this row is how inflated numbers are made.")
 # 5
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Method · SCAPS-1D v3.3.10", "Configured for honest sweeps", 5)
-bullets(s, ["AM1.5G, 100 mW/cm², 300 K · Eg-sqrt absorption, gap sweeps move the edge",
-            "SRH through stated bulk + interface defects · Krad = 0, Auger off",
-            "Flat 10% front reflection, opaque Ni back — conservative except the blue",
-            "Resistances scripted (set external.Rs/Rsh), never hand-derated"])
-note(s, "Absorption model keeps gap sweeps self-consistent; scripted parasitics block the analytic-derate route.")
-S.append(s)
+title(s, "Method · the simulator", "We set up the simulator so it cannot flatter us", 5)
+bullets(s, ["We simulate standard sunlight at room temperature.",
+            "When we change the light-absorbing gap, the absorption edge moves with it, as in real physics.",
+            "Electrical resistance is simulated inside the software, never subtracted by hand afterwards.",
+            "Anything that absorbs light in the contact layers is left out in the open, not hidden."])
+note(s, "Each choice closes one cheating route: self-consistent gaps, scripted resistance, visible optics.")
 # 6
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Method · scripting", "Three conventions that keep the numbers honest", 6)
-bullets(s, ["Units: def files store SI, script set expects practical units — SI inputs overdose 10⁶×",
-            "Cross-sections: the σ set-key restructures the block — definition files only",
-            "Uncertainty: 0.017-point IV-step; every difference read against it"])
-note(s, "Ghost cells at 27% from a units slip; neutralised interfaces from a set-key slip. Set-then-get verification always.")
-S.append(s)
+title(s, "Method · careful computing", "Tiny input mistakes can invent fake record cells", 6)
+bullets(s, ["The files store metric units but the command line expects practical units. Mixing them overdoses the cell a million-fold and invents ghost cells near 27 percent.",
+            "One command for trap sizes silently switches the traps off instead of resizing them.",
+            "We rerun key cells at finer resolution. Differences below 0.017 points do not count."])
+note(s, "We publish our mistakes as findings. Both traps gave plausible-looking efficiencies, which is what makes them dangerous.")
 # 7
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Method · campaign", "One campaign, every run receipted", 7)
-table(s, [["Batch", "Runs", "Finding"],
-          ["Grid + refinement", "96 + 36", "23.50% surveyed best"],
-          ["Joint affinities", "36", "24.95% at (3.9, 3.7)"],
-          ["Optimiser (exploratory)", "104", "23.08% guardrailed — brackets nothing"],
-          ["Morris + audits + parasitics", "56 + …", "regime flip, Rs/Rsh scripted"]])
-note(s, "Grid, then the joint-affinity surprise, then an optimiser whose box excluded χ 3.7 — a limitation, not a trophy.")
-S.append(s)
+title(s, "Method · the campaign", "We ran hundreds of simulations and saved every one", 7)
+table(s, [["Stage", "Runs", "What it found"],
+          ["Broad grid + refinement", "96 + 36", "23.50% best with standard settings"],
+          ["Energy-lineup map", "36", "24.95% at the best lineup"],
+          ["Automatic search (limited box)", "104", "nothing fair beats the grid best"],
+          ["Sensitivity + checks + resistance", "56 + …", "what matters flips with dirt level"]])
+note(s, "Layers of searching: broad grid, then the energy lineup surprise, then a search that could not reach the winner because its box excluded it — stated as a limitation.")
 # 8 race chart (native shapes)
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "The record race", "Two races on the same chart", 8)
-lx, bx, w, sc = 1.0, 6.3, 11.3, (11.3 / 100)
+title(s, "The record race", "Real cells improve slowly, simulations jump fast", 8)
+lx, w, sc = 1.0, 11.3, (11.3 / 100)
 lo, hi = 10.0, 26.0
 def Y(v):
     return 5.3 - (v - lo) / (hi - lo) * 3.4
@@ -164,7 +166,6 @@ pts = [("10.8\nQD 2016", 10.8, ACC2, 6), ("17.9\nHossain 22", 17.9, ACC2, 26),
        ("22.02\ncert.", 22.02, ACC2, 82), ("23.10\nZnO/Spiro sim", 23.10, ACC, 44),
        ("24.17\nNazli sim", 24.17, ACC, 58), ("24.24\nOyedele sim", 24.24, ACC, 63),
        ("24.95\nbound (us)", 24.95, INK, 88), ("20.82\ndefensible (us)", 20.82, ACC2, 90)]
-import math
 KEY = []
 for idx, (lab, v, col, x) in enumerate(pts, start=1):
     dw = 0.42 if idx == 10 else 0.28
@@ -197,104 +198,92 @@ for box, items in ((t1, left), (t2, right)):
         r.font.size, r.font.name, r.font.color.rgb = Pt(14), "Verdana", col
         r = q.add_run(); r.text = k.split(" ", 1)[1]
         r.font.size, r.font.name = Pt(14), "Verdana"
-note(s, "Green climbs slowly — fabrication improving. Orange jumps — assumptions loosening. Our two points straddle the certified record; the gap between them is the argument.")
-S.append(s)
+note(s, "Green climbs slowly because fabrication gets better. Orange jumps because assumptions get looser. Our two ringed points sit on opposite sides of the certified record.")
 # 9 champion
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Result · the upper bound", "The best guardrailed point: 24.95%", 9)
+title(s, "Result · the upper bound", "Our best fair cell reaches 24.95 percent", 9)
 img(s, "fig_JVboth.png", 0.8, 2.6, 7.2)
-bullets(s, ["Voc 1.321 V · Jsc 21.20 · FF 89.11%",
-            "2.2 µm · Nt 1e12 · NA ceiling · Eg 1.65 · χ (3.9, 3.7)",
-            "Corner of the box — a bound, not a forecast"], x=8.4, y=2.6, w=4.1, size=20)
-note(s, "Read the JV, then the small print: every coordinate is an edge. Best the box allows — which is why it cannot headline alone.")
-S.append(s)
+bullets(s, ["It produces 1.321 volts at 21.20 milliamps per square centimeter.",
+            "Thick absorber, cleanest allowed dirt, lowest gap, tuned energy lineup.",
+            "Every setting sits at the extreme edge — a ceiling, not a promise."], x=8.4, y=2.6, w=4.1, size=20)
+note(s, "Read the curve, then the small print. Best the box allows is exactly why it cannot headline alone.")
 # 10 affinity
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Result · why affinities move it", "Affinity works through activation energy", 10)
+title(s, "Result · why the lineup matters", "Tiny energy shifts decide the efficiency", 10)
 img(s, "affinity_heatmap.png", 0.8, 2.6, 6.0)
 img(s, "gap_steps.png", 7.1, 2.6, 5.4)
-note(s, "Joint map surprise: both optimum affinities outside surveyed values; efficiency rises through zero hole-side offset. Non-monotonic gap steps map the Ea landscape, not absorption.")
-S.append(s)
+note(s, "The surprise of the campaign: moving layer energy levels changes how hard trapped charges must work to escape, and efficiency climbs even past textbook rules. The winning values are aggressive — stated, not hidden.")
 # 11 dose
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Result · interfaces", "Interfaces cost four points across the dose", 11)
+title(s, "Result · dirty joints", "Dirty joints cost four percentage points", 11)
 img(s, "fig_audit.png", 0.8, 2.6, 7.2)
-bullets(s, ["25.11% at 1e8 → 23.84% at the 1e10 guardrail → 21.20% at 1e12",
-            "Published 24.17 / 24.24 NOT placed here — different stacks, incomplete tables"], x=8.4, y=2.6, w=4.1, size=20)
-note(s, "Four points across four decades on our own cell. Placement of others' numbers would be accusation dressed as analysis.")
-S.append(s)
+bullets(s, ["From almost-clean to very dirty joints, our own cell falls from 25.11 to 21.20 percent.",
+            "We do not place other teams' numbers on our curve: their cells differ and their tables are incomplete."], x=8.4, y=2.6, w=4.1, size=20)
+note(s, "Four points across four decades of dirt. Placing others here would be an accusation dressed as analysis, so we refuse.")
 # 12 DB
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Result · the screen", "A radiative ceiling rules out the no-interface band", 12)
-bullets(s, ["Detailed-balance Voc from our own absorption: 1.371 V at 1.65 eV",
-            "Champion clears it by 0.05 V — every no-interface cell within 0.011 V of it or above",
-            "With Krad = 0 nothing pins the splitting: the band has no margin anywhere"])
-note(s, "Computed from our absorption, not a textbook number. The old Eg/q rule sat above the limit — retired, stated in the paper.")
-S.append(s)
+title(s, "Result · the speed limit", "Physics sets a voltage ceiling, and our cell obeys it", 12)
+bullets(s, ["From our own light-absorption model, no cell of this gap can exceed 1.371 volts.",
+            "Our champion stops at 1.321 volts. Cells with deleted joints crowd right up against the ceiling.",
+            "A band with no margin anywhere is not evidence of a working cell."])
+note(s, "Computed from our absorption, not a textbook. The old rulebook ceiling sat above the physical limit, so we retired it and said so.")
 # 13 routine
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Result · the defensible number", "Routine defects give 20.82%", 13)
+title(s, "Result · the honest number", "A realistically dirty cell gives 20.82 percent", 13)
 img(s, "rs_derate.png", 0.8, 2.6, 5.6)
 img(s, "thickness_nt.png", 6.9, 2.6, 5.6)
-note(s, "The answer for an experimentalist. Thickness optimum moves with Nt — invisible to single-variable sweeps. Attainable gaps: 24.44/24.73/24.28%.")
-S.append(s)
+note(s, "The answer for an experimentalist. The best thickness moves with dirt level — invisible to one-variable-at-a-time testing. With realistic resistance: 20.42.")
 # 14 morris
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Result · sensitivity", "Interfaces lead at the floor, bulk leads at routine", 14)
+title(s, "Result · what matters most", "It depends on how dirty the cell is", 14)
 img(s, "fig_morris.png", 0.8, 2.6, 6.0)
 img(s, "optimizer.png", 7.1, 2.6, 5.4)
-note(s, "Paired test: +2.03 [0.70, 3.51], 6 of 8 trajectories. Routine-defect dose goes flat. Both halves are the finding.")
-S.append(s)
+note(s, "In ultra-clean cells joints win by 2 points; in everyday cells bulk dirt wins and joints go flat. There is no single most-important factor.")
 # 15 loss
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Result · against experiment", "The excess is fill factor, not voltage", 15)
+title(s, "Result · against the real world", "Our extra points come from fill factor, not voltage", 15)
 img(s, "loss_budget.png", 0.8, 2.6, 7.2)
-bullets(s, ["Our Voc is ordinary — records reach 1.27–1.29 V",
-            "~6-pt FF gap unattributed: no TL recombination, no reflector, numerics"], x=8.4, y=2.6, w=4.1, size=20)
-note(s, "Six points of FF excess with three named causes, none isolated. Read left to right with the room.")
-S.append(s)
+bullets(s, ["Our voltage is ordinary — real records already reach 1.27 to 1.29 volts.",
+            "The six-point fill-factor gap has three possible causes, and we do not pretend to know which dominates."], x=8.4, y=2.6, w=4.1, size=20)
+note(s, "Read left to right with the room: voltage ordinary, current ordinary, squareness of the curve is where simulation exceeds experiment.")
 # 16 taus
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Method · portable metrics", "Report lifetimes and velocities, not just densities", 16)
-table(s, [["Density", "τ / S"],
-          ["Nt 1e12 (floor)", "τ = 100 µs"],
-          ["Nt 1e15 (routine)", "τ = 0.1 µs"],
-          ["Nif 1e10 (guardrail)", "S = 100 cm/s"]])
-bullets(s, ["N and σ enter only as their product — τ and S are cross-study currency"], y=5.4, size=20)
-note(s, "N-sigma degeneracy proved digit-for-digit. The 100 µs floor is 1–2 orders beyond the best films — admitted, not hidden.")
-S.append(s)
+title(s, "Method · fair comparison", "Compare lifetimes, not just dirt counts", 16)
+table(s, [["Dirt level", "Lifetime / surface speed"],
+          ["Cleanest allowed", "charges live 100 microseconds"],
+          ["Everyday dirt", "charges live 0.1 microseconds"],
+          ["Joint floor", "surface speed 100 cm/s"]])
+bullets(s, ["Dirt count times trap size is what physics actually sees.",
+            "Lifetimes and surface speeds let studies compare fairly — and our 100-microsecond floor is far cleaner than the best real films."], y=5.4, size=20)
+note(s, "Counts alone cannot be compared across studies; we proved the equivalence digit-for-digit. The floor's cleanliness is admitted, not hidden.")
 # 17 traps
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Honesty · scripting", "Two scripting traps that fabricate cells", 17)
-bullets(s, ["Units trap: SI-valued set inputs overdose 10⁶× — ghost cells up to 27%",
-            "σ trap: the capture cross-section set-key neutralises interfaces",
-            "Rule: definition files for structure, set-then-get verification always"])
-note(s, "Mistakes published as findings. Both traps gave plausible efficiencies — that is what makes them dangerous.")
-S.append(s)
+title(s, "Honesty · software traps", "Two software traps that invent fake cells", 17)
+bullets(s, ["Mixing metric and practical units overdoses the cell a million-fold and invents ghost cells near 27 percent.",
+            "One trap-size command silently switches the traps off instead of resizing them.",
+            "Rule: build structure in files, and always read every scripted value back before believing a run."])
+note(s, "Plausible-looking efficiencies from pure input errors — that is what makes them dangerous. One-line rule to defeat both.")
 # 18 checklist
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Contribution · standard", "A checklist for comparable SCAPS claims", 18)
-bullets(s, ["Interface status + Nif + σ (or S) · bulk Nt + σ (or τ)",
-            "Unit-system declaration · Rs basis, computed not assumed",
-            "Both contact work functions · surveyed vs adopted affinities",
-            "Model-derived radiative screen · archived receipts"])
+title(s, "Contribution · a standard", "A checklist so future studies can be compared", 18)
+bullets(s, ["State joint dirt plus trap size — or the lifetime and surface speed.",
+            "State which unit system every number uses, and the resistance basis.",
+            "State both contact energy levels, and which affinities were surveyed versus adopted.",
+            "State the radiative ceiling used, and archive every input file."])
 note(s, "Eight disclosure items, each a place where silence moves the headline by points. Propose it as a reviewer checklist.")
-S.append(s)
 # 19 limits
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Limits", "What this work cannot say", 19)
-bullets(s, ["No optimiser brackets the champion — best-of-evaluated, not proven optimal",
-            "No phase stability, ion migration, or damp-heat — SCAPS steady state only",
-            "No experimental calibration — the loss budget compares, it does not fit"])
+title(s, "Limits", "What this work cannot tell you", 19)
+bullets(s, ["No search method proves our best cell is the global best — it is the best we evaluated.",
+            "We model steady electricity only: no aging, no moisture damage, no crystal decay.",
+            "We never fitted the model to a real measured cell, so the comparison table compares rather than calibrates."])
 note(s, "A paper that prices others' assumptions prices its own. Questions belong here.")
-S.append(s)
 # 20 takeaway
 s = prs.slides.add_slide(BLANK); bg(s)
-title(s, "Takeaway", "Claim 20.8. Cite 24.9 as a bound.", 20)
-bullets(s, ["Every number archived · every assumption priced · scripts regenerate every receipt",
+title(s, "Takeaway", "Claim 20.8. Cite 24.9 as a limit.", 20)
+bullets(s, ["Every number archived, every assumption priced, every receipt regenerable from scripts.",
             "github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed"])
-note(s, "One sentence to leave the room with. Then the live demo: open the champion def in SCAPS and read 24.95% off the screen.")
-S.append(s)
+note(s, "One sentence to leave the room with. Then the live demo: open the champion file in SCAPS and read the number off the screen.")
 
 out = BASE / "record-race-deck.pptx"
 prs.save(str(out))

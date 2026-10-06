@@ -69,108 +69,110 @@ img.fit { max-width: 100%; max-height: 640px; object-fit: contain; background: #
 <h2 class="kicker">CsPbI3 perovskites · simulation audit · group seminar</h2>
 <h1>Guardrails for the record race:<br>what a CsPbI<sub>3</sub> cell can <span class="accent">honestly</span> claim</h1>
 <p class="body">Hussain Touhid Siddiquee &amp; Md. Abdul Malek Fahim · Dept. of EEE, Leading University</p>
-<p class="body" style="margin-top:28px;"><span class="num">24.9<small>% box best → </small>20.8<small>% defensible</small></span></p>
+<p class="body" style="margin-top:28px;">We checked how much of a record solar-cell number is real, and how much comes from optimistic settings.</p>
+<p class="body" style="margin-top:28px;"><span class="num">24.9<small>% best case → </small>20.8<small>% honest case</small></span></p>
 <div class="foot"><span>Guardrails for the Record Race</span><span>1 / 20</span></div>
-<div class="note">SPEAKER NOTES 1: Open with the punchline — two numbers, not one. The 24.9 is the best point we could build inside stated guardrails; 20.8 is the number we would defend to an experimentalist. Everything between them is priced assumptions. Ask the room: which number would they publish?</div>
+<div class="note">SPEAKER NOTES 1: Open with the punchline in plain words: two numbers, not one. 24.9 is the best our simulation could build inside fixed rules; 20.8 is the number for real-world dirt. Ask the room which one they would publish.</div>
 </section>
 
 <!-- 2 RACE -->
 <section class="slide" id="s2">
 <h2 class="kicker">The problem</h2>
-<h1>Simulation records keep climbing past experiment</h1>
+<h1>Computer models now beat the best real solar cells — on paper</h1>
 <ul>
-<li>Certified CsPbI<sub>3</sub> record: <b>22.02%</b> — simulation claims reach <b>24.2%</b> and beyond</li>
-<li>Highest numbers come with interface recombination removed or defect densities far below reach</li>
-<li>Raw inputs are routinely withheld — nobody can re run anyone else</li>
+<li>The best certified cesium-lead-iodide cell turns <b>22.02 percent</b> of sunlight into electricity.</li>
+<li>Computer simulations of similar cells claim over <b>24 percent</b>.</li>
+<li>The gap is not fraud. It is hidden assumptions: missing dirt, perfect contacts, ideal materials.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>2 / 20</span></div>
-<div class="note">SPEAKER NOTES 2: Set up the inflation dynamic. 22.02 certified vs 24.17/24.24 simulated on similar stacks. The question is not who is right — it is what each number assumes. That is the whole talk.</div>
+<div class="note">SPEAKER NOTES 2: Set up the puzzle simply: the computer beats the lab, but only because the computer is allowed to assume a perfect world.</div>
 </section>
 
 <!-- 3 ORIGINS -->
 <section class="slide" id="s3">
 <h2 class="kicker">Where the numbers come from</h2>
-<h1>Our parameters come from the Hossain programme</h1>
+<h1>Every setting we used comes from a published table</h1>
 <div class="grid2">
 <div><ul>
-<li><b>2022</b> — 96 transport-layer combinations screened, TiO<sub>2</sub>/CBTS wins at <b>17.90%</b></li>
-<li><b>2023</b> — full optimisation reaches <b>19.06%</b>; complete parameter table printed</li>
-<li><b>Us</b> — reproduce at <b>18.99%</b>, then add interface blocks the originals omit</li>
+<li>In <b>2022</b>, the Hossain team tested 96 layer combinations and picked the winning stack.</li>
+<li>In <b>2023</b> they tuned it fully and printed every setting, so anyone can rebuild it.</li>
+<li><b>We</b> rebuilt their cell in software and landed nearby — then added the dirt layers they left out.</li>
 </ul></div>
 <div><table class="deck">
 <tr><th>Device</th><th>Voc</th><th>Jsc</th><th>FF</th></tr>
 <tr><td>Hossain 2022 printed</td><td>0.997 V</td><td>21.07</td><td>85.2%</td></tr>
 <tr><td>Our baseline</td><td>1.122 V</td><td>19.68</td><td>86.0%</td></tr>
 </table>
-<p class="body" style="margin-top:20px;font-size:var(--small);color:var(--muted);">We trade ~1.4 mA of current for ~0.12 V — the price of switching interfaces on.</p></div>
+<p class="body" style="margin-top:20px;font-size:var(--small);color:var(--muted);">Adding the dirt layers costs us a little current but buys voltage — a fair trade, stated openly.</p></div>
 </div>
 <div class="foot"><span>Guardrails for the Record Race</span><span>3 / 20</span></div>
-<div class="note">SPEAKER NOTES 3: Provenance matters. Every number in our def file traces to a printed table — Hossain 2022 for the stack, Hossain 2023 for the optimisation. The only things we add are the interface blocks and the absorption model, both stated. Contrast with the 24%-class studies that print no complete table.</div>
+<div class="note">SPEAKER NOTES 3: Provenance in one sentence: nothing in our files is invented; everything traces to a printed table, and our additions are stated.</div>
 </section>
 
 <!-- 4 STACK -->
 <section class="slide" id="s4">
 <h2 class="kicker">The device</h2>
-<h1>The stack, with interfaces switched on</h1>
+<h1>The cell has five layers, and we model the dirt between them</h1>
 <table class="deck">
 <tr><th>Layer</th><th>Thickness</th><th>Role</th></tr>
-<tr><td>ITO front contact</td><td>—</td><td>4.0 eV work function</td></tr>
-<tr><td>TiO<sub>2</sub> ETL</td><td>30 nm</td><td>N<sub>D</sub> 9×10<sup>17</sup>, χ 3.7 eV at optimum</td></tr>
-<tr><td><b>CsPbI<sub>3</sub> absorber</b></td><td><b>2.2 µm</b></td><td>N<sub>A</sub> 3×10<sup>16</sup>, N<sub>t</sub> 10<sup>12</sup>, E<sub>g</sub> 1.65 eV</td></tr>
-<tr><td>CBTS HTL</td><td>100 nm</td><td>N<sub>A</sub> 10<sup>18</sup>, χ 3.9 eV at optimum</td></tr>
-<tr><td>Ni back contact</td><td>—</td><td>5.5 eV work function</td></tr>
-<tr><td colspan="3">Neutral interface blocks, N = 10<sup>10</sup> cm<sup>−2</sup> (S = 100 cm/s), at <b>both</b> heterojunctions</td></tr>
+<tr><td>Transparent front contact</td><td>—</td><td>energy level 4.0 eV</td></tr>
+<tr><td>Electron-carrying layer</td><td>30 nm</td><td>doping 9e17, energy 3.7 eV at best</td></tr>
+<tr><td><b>Light absorber</b></td><td><b>2.2 µm</b></td><td>doping 3e16, defects 1e12, gap 1.65 eV</td></tr>
+<tr><td>Hole-carrying layer</td><td>100 nm</td><td>doping 1e18, energy 3.9 eV at best</td></tr>
+<tr><td>Nickel back contact</td><td>—</td><td>energy level 5.5 eV</td></tr>
+<tr><td colspan="3">Dirt traps at <b>both</b> joints, a fixed stated amount at each</td></tr>
 </table>
+<p class="body" style="margin-top:20px;font-size:var(--small);color:var(--muted);">nm means billionth of a meter, µm means thousandth of a millimeter, eV is an energy unit. Doping and defect numbers count atoms per cubic centimeter, written as powers of ten.</p>
 <div class="foot"><span>Guardrails for the Record Race</span><span>4 / 20</span></div>
-<div class="note">SPEAKER NOTES 4: Walk the stack top to bottom. The last row is the one that matters — both heterojunctions carry recombination blocks. Almost every inflated number in the literature deletes exactly this row. Our box floor is 1e10 per cm²; anything below is audit, not a candidate.</div>
+<div class="note">SPEAKER NOTES 4: Where two layers meet, electrons get trapped and lost — that is what an interface block models. Deleting this row is how inflated numbers are made.</div>
 </section>
 
 <!-- 5 SETUP -->
 <section class="slide" id="s5">
 <h2 class="kicker">Method · SCAPS-1D v3.3.10</h2>
-<h1>Configured for honest sweeps</h1>
+<h1>We set up the simulator so it cannot flatter us</h1>
 <ul>
-<li>AM1.5G, 100 mW/cm², 300 K · Eg-sqrt absorption (α = A√(hν−E<sub>g</sub>)), so gap sweeps move the edge</li>
-<li>SRH recombination through stated bulk + interface defects · K<sub>rad</sub> = 0, Auger off</li>
-<li>Flat 10% front reflection, opaque Ni back contact — conservative everywhere except the blue</li>
-<li>Resistances scripted (<i>set external.Rs/Rsh</i>), never hand-derated</li>
+<li>We simulate standard sunlight at room temperature.</li>
+<li>When we change the light-absorbing gap, the absorption edge moves with it, as in real physics.</li>
+<li>Electrical resistance is simulated inside the software, never subtracted by hand afterwards.</li>
+<li>Anything that absorbs light in the contact layers is left out in the open, not hidden.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>5 / 20</span></div>
-<div class="note">SPEAKER NOTES 5: Two things to stress: the absorption model means bandgap sweeps are self-consistent, and parasitics are scripted in SCAPS, not multiplied in afterwards. Both are guardrails against the usual inflation routes.</div>
+<div class="note">SPEAKER NOTES 5: Each choice closes one cheating route: self-consistent gaps, scripted resistance, visible optics.</div>
 </section>
 
 <!-- 6 TRAPS -->
 <section class="slide" id="s6">
 <h2 class="kicker">Method · scripting</h2>
-<h1>Three conventions that keep the numbers honest</h1>
+<h1>Tiny input mistakes can invent fake record cells</h1>
 <ul>
-<li><b>Units:</b> def files store SI, script <i>set</i> expects practical units — SI inputs inject a 10<sup>6</sup>× overdose</li>
-<li><b>Cross-sections:</b> the σ <i>set</i>-key restructures the block instead of scaling it — definition files only</li>
-<li><b>Uncertainty:</b> 0.017-point IV-step; every reported difference is read against it</li>
+<li>The files store metric units but the command line expects practical units. Mixing them overdoses the cell a million-fold and invents ghost cells near 27 percent.</li>
+<li>One command for trap sizes silently switches the traps off instead of resizing them.</li>
+<li>We rerun key cells at finer resolution. Differences below 0.017 points do not count.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>6 / 20</span></div>
-<div class="note">SPEAKER NOTES 6: This is the cautionary slide. We found ghost cells at 27% from a units slip and neutralised interfaces from a set-key slip. Both are documented in the appendix with a set-then-get verification rule. Invite the room to check their own scripts.</div>
+<div class="note">SPEAKER NOTES 6: We publish our mistakes as findings. Both traps gave plausible-looking efficiencies, which is what makes them dangerous.</div>
 </section>
 
 <!-- 7 CAMPAIGN -->
 <section class="slide" id="s7">
 <h2 class="kicker">Method · campaign</h2>
-<h1>One campaign, every run receipted</h1>
+<h1>We ran hundreds of simulations and saved every one</h1>
 <table class="deck">
 <tr><th>Batch</th><th>Runs</th><th>Finding</th></tr>
-<tr><td>Grid + refinement</td><td>96 + 36</td><td>23.50% surveyed best</td></tr>
-<tr><td>Joint affinities</td><td>36</td><td>24.95% at (3.9, 3.7)</td></tr>
-<tr><td>Optimiser (exploratory)</td><td>104</td><td>23.08% guardrailed — brackets nothing</td></tr>
-<tr><td>Morris + audits + parasitics</td><td>56 + …</td><td>regime flip, Rs/Rsh scripted</td></tr>
+<tr><td>Broad grid + refinement</td><td>96 + 36</td><td>23.50% best with standard settings</td></tr>
+<tr><td>Energy-lineup map</td><td>36</td><td>24.95% at the best lineup</td></tr>
+<tr><td>Automatic search (limited box)</td><td>104</td><td>nothing fair beats the grid best</td></tr>
+<tr><td>Sensitivity + checks + resistance</td><td>56 + …</td><td>what matters flips with dirt level</td></tr>
 </table>
 <div class="foot"><span>Guardrails for the Record Race</span><span>7 / 20</span></div>
-<div class="note">SPEAKER NOTES 7: The campaign ran in layers — grid, then joint affinities (the surprise), then an optimiser that could not bracket the champion because its box excluded χ 3.7. Say that plainly: the optimiser result is a limitation, not a trophy.</div>
+<div class="note">SPEAKER NOTES 7: Layers of searching: broad grid, then the energy lineup surprise, then a search that could not reach the winner because its box excluded it — stated as a limitation.</div>
 </section>
 
 <!-- 8 RACE CHART -->
 <section class="slide" id="s8">
 <h2 class="kicker">The record race</h2>
-<h1>Two races on the same chart</h1>
+<h1>Real cells improve slowly, simulations jump fast</h1>
 <div class="race" id="racechart">
 <!-- y: 10% bottom -> 42% top over 560px -->
 <div class="dot exp" style="left:6%;bottom:2%;" title="10.8"></div><div class="tag" style="left:6%;bottom:8%;">10.8 <b>QD 2016</b></div>
@@ -186,98 +188,98 @@ img.fit { max-width: 100%; max-height: 640px; object-fit: contain; background: #
 </div>
 <p class="body" style="margin-top:34px;font-size:var(--small);"><span style="color:var(--accent2);">●</span> measured &nbsp;&nbsp; <span style="color:var(--accent);">●</span> simulated &nbsp;&nbsp; <span>◉</span> this work</p>
 <div class="foot"><span>Guardrails for the Record Race</span><span>8 / 20</span></div>
-<div class="note">SPEAKER NOTES 8: The money slide. Green climbs slowly — that is fabrication getting better. Orange jumps — that is assumptions getting looser. Our two black-ringed points sit on opposite sides of the certified record, and the gap between them is the whole argument: assumptions, priced.</div>
+<div class="note">SPEAKER NOTES 8: Green climbs slowly because fabrication gets better. Orange jumps because assumptions get looser. Our two ringed points sit on opposite sides of the certified record.</div>
 </section>
 
 <!-- 9 CHAMPION -->
 <section class="slide" id="s9">
 <h2 class="kicker">Result · the upper bound</h2>
-<h1>The best guardrailed point: 24.95%</h1>
+<h1>Our best fair cell reaches 24.95 percent</h1>
 <div class="grid2">
 <div><img class="fit" src="fig_JVboth.png" alt="JV curves baseline vs champion"></div>
-<div><p class="body">Voc <b>1.321 V</b> · Jsc <b>21.20</b> · FF <b>89.11%</b></p>
-<p class="body" style="margin-top:24px;">2.2 µm · N<sub>t</sub> 10<sup>12</sup> · N<sub>A</sub> ceiling · E<sub>g</sub> 1.65 · χ (3.9, 3.7)</p>
-<p class="body" style="margin-top:24px;color:var(--muted);">Corner of the box in every dimension — a permissive-edge bound, not a forecast.</p></div>
+<div><p class="body">It produces <b>1.321 volts</b> at <b>21.20 milliamps per square centimeter</b>.</p>
+<p class="body" style="margin-top:24px;">Thick absorber, cleanest allowed dirt, lowest gap, tuned energy lineup.</p>
+<p class="body" style="margin-top:24px;color:var(--muted);">But every setting sits at the extreme edge — a ceiling, not a promise.</p></div>
 </div>
 <div class="foot"><span>Guardrails for the Record Race</span><span>9 / 20</span></div>
-<div class="note">SPEAKER NOTES 9: Read the JV, then read the small print. Every coordinate of this point is an edge — thickness top, defects floor, gap bottom, affinities outside typical ranges. It is the best the box allows, which is exactly why it cannot be the headline alone.</div>
+<div class="note">SPEAKER NOTES 9: Read the curve, then the small print. Best the box allows is exactly why it cannot headline alone.</div>
 </section>
 
 <!-- 10 AFFINITY -->
 <section class="slide" id="s10">
 <h2 class="kicker">Result · why affinities move it</h2>
-<h1>Affinity moves efficiency through activation energy</h1>
+<h1>Tiny energy shifts decide the efficiency</h1>
 <div class="grid2">
 <div><img class="fit" src="fig_align.png" alt="Band alignment"></div>
 <div><ul>
-<li>χ<sub>CBTS</sub> 3.5 → 3.9: E<sub>a</sub> 1.47 → 1.87 eV, 22.10 → 24.95%</li>
-<li>Peak turns over past ~3.95 eV — interior optimum, not edge-sitting</li>
-<li>A transport reading predicts the barrier end worst; it is the best</li>
+<li>Moving the layer energy levels changes how hard trapped charges must work to escape.</li>
+<li>Efficiency climbs as this escape energy grows — even past the point where textbook rules say it should fall.</li>
+<li>The winning values are aggressive, and we state that openly.</li>
 </ul></div>
 </div>
 <div class="foot"><span>Guardrails for the Record Race</span><span>10 / 20</span></div>
-<div class="note">SPEAKER NOTES 10: The joint map was the surprise of the campaign. Both optimum affinities sit outside surveyed values, and the mechanism is recombination activation energy, not transport — efficiency rises straight through zero hole-side offset. That is the evidence; the aggressiveness of the values is the caveat, and both are stated.</div>
+<div class="note">SPEAKER NOTES 10: The surprise of the campaign: moving layer energy levels changes how hard trapped charges must work to escape, and efficiency climbs even past textbook rules. The winning values are aggressive — stated, not hidden.</div>
 </section>
 
 <!-- 11 DOSE -->
 <section class="slide" id="s11">
 <h2 class="kicker">Result · interfaces</h2>
-<h1>Interfaces cost four points across the dose</h1>
+<h1>Dirty joints cost four percentage points</h1>
 <div class="grid2">
 <div><img class="fit" src="fig_audit.png" alt="Interface dose response"></div>
-<div><p class="body">25.11% at 10<sup>8</sup> → <b>23.84%</b> at the 10<sup>10</sup> guardrail → 21.20% at 10<sup>12</sup> cm<sup>−2</sup></p>
-<p class="body" style="margin-top:24px;">Published 24.17 / 24.24 are <b>not</b> placed on this curve — different stacks, incomplete tables.</p></div>
+<div><p class="body">From almost-clean to very dirty joints, our own cell falls from <b>25.11 to 21.20 percent</b>.</p>
+<p class="body" style="margin-top:24px;">We do not place other teams' numbers on our curve — their cells differ and their tables are incomplete.</p></div>
 </div>
 <div class="foot"><span>Guardrails for the Record Race</span><span>11 / 20</span></div>
-<div class="note">SPEAKER NOTES 11: Four points across four decades — that is the price of interfaces on our own cell. Note what we refuse to do: map anyone else's number onto our curve. Their stacks differ and their tables are incomplete, so placement would be an accusation dressed as analysis.</div>
+<div class="note">SPEAKER NOTES 11: Four points across four decades of dirt. Placing others here would be an accusation dressed as analysis, so we refuse.</div>
 </section>
 
 <!-- 12 DB -->
 <section class="slide" id="s12">
 <h2 class="kicker">Result · the screen</h2>
-<h1>A radiative ceiling rules out the no-interface band</h1>
+<h1>Physics sets a voltage ceiling, and our cell obeys it</h1>
 <ul>
-<li>Detailed-balance Voc from our own absorption: <b>1.371 V</b> at 1.65 eV</li>
-<li>Champion clears it by 0.05 V — every no-interface cell sits within 0.011 V of it or above</li>
-<li>With K<sub>rad</sub> = 0 nothing pins the splitting: the band has no margin anywhere</li>
+<li>From our own light-absorption model, no cell of this gap can exceed <b>1.371 volts</b>.</li>
+<li>Our champion stops at 1.321 volts. Cells with deleted joints crowd right up against the ceiling.</li>
+<li>A band with no margin anywhere is not evidence of a working cell.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>12 / 20</span></div>
-<div class="note">SPEAKER NOTES 12: This screen has teeth because we computed it from our own absorption model, not a textbook number. The old Eg/q rule sat above the radiative limit and could not adjudicate anything — we retired it and say so in the paper. The no-interface band hugs the limit; that is why none of it is trusted.</div>
+<div class="note">SPEAKER NOTES 12: Computed from our absorption, not a textbook. The old rulebook ceiling sat above the physical limit, so we retired it and said so.</div>
 </section>
 
 <!-- 13 ROUTINE -->
 <section class="slide" id="s13">
 <h2 class="kicker">Result · the defensible number</h2>
-<h1>Routine defects give 20.82%</h1>
+<h1>A realistically dirty cell gives 20.82 percent</h1>
 <ul>
-<li>1.0 µm, N<sub>t</sub> 10<sup>15</sup>, surveyed affinities — 20.42% with R<sub>s</sub> = 1 Ωcm²</li>
-<li>Thickness optimum moves with defect level (1.5 µm at 10<sup>14</sup> → 1.0 µm at 10<sup>15</sup>)</li>
-<li>Attainable gaps at the joint base: 24.44 / 24.73 / 24.28%</li>
+<li>With everyday dirt levels, the best thickness is 1.0 micrometers and the cell gives 20.82 percent.</li>
+<li>Adding realistic electrical resistance brings it to 20.42 percent.</li>
+<li>The best thickness moves with dirt level — invisible to one-variable-at-a-time testing.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>13 / 20</span></div>
-<div class="note">SPEAKER NOTES 13: If an experimentalist asks what to expect, this is the answer — not 24.95. The thickness-by-defect factorial shows the optimum shifting with Nt, which single-variable sweeps cannot see. Honest numbers come with their conditions attached.</div>
+<div class="note">SPEAKER NOTES 13: The answer for an experimentalist. The best thickness moves with dirt level — invisible to one-variable-at-a-time testing. With realistic resistance: 20.42.</div>
 </section>
 
 <!-- 14 MORRIS -->
 <section class="slide" id="s14">
 <h2 class="kicker">Result · sensitivity</h2>
-<h1>Interfaces lead at the floor, bulk leads at routine</h1>
+<h1>What matters most depends on how dirty the cell is</h1>
 <div class="grid2">
 <div><img class="fit" src="fig_morris.png" alt="Morris sensitivity"></div>
 <div><ul>
-<li>Paired trajectories: interfaces lead by <b>+2.03 pts</b> [0.70, 3.51]</li>
-<li>Same dose at routine defects: nearly flat — bulk wins there</li>
-<li>The ranking is regime-dependent, not universal</li>
+<li>In ultra-clean cells, joint quality matters most — interfaces win by 2 points.</li>
+<li>In everyday cells, bulk dirt dominates and joints barely matter.</li>
+<li>There is no single most-important factor. It depends on how dirty the cell is.</li>
 </ul></div>
 </div>
 <div class="foot"><span>Guardrails for the Record Race</span><span>14 / 20</span></div>
-<div class="note">SPEAKER NOTES 14: The abstract-level claim and its own reversal on one slide. Marginal intervals overlapped, so we ran the sharper paired test the design allows — 6 of 8 trajectories favour interfaces at the floor. Then the routine-defect dose goes flat. Both halves are the finding.</div>
+<div class="note">SPEAKER NOTES 14: The abstract-level claim and its own reversal on one slide. In ultra-clean cells joints win; in everyday cells bulk dirt wins. Both halves are the finding.</div>
 </section>
 
 <!-- 15 LOSS -->
 <section class="slide" id="s15">
 <h2 class="kicker">Result · against experiment</h2>
-<h1>The excess is fill factor, not voltage</h1>
+<h1>Our extra points come from fill factor, not voltage</h1>
 <table class="deck">
 <tr><th>Device</th><th>Voc</th><th>Jsc</th><th>FF</th></tr>
 <tr><td>This work (bound)</td><td>1.321</td><td>21.20</td><td>89.1%</td></tr>
@@ -285,75 +287,78 @@ img.fit { max-width: 100%; max-height: 640px; object-fit: contain; background: #
 <tr><td>Dual-interface, 21.71%</td><td>1.27</td><td>—</td><td>—</td></tr>
 <tr><td>Carbon HTL-free, 20.72%</td><td>1.202</td><td>20.72</td><td>83.2%</td></tr>
 </table>
+<p class="body" style="margin-top:24px;">Our voltage is ordinary — real records already reach 1.27 to 1.29 volts.</p>
+<p class="body" style="margin-top:16px;">The six-point fill-factor gap has three possible causes, and we do not pretend to know which dominates.</p>
 <div class="foot"><span>Guardrails for the Record Race</span><span>15 / 20</span></div>
-<div class="note">SPEAKER NOTES 15: Our voltage is ordinary — the records already reach 1.27–1.29 V. The six-point fill-factor gap is where the simulation exceeds experiment, and we refuse to attribute it to one cause: no transport-layer recombination, no back reflector, numerics. Read the table left to right with the room.</div>
+<div class="note">SPEAKER NOTES 15: Our voltage is ordinary — the records already reach 1.27 to 1.29 volts. The fill-factor gap is where simulation exceeds experiment, and we refuse to blame one cause.</div>
 </section>
 
 <!-- 16 TAUS -->
 <section class="slide" id="s16">
 <h2 class="kicker">Method · portable metrics</h2>
-<h1>Report lifetimes and velocities, not just densities</h1>
+<h1>Compare lifetimes, not just dirt counts</h1>
 <div class="grid2">
 <div><table class="deck">
-<tr><th>Density</th><th>τ / S</th></tr>
-<tr><td>N<sub>t</sub> 10<sup>12</sup> (floor)</td><td>τ = 100 µs</td></tr>
-<tr><td>N<sub>t</sub> 10<sup>15</sup> (routine)</td><td>τ = 0.1 µs</td></tr>
-<tr><td>N<sub>if</sub> 10<sup>10</sup> (guardrail)</td><td>S = 100 cm/s</td></tr>
+<tr><th>Dirt level</th><th>Lifetime / surface speed</th></tr>
+<tr><td>Cleanest allowed</td><td>charges live 100 microseconds</td></tr>
+<tr><td>Everyday dirt</td><td>charges live 0.1 microseconds</td></tr>
+<tr><td>Joint floor</td><td>surface speed 100 cm/s</td></tr>
 </table></div>
-<div><p class="body">N and σ enter only as their product — τ and S are the cross-study currency. Our guardrail is τ = 100 µs with S = 100 cm/s.</p></div>
+<div><p class="body">Dirt count times trap size is what physics actually sees.</p>
+<p class="body" style="margin-top:16px;">Lifetimes and surface speeds let studies compare fairly — and our cleanest floor is far cleaner than the best real films.</p></div>
 </div>
 <div class="foot"><span>Guardrails for the Record Race</span><span>16 / 20</span></div>
-<div class="note">SPEAKER NOTES 16: N-sigma degeneracy means densities alone cannot be compared across studies — we proved the identity digit-for-digit. Lifetimes and velocities can. This table is the forward path we offer the literature, and the 100 µs value is where we admit the floor is 1–2 orders beyond the best films.</div>
+<div class="note">SPEAKER NOTES 16: Counts alone cannot be compared across studies; we proved the equivalence digit-for-digit. The floor's cleanliness is admitted, not hidden.</div>
 </section>
 
 <!-- 17 TRAPS -->
 <section class="slide" id="s17">
 <h2 class="kicker">Honesty · scripting</h2>
-<h1>Two scripting traps that fabricate cells</h1>
+<h1>Two software traps that invent fake cells</h1>
 <ul>
-<li><b>Units trap:</b> SI-valued <i>set</i> inputs overdose 10<sup>6</sup>× — ghost cells up to 27%</li>
-<li><b>σ trap:</b> the capture cross-section <i>set</i>-key neutralises interfaces instead of scaling them</li>
-<li>Rule: definition files for structure, <i>set</i>-then-<i>get</i> verification always</li>
+<li>Mixing metric and practical units overdoses the cell a million-fold and invents ghost cells near 27 percent.</li>
+<li>One trap-size command silently switches the traps off instead of resizing them.</li>
+<li>Rule: build structure in files, and always read every scripted value back before believing a run.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>17 / 20</span></div>
-<div class="note">SPEAKER NOTES 17: We publish our mistakes as findings. Both traps produced plausible-looking efficiencies — that is what makes them dangerous. The verification rule is one line: read back every scripted value before believing the run.</div>
+<div class="note">SPEAKER NOTES 17: Plausible-looking efficiencies from pure input errors — that is what makes them dangerous. One-line rule to defeat both.</div>
 </section>
 
 <!-- 18 CHECKLIST -->
 <section class="slide" id="s18">
 <h2 class="kicker">Contribution · standard</h2>
-<h1>A checklist for comparable SCAPS claims</h1>
+<h1>A checklist so future studies can be compared</h1>
 <ul>
-<li>Interface status + N<sub>if</sub> + σ (or S) · bulk N<sub>t</sub> + σ (or τ)</li>
-<li>Unit-system declaration · R<sub>s</sub> basis, computed not assumed</li>
-<li>Both contact work functions · surveyed vs adopted affinities</li>
-<li>Model-derived radiative screen · archived receipts</li>
+<li>State joint dirt plus trap size — or the lifetime and surface speed.</li>
+<li>State which unit system every number uses, and the resistance basis.</li>
+<li>State both contact energy levels, and which affinities were surveyed versus adopted.</li>
+<li>State the radiative ceiling used, and archive every input file.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>18 / 20</span></div>
-<div class="note">SPEAKER NOTES 18: This is the paper's practical contribution — eight disclosure items, each one a place where an undisclosed choice can move the headline by points. Propose it as a reviewer checklist for simulation papers.</div>
+<div class="note">SPEAKER NOTES 18: Eight disclosure items, each a place where silence moves the headline by points. Propose it as a reviewer checklist.</div>
 </section>
 
 <!-- 19 LIMITS -->
 <section class="slide" id="s19">
 <h2 class="kicker">Limits</h2>
-<h1>What this work cannot say</h1>
+<h1>What this work cannot tell you</h1>
 <ul>
-<li>No optimiser brackets the champion — best-of-evaluated, not proven optimal</li>
-<li>No phase stability, ion migration, or damp-heat — SCAPS steady state only</li>
-<li>No experimental calibration — the loss budget compares, it does not fit</li>
+<li>No search method proves our best cell is the global best — it is the best we evaluated.</li>
+<li>We model steady electricity only: no aging, no moisture damage, no crystal decay.</li>
+<li>We never fitted the model to a real measured cell, so the comparison table compares rather than calibrates.</li>
 </ul>
 <div class="foot"><span>Guardrails for the Record Race</span><span>19 / 20</span></div>
-<div class="note">SPEAKER NOTES 19: End the science with the boundaries. A paper that prices everyone else's assumptions must price its own — these three are ours. Questions from the room belong here.</div>
+<div class="note">SPEAKER NOTES 19: A paper that prices others' assumptions prices its own. Questions belong here.</div>
 </section>
 
 <!-- 20 TAKEAWAY -->
 <section class="slide" id="s20">
 <h2 class="kicker">Takeaway</h2>
 <h1>Claim 20.8. Cite 24.9 as a bound.</h1>
-<p class="body">Every number archived · every assumption priced · scripts regenerate every receipt</p>
+<p class="body">Every number archived, every assumption priced, every receipt regenerable from scripts.</p>
 <p class="body" style="margin-top:28px;color:var(--muted);">github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed</p>
 <div class="foot"><span>Guardrails for the Record Race</span><span>20 / 20</span></div>
-<div class="note">SPEAKER NOTES 20: One sentence to leave the room with. Then the live demo: open the champion definition file in SCAPS and read 24.95% off the screen.</div>
+<div class="note">SPEAKER NOTES 20: One sentence to leave the room with. Then the live demo: open the champion file in SCAPS and read the number off the screen.</div>
 </section>
 
 </div>
