@@ -1,0 +1,19 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e16]:
+      - heading "The problem" [level=2] [ref=e17]
+      - heading "Simulation records keep climbing past experiment" [level=1] [ref=e18]
+      - list [ref=e19]:
+        - listitem [ref=e20]:
+          - text: ▪ Certified CsPbI
+          - subscript [ref=e21]: "3"
+          - text: "record: 22.02% — simulation claims reach 24.2% and beyond"
+        - listitem [ref=e22]: ▪ Highest numbers come with interface recombination removed or defect densities far below reach
+        - listitem [ref=e23]: ▪ Raw inputs are routinely withheld — nobody can re run anyone else
+      - generic [ref=e24]:
+        - generic [ref=e25]: Guardrails for the Record Race
+        - generic [ref=e26]: 2 / 20
+    - text: ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪
+  - navigation [ref=e13]:
+    - button "←" [ref=e14] [cursor=pointer]
+    - button "→" [ref=e15] [cursor=pointer]

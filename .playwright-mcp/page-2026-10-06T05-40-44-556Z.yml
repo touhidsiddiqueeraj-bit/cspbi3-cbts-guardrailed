@@ -1,0 +1,18 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e3]:
+      - heading "CsPbI3 perovskites · simulation audit · group seminar" [level=2] [ref=e4]
+      - heading [level=1] [ref=e5]:
+        - text: Guardrails for the record race:what a CsPbI
+        - subscript [ref=e6]: "3"
+        - text: cell can honestly claim
+      - paragraph [ref=e7]: Hussain Touhid Siddiquee & Md. Abdul Malek Fahim · Dept. of EEE, Leading University
+      - paragraph [ref=e8]:
+        - generic [ref=e9]: 24.9% box best → 20.8% defensible
+      - generic [ref=e10]:
+        - generic [ref=e11]: Guardrails for the Record Race
+        - generic [ref=e12]: 1 / 20
+    - text: ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪ ▪
+  - navigation [ref=e13]:
+    - button "←" [ref=e14] [cursor=pointer]
+    - button "→" [ref=e15] [cursor=pointer]
