@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Guardrails for the Record Race — CsPbI3 seminar deck</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+/* TYPE_SCALE + SPACING (make-a-deck constants) */
+:root {
+  --title: 64px;
+  --subtitle: 44px;
+  --body: 34px;
+  --small: 28px;
+  --pad-top: 100px;
+  --pad-bottom: 80px;
+  --pad-x: 100px;
+  --title-gap: 52px;
+  --item-gap: 28px;
+  /* warm-neutral deck palette (no brand on file) */
+  --paper: #faf7f1;
+  --ink: #1c1a16;
+  --accent: #b3541e;
+  --accent2: #2e6e5e;
+  --muted: #6f6a5e;
+  --line: #d8d2c4;
+  --card: #ffffff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #22201c; height: 100%; font-family: Georgia, "Times New Roman", serif; }
+#stage { position: relative; width: 1920px; height: 1080px; margin: 0 auto; transform-origin: top center; }
+section.slide { position: absolute; inset: 0; width: 1920px; height: 1080px; background: var(--paper); color: var(--ink);
+  padding: var(--pad-top) var(--pad-x) var(--pad-bottom); display: none; overflow: hidden; }
+section.slide.active { display: block; }
+h1 { font-size: var(--title); line-height: 1.12; margin-bottom: var(--title-gap); font-weight: 700; }
+h1 .accent { color: var(--accent); }
+h2.kicker { font-size: var(--small); letter-spacing: 4px; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; font-family: Verdana, sans-serif; }
+p.body, li { font-size: var(--body); line-height: 1.42; }
+ul { list-style: none; }
+ul li { margin-bottom: var(--item-gap); padding-left: 48px; position: relative; }
+ul li::before { content: "▪"; position: absolute; left: 0; color: var(--accent); }
+.num { font-size: 96px; font-weight: 700; color: var(--accent); line-height: 1; }
+.num small { font-size: var(--small); color: var(--muted); font-weight: 400; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.foot { position: absolute; bottom: 36px; left: var(--pad-x); right: var(--pad-x);
+  display: flex; justify-content: space-between; font-size: 24px; color: var(--muted); font-family: Verdana, sans-serif; }
+table.deck { border-collapse: collapse; width: 100%; font-size: var(--small); background: var(--card); }
+table.deck th, table.deck td { border: 2px solid var(--ink); padding: 14px 18px; text-align: left; }
+table.deck th { background: var(--ink); color: var(--paper); font-family: Verdana, sans-serif; font-size: 24px; }
+img.fit { max-width: 100%; max-height: 640px; object-fit: contain; background: #fff; border: 2px solid var(--line); }
+.note { display: none; }
+/* race chart */
+.race { position: relative; height: 620px; border-left: 4px solid var(--ink); border-bottom: 4px solid var(--ink); margin-top: 20px; }
+.dot { position: absolute; width: 26px; height: 26px; border-radius: 50%; transform: translate(-50%, 50%); }
+.dot.exp { background: var(--accent2); }
+.dot.sim { background: var(--accent); }
+.dot.us { background: var(--ink); width: 34px; height: 34px; border: 5px solid var(--accent); }
+.tag { position: absolute; transform: translate(-50%, 0); font-size: 24px; white-space: nowrap; font-family: Verdana, sans-serif; }
+.tag b { font-size: 28px; }
+#nav { position: fixed; bottom: 12px; right: 16px; z-index: 99; font-family: Verdana, sans-serif; }
+#nav button { font-size: 22px; padding: 8px 22px; margin-left: 8px; cursor: pointer; }
+@media print { #nav { display: none; } section.slide { display: block; position: relative; page-break-after: always; } }
+</style>
+</head>
+<body>
+<div id="stage">
+
+<!-- 1 TITLE -->
+<section class="slide active" id="s1">
+<h2 class="kicker">CsPbI3 perovskites · simulation audit · group seminar</h2>
+<h1>Guardrails for the record race:<br>what a CsPbI<sub>3</sub> cell can <span class="accent">honestly</span> claim</h1>
+<p class="body">Hussain Touhid Siddiquee &amp; Md. Abdul Malek Fahim · Dept. of EEE, Leading University</p>
+<p class="body" style="margin-top:28px;"><span class="num">24.9<small>% box best → </small>20.8<small>% defensible</small></span></p>
+<div class="foot"><span>Guardrails for the Record Race</span><span>1 / 20</span></div>
+<div class="note">SPEAKER NOTES 1: Open with the punchline — two numbers, not one. The 24.9 is the best point we could build inside stated guardrails; 20.8 is the number we would defend to an experimentalist. Everything between them is priced assumptions. Ask the room: which number would they publish?</div>
+</section>
+
+<!-- 2 RACE -->
+<section class="slide" id="s2">
+<h2 class="kicker">The problem</h2>
+<h1>Simulation records keep climbing past experiment</h1>
+<ul>
+<li>Certified CsPbI<sub>3</sub> record: <b>22.02%</b> — simulation claims reach <b>24.2%</b> and beyond</li>
+<li>Highest numbers come with interface recombination removed or defect densities far below reach</li>
+<li>Raw inputs are routinely withheld — nobody can re run anyone else</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>2 / 20</span></div>
+<div class="note">SPEAKER NOTES 2: Set up the inflation dynamic. 22.02 certified vs 24.17/24.24 simulated on similar stacks. The question is not who is right — it is what each number assumes. That is the whole talk.</div>
+</section>
+
+<!-- 3 ORIGINS -->
+<section class="slide" id="s3">
+<h2 class="kicker">Where the numbers come from</h2>
+<h1>Our parameters come from the Hossain programme</h1>
+<div class="grid2">
+<div><ul>
+<li><b>2022</b> — 96 transport-layer combinations screened, TiO<sub>2</sub>/CBTS wins at <b>17.90%</b></li>
+<li><b>2023</b> — full optimisation reaches <b>19.06%</b>; complete parameter table printed</li>
+<li><b>Us</b> — reproduce at <b>18.99%</b>, then add interface blocks the originals omit</li>
+</ul></div>
+<div><table class="deck">
+<tr><th>Device</th><th>Voc</th><th>Jsc</th><th>FF</th></tr>
+<tr><td>Hossain 2022 printed</td><td>0.997 V</td><td>21.07</td><td>85.2%</td></tr>
+<tr><td>Our baseline</td><td>1.122 V</td><td>19.68</td><td>86.0%</td></tr>
+</table>
+<p class="body" style="margin-top:20px;font-size:var(--small);color:var(--muted);">We trade ~1.4 mA of current for ~0.12 V — the price of switching interfaces on.</p></div>
+</div>
+<div class="foot"><span>Guardrails for the Record Race</span><span>3 / 20</span></div>
+<div class="note">SPEAKER NOTES 3: Provenance matters. Every number in our def file traces to a printed table — Hossain 2022 for the stack, Hossain 2023 for the optimisation. The only things we add are the interface blocks and the absorption model, both stated. Contrast with the 24%-class studies that print no complete table.</div>
+</section>
+
+<!-- 4 STACK -->
+<section class="slide" id="s4">
+<h2 class="kicker">The device</h2>
+<h1>The stack, with interfaces switched on</h1>
+<table class="deck">
+<tr><th>Layer</th><th>Thickness</th><th>Role</th></tr>
+<tr><td>ITO front contact</td><td>—</td><td>4.0 eV work function</td></tr>
+<tr><td>TiO<sub>2</sub> ETL</td><td>30 nm</td><td>N<sub>D</sub> 9×10<sup>17</sup>, χ 3.7 eV at optimum</td></tr>
+<tr><td><b>CsPbI<sub>3</sub> absorber</b></td><td><b>2.2 µm</b></td><td>N<sub>A</sub> 3×10<sup>16</sup>, N<sub>t</sub> 10<sup>12</sup>, E<sub>g</sub> 1.65 eV</td></tr>
+<tr><td>CBTS HTL</td><td>100 nm</td><td>N<sub>A</sub> 10<sup>18</sup>, χ 3.9 eV at optimum</td></tr>
+<tr><td>Ni back contact</td><td>—</td><td>5.5 eV work function</td></tr>
+<tr><td colspan="3">Neutral interface blocks, N = 10<sup>10</sup> cm<sup>−2</sup> (S = 100 cm/s), at <b>both</b> heterojunctions</td></tr>
+</table>
+<div class="foot"><span>Guardrails for the Record Race</span><span>4 / 20</span></div>
+<div class="note">SPEAKER NOTES 4: Walk the stack top to bottom. The last row is the one that matters — both heterojunctions carry recombination blocks. Almost every inflated number in the literature deletes exactly this row. Our box floor is 1e10 per cm²; anything below is audit, not a candidate.</div>
+</section>
+
+<!-- 5 SETUP -->
+<section class="slide" id="s5">
+<h2 class="kicker">Method · SCAPS-1D v3.3.10</h2>
+<h1>Configured for honest sweeps</h1>
+<ul>
+<li>AM1.5G, 100 mW/cm², 300 K · Eg-sqrt absorption (α = A√(hν−E<sub>g</sub>)), so gap sweeps move the edge</li>
+<li>SRH recombination through stated bulk + interface defects · K<sub>rad</sub> = 0, Auger off</li>
+<li>Flat 10% front reflection, opaque Ni back contact — conservative everywhere except the blue</li>
+<li>Resistances scripted (<i>set external.Rs/Rsh</i>), never hand-derated</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>5 / 20</span></div>
+<div class="note">SPEAKER NOTES 5: Two things to stress: the absorption model means bandgap sweeps are self-consistent, and parasitics are scripted in SCAPS, not multiplied in afterwards. Both are guardrails against the usual inflation routes.</div>
+</section>
+
+<!-- 6 TRAPS -->
+<section class="slide" id="s6">
+<h2 class="kicker">Method · scripting</h2>
+<h1>Three conventions that keep the numbers honest</h1>
+<ul>
+<li><b>Units:</b> def files store SI, script <i>set</i> expects practical units — SI inputs inject a 10<sup>6</sup>× overdose</li>
+<li><b>Cross-sections:</b> the σ <i>set</i>-key restructures the block instead of scaling it — definition files only</li>
+<li><b>Uncertainty:</b> 0.017-point IV-step; every reported difference is read against it</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>6 / 20</span></div>
+<div class="note">SPEAKER NOTES 6: This is the cautionary slide. We found ghost cells at 27% from a units slip and neutralised interfaces from a set-key slip. Both are documented in the appendix with a set-then-get verification rule. Invite the room to check their own scripts.</div>
+</section>
+
+<!-- 7 CAMPAIGN -->
+<section class="slide" id="s7">
+<h2 class="kicker">Method · campaign</h2>
+<h1>One campaign, every run receipted</h1>
+<table class="deck">
+<tr><th>Batch</th><th>Runs</th><th>Finding</th></tr>
+<tr><td>Grid + refinement</td><td>96 + 36</td><td>23.50% surveyed best</td></tr>
+<tr><td>Joint affinities</td><td>36</td><td>24.95% at (3.9, 3.7)</td></tr>
+<tr><td>Optimiser (exploratory)</td><td>104</td><td>23.08% guardrailed — brackets nothing</td></tr>
+<tr><td>Morris + audits + parasitics</td><td>56 + …</td><td>regime flip, Rs/Rsh scripted</td></tr>
+</table>
+<div class="foot"><span>Guardrails for the Record Race</span><span>7 / 20</span></div>
+<div class="note">SPEAKER NOTES 7: The campaign ran in layers — grid, then joint affinities (the surprise), then an optimiser that could not bracket the champion because its box excluded χ 3.7. Say that plainly: the optimiser result is a limitation, not a trophy.</div>
+</section>
+
+<!-- 8 RACE CHART -->
+<section class="slide" id="s8">
+<h2 class="kicker">The record race</h2>
+<h1>Two races on the same chart</h1>
+<div class="race" id="racechart">
+<!-- y: 10% bottom -> 42% top over 560px -->
+<div class="dot exp" style="left:6%;bottom:2%;" title="10.8"></div><div class="tag" style="left:6%;bottom:-4%;">10.8 <b>QD 2016</b></div>
+<div class="dot exp" style="left:26%;bottom:24%;"></div><div class="tag" style="left:26%;bottom:30%;">17.9 <b>Hossain 22</b></div>
+<div class="dot exp" style="left:36%;bottom:27%;"></div><div class="tag" style="left:36%;bottom:33%;">19.06 <b>Hossain 23</b></div>
+<div class="dot exp" style="left:66%;bottom:44%;"></div><div class="tag" style="left:66%;bottom:50%;">21.43 <b>inverted cert.</b></div>
+<div class="dot exp" style="left:82%;bottom:47%;"></div><div class="tag" style="left:82%;bottom:53%;"><b>22.02 cert.</b></div>
+<div class="dot sim" style="left:46%;bottom:33%;"></div><div class="tag" style="left:46%;bottom:-4%;">23.10 <b>ZnO/Spiro sim</b></div>
+<div class="dot sim" style="left:60%;bottom:42%;"></div><div class="tag" style="left:60%;bottom:48%;">24.17 <b>Nazli sim</b></div>
+<div class="dot sim" style="left:64%;bottom:43%;"></div><div class="tag" style="left:70%;bottom:22%;">24.24 <b>Oyedele sim</b></div>
+<div class="dot us" style="left:88%;bottom:49%;"></div><div class="tag" style="left:88%;bottom:55%;"><b>24.95 bound (us)</b></div>
+<div class="dot us" style="left:88%;bottom:36%;border-color:var(--accent2);"></div><div class="tag" style="left:88%;bottom:28%;"><b>20.82 defensible (us)</b></div>
+</div>
+<p class="body" style="margin-top:34px;font-size:var(--small);"><span style="color:var(--accent2);">●</span> measured &nbsp;&nbsp; <span style="color:var(--accent);">●</span> simulated &nbsp;&nbsp; <span>◉</span> this work</p>
+<div class="foot"><span>Guardrails for the Record Race</span><span>8 / 20</span></div>
+<div class="note">SPEAKER NOTES 8: The money slide. Green climbs slowly — that is fabrication getting better. Orange jumps — that is assumptions getting looser. Our two black-ringed points sit on opposite sides of the certified record, and the gap between them is the whole argument: assumptions, priced.</div>
+</section>
+
+<!-- 9 CHAMPION -->
+<section class="slide" id="s9">
+<h2 class="kicker">Result · the upper bound</h2>
+<h1>The best guardrailed point: 24.95%</h1>
+<div class="grid2">
+<div><img class="fit" src="fig_JVboth.png" alt="JV curves baseline vs champion"></div>
+<div><p class="body">Voc <b>1.321 V</b> · Jsc <b>21.20</b> · FF <b>89.11%</b></p>
+<p class="body" style="margin-top:24px;">2.2 µm · N<sub>t</sub> 10<sup>12</sup> · N<sub>A</sub> ceiling · E<sub>g</sub> 1.65 · χ (3.9, 3.7)</p>
+<p class="body" style="margin-top:24px;color:var(--muted);">Corner of the box in every dimension — a permissive-edge bound, not a forecast.</p></div>
+</div>
+<div class="foot"><span>Guardrails for the Record Race</span><span>9 / 20</span></div>
+<div class="note">SPEAKER NOTES 9: Read the JV, then read the small print. Every coordinate of this point is an edge — thickness top, defects floor, gap bottom, affinities outside typical ranges. It is the best the box allows, which is exactly why it cannot be the headline alone.</div>
+</section>
+
+<!-- 10 AFFINITY -->
+<section class="slide" id="s10">
+<h2 class="kicker">Result · why affinities move it</h2>
+<h1>Affinity moves efficiency through activation energy</h1>
+<div class="grid2">
+<div><img class="fit" src="fig_align.png" alt="Band alignment"></div>
+<div><ul>
+<li>χ<sub>CBTS</sub> 3.5 → 3.9: E<sub>a</sub> 1.47 → 1.87 eV, 22.10 → 24.95%</li>
+<li>Peak turns over past ~3.95 eV — interior optimum, not edge-sitting</li>
+<li>A transport reading predicts the barrier end worst; it is the best</li>
+</ul></div>
+</div>
+<div class="foot"><span>Guardrails for the Record Race</span><span>10 / 20</span></div>
+<div class="note">SPEAKER NOTES 10: The joint map was the surprise of the campaign. Both optimum affinities sit outside surveyed values, and the mechanism is recombination activation energy, not transport — efficiency rises straight through zero hole-side offset. That is the evidence; the aggressiveness of the values is the caveat, and both are stated.</div>
+</section>
+
+<!-- 11 DOSE -->
+<section class="slide" id="s11">
+<h2 class="kicker">Result · interfaces</h2>
+<h1>Interfaces cost four points across the dose</h1>
+<div class="grid2">
+<div><img class="fit" src="fig_audit.png" alt="Interface dose response"></div>
+<div><p class="body">25.11% at 10<sup>8</sup> → <b>23.84%</b> at the 10<sup>10</sup> guardrail → 21.20% at 10<sup>12</sup> cm<sup>−2</sup></p>
+<p class="body" style="margin-top:24px;">Published 24.17 / 24.24 are <b>not</b> placed on this curve — different stacks, incomplete tables.</p></div>
+</div>
+<div class="foot"><span>Guardrails for the Record Race</span><span>11 / 20</span></div>
+<div class="note">SPEAKER NOTES 11: Four points across four decades — that is the price of interfaces on our own cell. Note what we refuse to do: map anyone else's number onto our curve. Their stacks differ and their tables are incomplete, so placement would be an accusation dressed as analysis.</div>
+</section>
+
+<!-- 12 DB -->
+<section class="slide" id="s12">
+<h2 class="kicker">Result · the screen</h2>
+<h1>A radiative ceiling rules out the no-interface band</h1>
+<ul>
+<li>Detailed-balance Voc from our own absorption: <b>1.371 V</b> at 1.65 eV</li>
+<li>Champion clears it by 0.05 V — every no-interface cell sits within 0.011 V of it or above</li>
+<li>With K<sub>rad</sub> = 0 nothing pins the splitting: the band has no margin anywhere</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>12 / 20</span></div>
+<div class="note">SPEAKER NOTES 12: This screen has teeth because we computed it from our own absorption model, not a textbook number. The old Eg/q rule sat above the radiative limit and could not adjudicate anything — we retired it and say so in the paper. The no-interface band hugs the limit; that is why none of it is trusted.</div>
+</section>
+
+<!-- 13 ROUTINE -->
+<section class="slide" id="s13">
+<h2 class="kicker">Result · the defensible number</h2>
+<h1>Routine defects give 20.82%</h1>
+<ul>
+<li>1.0 µm, N<sub>t</sub> 10<sup>15</sup>, surveyed affinities — 20.42% with R<sub>s</sub> = 1 Ωcm²</li>
+<li>Thickness optimum moves with defect level (1.5 µm at 10<sup>14</sup> → 1.0 µm at 10<sup>15</sup>)</li>
+<li>Attainable gaps at the joint base: 24.44 / 24.73 / 24.28%</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>13 / 20</span></div>
+<div class="note">SPEAKER NOTES 13: If an experimentalist asks what to expect, this is the answer — not 24.95. The thickness-by-defect factorial shows the optimum shifting with Nt, which single-variable sweeps cannot see. Honest numbers come with their conditions attached.</div>
+</section>
+
+<!-- 14 MORRIS -->
+<section class="slide" id="s14">
+<h2 class="kicker">Result · sensitivity</h2>
+<h1>Interfaces lead at the floor, bulk leads at routine</h1>
+<div class="grid2">
+<div><img class="fit" src="fig_morris.png" alt="Morris sensitivity"></div>
+<div><ul>
+<li>Paired trajectories: interfaces lead by <b>+2.03 pts</b> [0.70, 3.51]</li>
+<li>Same dose at routine defects: nearly flat — bulk wins there</li>
+<li>The ranking is regime-dependent, not universal</li>
+</ul></div>
+</div>
+<div class="foot"><span>Guardrails for the Record Race</span><span>14 / 20</span></div>
+<div class="note">SPEAKER NOTES 14: The abstract-level claim and its own reversal on one slide. Marginal intervals overlapped, so we ran the sharper paired test the design allows — 6 of 8 trajectories favour interfaces at the floor. Then the routine-defect dose goes flat. Both halves are the finding.</div>
+</section>
+
+<!-- 15 LOSS -->
+<section class="slide" id="s15">
+<h2 class="kicker">Result · against experiment</h2>
+<h1>The excess is fill factor, not voltage</h1>
+<table class="deck">
+<tr><th>Device</th><th>Voc</th><th>Jsc</th><th>FF</th></tr>
+<tr><td>This work (bound)</td><td>1.321</td><td>21.20</td><td>89.1%</td></tr>
+<tr><td>AP-modified, 22.16%</td><td>1.29</td><td>20.77</td><td>83.0%</td></tr>
+<tr><td>Dual-interface, 21.71%</td><td>1.27</td><td>—</td><td>—</td></tr>
+<tr><td>Carbon HTL-free, 20.72%</td><td>1.202</td><td>20.72</td><td>83.2%</td></tr>
+</table>
+<div class="foot"><span>Guardrails for the Record Race</span><span>15 / 20</span></div>
+<div class="note">SPEAKER NOTES 15: Our voltage is ordinary — the records already reach 1.27–1.29 V. The six-point fill-factor gap is where the simulation exceeds experiment, and we refuse to attribute it to one cause: no transport-layer recombination, no back reflector, numerics. Read the table left to right with the room.</div>
+</section>
+
+<!-- 16 TAUS -->
+<section class="slide" id="s16">
+<h2 class="kicker">Method · portable metrics</h2>
+<h1>Report lifetimes and velocities, not just densities</h1>
+<div class="grid2">
+<div><table class="deck">
+<tr><th>Density</th><th>τ / S</th></tr>
+<tr><td>N<sub>t</sub> 10<sup>12</sup> (floor)</td><td>τ = 100 µs</td></tr>
+<tr><td>N<sub>t</sub> 10<sup>15</sup> (routine)</td><td>τ = 0.1 µs</td></tr>
+<tr><td>N<sub>if</sub> 10<sup>10</sup> (guardrail)</td><td>S = 100 cm/s</td></tr>
+</table></div>
+<div><p class="body">N and σ enter only as their product — τ and S are the cross-study currency. Our guardrail is τ = 100 µs with S = 100 cm/s.</p></div>
+</div>
+<div class="foot"><span>Guardrails for the Record Race</span><span>16 / 20</span></div>
+<div class="note">SPEAKER NOTES 16: N-sigma degeneracy means densities alone cannot be compared across studies — we proved the identity digit-for-digit. Lifetimes and velocities can. This table is the forward path we offer the literature, and the 100 µs value is where we admit the floor is 1–2 orders beyond the best films.</div>
+</section>
+
+<!-- 17 TRAPS -->
+<section class="slide" id="s17">
+<h2 class="kicker">Honesty · scripting</h2>
+<h1>Two scripting traps that fabricate cells</h1>
+<ul>
+<li><b>Units trap:</b> SI-valued <i>set</i> inputs overdose 10<sup>6</sup>× — ghost cells up to 27%</li>
+<li><b>σ trap:</b> the capture cross-section <i>set</i>-key neutralises interfaces instead of scaling them</li>
+<li>Rule: definition files for structure, <i>set</i>-then-<i>get</i> verification always</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>17 / 20</span></div>
+<div class="note">SPEAKER NOTES 17: We publish our mistakes as findings. Both traps produced plausible-looking efficiencies — that is what makes them dangerous. The verification rule is one line: read back every scripted value before believing the run.</div>
+</section>
+
+<!-- 18 CHECKLIST -->
+<section class="slide" id="s18">
+<h2 class="kicker">Contribution · standard</h2>
+<h1>A checklist for comparable SCAPS claims</h1>
+<ul>
+<li>Interface status + N<sub>if</sub> + σ (or S) · bulk N<sub>t</sub> + σ (or τ)</li>
+<li>Unit-system declaration · R<sub>s</sub> basis, computed not assumed</li>
+<li>Both contact work functions · surveyed vs adopted affinities</li>
+<li>Model-derived radiative screen · archived receipts</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>18 / 20</span></div>
+<div class="note">SPEAKER NOTES 18: This is the paper's practical contribution — eight disclosure items, each one a place where an undisclosed choice can move the headline by points. Propose it as a reviewer checklist for simulation papers.</div>
+</section>
+
+<!-- 19 LIMITS -->
+<section class="slide" id="s19">
+<h2 class="kicker">Limits</h2>
+<h1>What this work cannot say</h1>
+<ul>
+<li>No optimiser brackets the champion — best-of-evaluated, not proven optimal</li>
+<li>No phase stability, ion migration, or damp-heat — SCAPS steady state only</li>
+<li>No experimental calibration — the loss budget compares, it does not fit</li>
+</ul>
+<div class="foot"><span>Guardrails for the Record Race</span><span>19 / 20</span></div>
+<div class="note">SPEAKER NOTES 19: End the science with the boundaries. A paper that prices everyone else's assumptions must price its own — these three are ours. Questions from the room belong here.</div>
+</section>
+
+<!-- 20 TAKEAWAY -->
+<section class="slide" id="s20">
+<h2 class="kicker">Takeaway</h2>
+<h1>Claim 20.8. Cite 24.9 as a bound.</h1>
+<p class="body">Every number archived · every assumption priced · scripts regenerate every receipt</p>
+<p class="body" style="margin-top:28px;color:var(--muted);">github.com/touhidsiddiqueeraj-bit/cspbi3-cbts-guardrailed</p>
+<div class="foot"><span>Guardrails for the Record Race</span><span>20 / 20</span></div>
+<div class="note">SPEAKER NOTES 20: One sentence to leave the room with. Then the live demo: open the champion definition file in SCAPS and read 24.95% off the screen.</div>
+</section>
+
+</div>
+<nav id="nav"><button id="prev">←</button><button id="next">→</button></nav>
+<script>
+(function(){
+  var slides = Array.prototype.slice.call(document.querySelectorAll("section.slide"));
+  var i = 0;
+  function size(){
+    var s = Math.min(window.innerWidth/1920, window.innerHeight/1080);
+    document.getElementById("stage").style.transform = "scale(" + s + ")";
+  }
+  function show(n){
+    i = (n + slides.length) % slides.length;
+    slides.forEach(function(el,k){ el.classList.toggle("active", k===i); });
+    window.location.hash = "s" + (i+1);
+  }
+  document.getElementById("prev").onclick = function(){ show(i-1); };
+  document.getElementById("next").onclick = function(){ show(i+1); };
+  document.onkeydown = function(e){ if(e.key==="ArrowRight"||e.key===" "){show(i+1);} if(e.key==="ArrowLeft"){show(i-1);} };
+  var m = /s(\d+)/.exec(window.location.hash);
+  show(m ? parseInt(m[1],10)-1 : 0);
+  window.onresize = size; size();
+})();
+</script>
+</body>
+</html>
