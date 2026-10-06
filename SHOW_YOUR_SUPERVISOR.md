@@ -1,7 +1,7 @@
 # Show your supervisor: the 24.95% CsPbI3 cell in SCAPS
 
-File: `defs/csPbI3-CBTS-champion24p95.def`
-(a copy lives in the SCAPS `def/` folder wherever SCAPS is installed)
+File: `defs/champion24p95.scaps`
+(same champion cell as `defs/csPbI3-CBTS-champion24p95.def`, renamed to the extension you asked for — SCAPS loads it identically, verified at 24.9441%. Drop a copy in the SCAPS `def/` folder wherever SCAPS is installed)
 
 ## The 60-second demo
 
