@@ -1,0 +1,217 @@
+{
+ "flagged": [
+  {
+   "file": "s26_diag",
+   "id": "J_dos03",
+   "Voc": 1.390319,
+   "FF": 89.9057,
+   "eta": 26.4961,
+   "hits": [
+    "Voc-bound(1.370)"
+   ]
+  },
+  {
+   "file": "s26_diag",
+   "id": "J_dos05",
+   "Voc": 1.373216,
+   "FF": 89.6847,
+   "eta": 26.1059,
+   "hits": [
+    "Voc-bound(1.370)"
+   ]
+  }
+ ],
+ "batches": {
+  "baseline_JV": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "baseline_results": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "champion_JV": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "char": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "diag_units": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "newchamp_JV": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "noIF_JV": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "probe_qecv": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "retry_nt": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "roundA": {
+   "checked": 93,
+   "flagged": 0
+  },
+  "roundB": {
+   "checked": 33,
+   "flagged": 0
+  },
+  "s0_verify": {
+   "checked": 5,
+   "flagged": 0
+  },
+  "s10_r4": {
+   "checked": 6,
+   "flagged": 0
+  },
+  "s10_sigverify": {
+   "checked": 10,
+   "flagged": 0
+  },
+  "s11_joint_chi": {
+   "checked": 52,
+   "flagged": 0
+  },
+  "s12_fine": {
+   "checked": 1,
+   "flagged": 0
+  },
+  "s13_opt": {
+   "checked": 95,
+   "flagged": 0
+  },
+  "s14": {
+   "checked": 2,
+   "flagged": 0
+  },
+  "s16": {
+   "checked": 22,
+   "flagged": 0
+  },
+  "s17": {
+   "checked": 6,
+   "flagged": 0
+  },
+  "s1_dose": {
+   "checked": 13,
+   "flagged": 0
+  },
+  "s21_thNt": {
+   "checked": 8,
+   "flagged": 0
+  },
+  "s22_jointIF": {
+   "checked": 2,
+   "flagged": 0
+  },
+  "s23_krad_mu": {
+   "checked": 11,
+   "flagged": 0
+  },
+  "s24_stack": {
+   "checked": 8,
+   "flagged": 0
+  },
+  "s25_morris": {
+   "checked": 56,
+   "flagged": 0
+  },
+  "s25_morris_summary": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "s26_diag": {
+   "checked": 12,
+   "flagged": 2
+  },
+  "s28_calib": {
+   "checked": 7,
+   "flagged": 0
+  },
+  "s29_analysis": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "s29_lhs": {
+   "checked": 103,
+   "flagged": 0
+  },
+  "s30_crchi": {
+   "checked": 90,
+   "flagged": 0
+  },
+  "s31_small": {
+   "checked": 6,
+   "flagged": 0
+  },
+  "s32_analysis": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "s32_lhs_dos": {
+   "checked": 104,
+   "flagged": 0
+  },
+  "s33_nachi": {
+   "checked": 4,
+   "flagged": 0
+  },
+  "s34_gates": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "s35_phys": {
+   "checked": 3,
+   "flagged": 0
+  },
+  "s4_sig": {
+   "checked": 2,
+   "flagged": 0
+  },
+  "s4b_sig": {
+   "checked": 1,
+   "flagged": 0
+  },
+  "s5_morris": {
+   "checked": 56,
+   "flagged": 0
+  },
+  "s5_morris_ci": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "s5_morris_summary": {
+   "checked": 0,
+   "flagged": 0
+  },
+  "s6_rev2": {
+   "checked": 14,
+   "flagged": 0
+  },
+  "s7_r3": {
+   "checked": 8,
+   "flagged": 0
+  },
+  "s8_champ38": {
+   "checked": 13,
+   "flagged": 0
+  },
+  "s9_nt15base": {
+   "checked": 1,
+   "flagged": 0
+  }
+ },
+ "total_checked": 1024,
+ "unique_configurations": 803,
+ "note": "entries include intentional cross-batch replications (same parameters rerun as determinism checks); unique value-configurations differ"
+}

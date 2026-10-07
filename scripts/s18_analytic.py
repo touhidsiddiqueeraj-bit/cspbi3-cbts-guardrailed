@@ -8,7 +8,7 @@ Writes outputs/s18_analytic.json.
 import json, re, pathlib
 import numpy as np
 
-BASE = pathlib.Path("/home/touhid/Documents/leadpaper")
+BASE = pathlib.Path("/home/touhid/Documents/leadpaper-polish-r8")
 Q = 1.602176634e-19
 H, C, KB = 6.62607015e-34, 2.99792458e8, 1.380649e-23
 T = 300.0
@@ -76,13 +76,28 @@ OUT["qe_integral"] = {
     "n_points": int(len(qe)),
     "spectrum": str(p)}
 
-# ---- SQ-limit Jsc for the loss-budget row ----
+# ---- SQ-limit Jsc for the loss-budget row (FIXED 2026-10-07: old code had an
+# inverted wavelength cut that integrated the BELOW-gap tail, giving 39.2) ----
 J = 0.0
 for wl, Pw in spe:
-    if wl <= 1239.84 / 1.65:
+    if wl > 1239.84 / 1.65:
         continue
     J += Pw * scale * (wl * 1e-9) / (H * C)
 OUT["sq_jsc_Eg165_mA_cm2"] = round(float(J * Q * 0.1), 1)
+# ideal (step-absorptance) SQ Voc at headline gaps, for the screen comparison
+from math import log as _log
+for _Eg in [1.65, 1.70, 1.80]:
+    _E = np.linspace(_Eg, 4.0, 20001); _EJ = _E * Q
+    _phi = 2 * np.pi * _EJ ** 2 / (H ** 3 * C ** 2 * (np.exp(_EJ / (KB * T)) - 1))
+    _J0 = Q * np.trapezoid(_phi, _EJ)
+    _Jsc = 0.0
+    for _wl, _Pw in spe:
+        if _wl > 1239.84 / _Eg:
+            continue
+        _Jsc += _Pw * scale * (_wl * 1e-9) / (H * C)
+    _Jsc *= Q * 0.1
+    OUT[f"sq_ideal_Eg{_Eg}"] = {"Jsc_mA_cm2": round(float(_Jsc), 1),
+                                "Voc_V": round(float(KB * T / Q * _log(_Jsc * 10 / _J0 + 1)), 3)}
 # Green's ideal single-diode FF: (v - V_T ln(v/V_T + 1)) / (v + V_T)
 for v, t in [(1.357113, 275), (1.320708, 300), (1.363445, 300)]:
     VT = 0.025692 * (t / 300.0)

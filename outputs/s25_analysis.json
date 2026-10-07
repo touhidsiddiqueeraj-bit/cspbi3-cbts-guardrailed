@@ -1,0 +1,85 @@
+{
+ "mu_star": {
+  "d": {
+   "mu": 1.497,
+   "sigma": 1.274,
+   "n": 8,
+   "per": 0.832,
+   "per_unit": "per um"
+  },
+  "logNA": {
+   "mu": 1.107,
+   "sigma": 1.242,
+   "n": 8,
+   "per": 0.738,
+   "per_unit": "per decade"
+  },
+  "logNt": {
+   "mu": 1.124,
+   "sigma": 0.965,
+   "n": 8,
+   "per": 0.375,
+   "per_unit": "per decade"
+  },
+  "logND": {
+   "mu": 0.239,
+   "sigma": 0.185,
+   "n": 8,
+   "per": 0.08,
+   "per_unit": "per decade"
+  },
+  "Eg": {
+   "mu": 2.26,
+   "sigma": 1.274,
+   "n": 8,
+   "per": 22.6,
+   "per_unit": "per eV"
+  },
+  "logNif": {
+   "mu": 1.704,
+   "sigma": 1.353,
+   "n": 8,
+   "per": 0.852,
+   "per_unit": "per decade"
+  }
+ },
+ "per_unit": {},
+ "span": [
+  15.34,
+  22.96
+ ],
+ "ci95": {
+  "d": [
+   0.358,
+   1.327
+  ],
+  "logNA": [
+   0.392,
+   1.154
+  ],
+  "logNt": [
+   0.15,
+   0.599
+  ],
+  "logND": [
+   0.039,
+   0.124
+  ],
+  "Eg": [
+   14.084,
+   31.735
+  ],
+  "logNif": [
+   0.421,
+   1.351
+  ]
+ },
+ "paired": {
+  "mean": 0.58,
+  "ci95": [
+   -0.594,
+   1.97
+  ],
+  "frac_positive": 0.625
+ }
+}

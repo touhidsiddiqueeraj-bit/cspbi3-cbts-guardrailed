@@ -1,0 +1,119 @@
+{
+ "n_main": 95,
+ "n_sens": 8,
+ "converged": 103,
+ "interval": {
+  "median": 17.98,
+  "p5": 15.55,
+  "p95": 19.96
+ },
+ "ci_p5": [
+  15.26,
+  16.05
+ ],
+ "ci_median": [
+  17.71,
+  18.12
+ ],
+ "ci_p95": [
+  19.67,
+  20.24
+ ],
+ "screen_flags": {
+  "n_flagged": 0,
+  "flags": []
+ },
+ "optical_scale": {
+  "mean_pts": 1.16,
+  "note": "electrical-only interval otherwise"
+ },
+ "spearman": {
+  "logNt": -0.373,
+  "logNif": -0.78,
+  "Cr": -0.19,
+  "mu": 0.211,
+  "Rs": 0.012,
+  "ITO": -0.049,
+  "Ni": -0.043,
+  "d": 0.26
+ },
+ "Cr0_sensitivity": {
+  "median": 17.93,
+  "n": 8
+ },
+ "binned_2St_d": {
+  "note": "per-bin |spearman(eta,logNif)| vs |spearman(eta,logNt)|; no clean crossing at n~100, both matter throughout",
+  "bins": [
+   {
+    "lo": 1,
+    "hi": 3,
+    "n": 12,
+    "rho_Nif": 0.8,
+    "rho_Nt": 0.83
+   },
+   {
+    "lo": 3,
+    "hi": 10,
+    "n": 16,
+    "rho_Nif": 0.93,
+    "rho_Nt": 0.95
+   },
+   {
+    "lo": 10,
+    "hi": 30,
+    "n": 17,
+    "rho_Nif": 0.94,
+    "rho_Nt": 0.91
+   },
+   {
+    "lo": 30,
+    "hi": 100,
+    "n": 14,
+    "rho_Nif": 0.8,
+    "rho_Nt": 0.86
+   },
+   {
+    "lo": 100,
+    "hi": null,
+    "n": 26,
+    "rho_Nif": 0.67,
+    "rho_Nt": 0.23
+   }
+  ],
+  "frame": "1/taueff = 1/taub + 2S/d (two interfaces); S vs d/tau compares velocities, not a novelty claim"
+ },
+ "envelope_check": {
+  "interval_5_95": [
+   15.55,
+   19.96
+  ],
+  "records_above_interval": [
+   "Dai22.02",
+   "Qiu22.05",
+   "Zhang21.71",
+   "Hu21.43",
+   "Lei22.16",
+   "LiCarb20.72",
+   "XuQD22.15"
+  ],
+  "inside": [
+   "Hossain19.06-band",
+   "stacked19.25-19.59"
+  ],
+  "reading": "records sit above p95: consistent-with-prior-volume is refused; gap quantifies record-film quality beyond priors"
+ },
+ "divergence": {
+  "id": "Q002",
+  "meta": {
+   "logNt": 15.573,
+   "logNif": 10.484,
+   "Cr": 1.97e-11,
+   "mu": 13.22,
+   "Rs": 1.672,
+   "ITO": 4.4,
+   "Ni": 5.0,
+   "d": 1.426
+  },
+  "status": "solver divergence over 3 attempts (hangs); recorded, not excluded as crash"
+ }
+}

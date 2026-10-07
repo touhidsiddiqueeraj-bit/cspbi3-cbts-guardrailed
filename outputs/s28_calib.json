@@ -1,0 +1,163 @@
+{
+ "C_d10": {
+  "d": {
+   "Voc": 1.202009,
+   "Jsc": 19.46996746,
+   "FF": 86.8331,
+   "eta": 20.3216
+  },
+  "e": null,
+  "set": {
+   "layer2.NA": 3e+16,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.953,
+   "layer2.radiative": 1e-10,
+   "external.Rs": 1,
+   "layer2.mun": 10,
+   "layer2.mup": 5,
+   "interface1.IFdefect1.Ntotal": 30000000000.0,
+   "interface2.IFdefect1.Ntotal": 30000000000.0,
+   "layer2.thickness": 1.0,
+   "layer2.defect1.Ntotal": 100000000000000.0
+  }
+ },
+ "C_d08_nt3e14": {
+  "d": {
+   "Voc": 1.197849,
+   "Jsc": 19.25630833,
+   "FF": 86.4656,
+   "eta": 19.9443
+  },
+  "e": null,
+  "set": {
+   "layer2.NA": 3e+16,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.953,
+   "layer2.radiative": 1e-10,
+   "external.Rs": 1,
+   "layer2.mun": 10,
+   "layer2.mup": 5,
+   "interface1.IFdefect1.Ntotal": 30000000000.0,
+   "interface2.IFdefect1.Ntotal": 30000000000.0,
+   "layer2.thickness": 0.8,
+   "layer2.defect1.Ntotal": 300000000000000.0
+  }
+ },
+ "C_d08": {
+  "d": {
+   "Voc": 1.202685,
+   "Jsc": 19.29041927,
+   "FF": 86.8984,
+   "eta": 20.1607
+  },
+  "e": null,
+  "set": {
+   "layer2.NA": 3e+16,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.953,
+   "layer2.radiative": 1e-10,
+   "external.Rs": 1,
+   "layer2.mun": 10,
+   "layer2.mup": 5,
+   "interface1.IFdefect1.Ntotal": 30000000000.0,
+   "interface2.IFdefect1.Ntotal": 30000000000.0,
+   "layer2.thickness": 0.8,
+   "layer2.defect1.Ntotal": 100000000000000.0
+  }
+ },
+ "C_d06": {
+  "d": {
+   "Voc": 1.203227,
+   "Jsc": 18.90535429,
+   "FF": 86.9986,
+   "eta": 19.7899
+  },
+  "e": null,
+  "set": {
+   "layer2.NA": 3e+16,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.953,
+   "layer2.radiative": 1e-10,
+   "external.Rs": 1,
+   "layer2.mun": 10,
+   "layer2.mup": 5,
+   "interface1.IFdefect1.Ntotal": 30000000000.0,
+   "interface2.IFdefect1.Ntotal": 30000000000.0,
+   "layer2.thickness": 0.6,
+   "layer2.defect1.Ntotal": 100000000000000.0
+  }
+ },
+ "C_d08_nt1e15": {
+  "d": {
+   "Voc": 1.185426,
+   "Jsc": 19.14228168,
+   "FF": 85.176,
+   "eta": 19.3279
+  },
+  "e": null,
+  "set": {
+   "layer2.NA": 3e+16,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.953,
+   "layer2.radiative": 1e-10,
+   "external.Rs": 1,
+   "layer2.mun": 10,
+   "layer2.mup": 5,
+   "interface1.IFdefect1.Ntotal": 30000000000.0,
+   "interface2.IFdefect1.Ntotal": 30000000000.0,
+   "layer2.thickness": 0.8,
+   "layer2.defect1.Ntotal": 1000000000000000.0
+  }
+ },
+ "C_d08_nt1e14_if1e10": {
+  "d": {
+   "Voc": 1.216054,
+   "Jsc": 19.43442317,
+   "FF": 87.4212,
+   "eta": 20.6605
+  },
+  "e": null,
+  "set": {
+   "layer2.NA": 3e+16,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.953,
+   "layer2.radiative": 1e-10,
+   "external.Rs": 1,
+   "layer2.mun": 10,
+   "layer2.mup": 5,
+   "interface1.IFdefect1.Ntotal": 10000000000.0,
+   "interface2.IFdefect1.Ntotal": 10000000000.0,
+   "layer2.thickness": 0.8,
+   "layer2.defect1.Ntotal": 100000000000000.0
+  }
+ },
+ "C_d08_nt1e13": {
+  "d": {
+   "Voc": 1.205119,
+   "Jsc": 19.3060037,
+   "FF": 87.1265,
+   "eta": 20.2709
+  },
+  "e": null,
+  "set": {
+   "layer2.NA": 3e+16,
+   "layer3.ND": 9e+17,
+   "layer2.Eg": 1.7,
+   "layer2.chi": 3.953,
+   "layer2.radiative": 1e-10,
+   "external.Rs": 1,
+   "layer2.mun": 10,
+   "layer2.mup": 5,
+   "interface1.IFdefect1.Ntotal": 30000000000.0,
+   "interface2.IFdefect1.Ntotal": 30000000000.0,
+   "layer2.thickness": 0.8,
+   "layer2.defect1.Ntotal": 10000000000000.0
+  }
+ }
+}

@@ -1,0 +1,4 @@
+24.95% permissive-box SCAPS-1D ceiling for CsPbI3/CBTS
+Routine-quality envelope: median 18.0%, 5-95% 15.6-20.0%
+Records above envelope; ceiling-vs-record is DOS-conditional
+Rs to 5 Ohm cm2 closes half the six-point fill-factor gap

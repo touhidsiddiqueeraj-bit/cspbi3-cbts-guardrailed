@@ -1,0 +1,45 @@
+{
+ "n_main": 96,
+ "n_sens": 8,
+ "converged": 104,
+ "interval": {
+  "median": 18.18,
+  "p5": 15.76,
+  "p95": 20.03
+ },
+ "ci_p5": [
+  15.25,
+  16.42
+ ],
+ "ci_median": [
+  17.76,
+  18.54
+ ],
+ "ci_p95": [
+  19.5,
+  20.55
+ ],
+ "screen_flags": {
+  "n_flagged": 0,
+  "flags": []
+ },
+ "optical_scale": {
+  "mean_pts": 1.18,
+  "note": "electrical-only interval otherwise"
+ },
+ "spearman": {
+  "logNt": -0.364,
+  "logNif": -0.535,
+  "Cr": -0.164,
+  "mu": 0.045,
+  "Rs": -0.188,
+  "ITO": -0.007,
+  "Ni": 0.072,
+  "d": 0.469,
+  "logNv": -0.041
+ },
+ "Cr0_sensitivity": {
+  "median": 17.82,
+  "n": 8
+ }
+}

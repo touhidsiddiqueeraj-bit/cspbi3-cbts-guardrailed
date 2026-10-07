@@ -25,7 +25,19 @@
   "n_points": 56,
   "spectrum": "/home/touhid/.wine/drive_c/Program Files (x86)/Scaps3309/spectrum/AM1_5G 1 sun.spe"
  },
- "sq_jsc_Eg165_mA_cm2": 39.2,
+ "sq_jsc_Eg165_mA_cm2": 24.4,
+ "sq_ideal_Eg1.65": {
+  "Jsc_mA_cm2": 24.4,
+  "Voc_V": 1.372
+ },
+ "sq_ideal_Eg1.7": {
+  "Jsc_mA_cm2": 23.4,
+  "Voc_V": 1.419
+ },
+ "sq_ideal_Eg1.8": {
+  "Jsc_mA_cm2": 19.8,
+  "Voc_V": 1.512
+ },
  "green_ff_V1.357113_T275": 91.35,
  "green_ff_V1.320708_T300": 90.54,
  "green_ff_V1.363445_T300": 90.77

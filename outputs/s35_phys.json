@@ -1,0 +1,45 @@
+{
+ "V_srcnoif": {
+  "d": {
+   "Voc": 1.004954,
+   "Jsc": 19.68246457,
+   "FF": 84.7186,
+   "eta": 16.7573
+  },
+  "e": null,
+  "set": {
+   "layer2.Nc": 1.1e+20,
+   "layer2.Nv": 8.2e+20
+  }
+ },
+ "H_spin": {
+  "d": {
+   "Voc": 1.185878,
+   "Jsc": 16.39893689,
+   "FF": 86.2186,
+   "eta": 16.7671
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 0.26,
+   "layer2.NA": 1000000000000000.0,
+   "layer2.defect1.Ntotal": 500000000000000.0,
+   "layer3.ND": 9e+16
+  }
+ },
+ "H_vapour": {
+  "d": {
+   "Voc": 1.222656,
+   "Jsc": 16.39923442,
+   "FF": 89.5872,
+   "eta": 17.9628
+  },
+  "e": null,
+  "set": {
+   "layer2.thickness": 0.26,
+   "layer2.NA": 1000000000000000.0,
+   "layer2.defect1.Ntotal": 10000000000000.0,
+   "layer3.ND": 9e+16
+  }
+ }
+}

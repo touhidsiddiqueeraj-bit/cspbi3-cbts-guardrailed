@@ -1,0 +1,81 @@
+% Supplementary information for the r14 Hossain-style revision.
+\documentclass[11pt,a4paper]{article}
+
+\usepackage{mathptmx}
+\usepackage[top=1in,bottom=1in,left=1.1in,right=1.1in]{geometry}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=black,urlcolor=black,citecolor=black]{hyperref}
+\usepackage{url}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{fancyhdr}
+\usepackage[font=small,labelfont=bf,justification=centering]{caption}
+
+\linespread{1.0}
+\setlength{\arrayrulewidth}{0.8pt}
+\renewcommand\bibsection{\begin{center}\textbf{Supplementary References}\end{center}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Siddiquee and Fahim}}
+\fancyhead[R]{\small\textit{Supplementary Information}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\title{Supplementary information: modeling electrical losses in CsPbI3 solar cells}
+\author{Hussain Touhid Siddiquee \and Md.\ Abdul Malek Fahim}
+\date{}
+
+\begin{document}
+\maketitle
+
+This supplement carries the audit trail removed from the main paper: receipt inventory, script verification, extended screening detail, optical diagnostics, prior accounting, and reference notes.
+
+\section{Receipt inventory and run accounting}
+
+The main paper reports evaluated values; this section records how they were produced. The 96-run grid had six worker-file misses. The 36-run refinement had three misses. The prior-volume design had 95 converged in-prior runs, eight separate $C_r=0$ sensitivity runs, and one recorded solver divergence. The density-of-states extension had 96 in-prior runs and eight sensitivity runs, with 104 converged. Retries were solo reruns after worker crashes or hangs; they are recorded in the receipts rather than silently excluded. Copyrighted reference PDFs are listed in the repository, not redistributed.
+
+Key receipts are: baseline validation; grid rounds A and B; characterisation and audit runs; interface dose, resistance (including the Rs=3--5 extension in \texttt{outputs/s36\_rs.json} plus the 1.70~eV ceiling variant at 24.73\%), and work-function runs; joint-affinity maps; radiative and mobility pricing; stacked realistic variants; calibration ladder plus the vapour/spin forward check (\texttt{outputs/s35\_phys.json}: 17.96\%/16.76\%); prior-volume and density-of-states extensions; contact and doping interaction checks; analytic bound calculations (independent step-absorption Jsc 24.4/23.4/19.8 at 1.65/1.70/1.80~eV in \texttt{outputs/s18\_analytic.json}); and automated screens over archived receipts. The density-of-states record-comparison rows are labelled by run id: J\_dos03\_cr10 (23.46\%, $N_v=4.1\times10^{18}$, $C_r=10^{-10}$), J\_dos05\_cr10 (23.04\%, $N_v=8.9\times10^{18}$, $C_r=10^{-10}$), J\_dos03/J\_dos05 without $C_r$ (26.50\%/26.11\%, screen-excluded).
+
+\section{Script verification and unit traps}
+
+SCAPS definition files store SI units while script commands use practical units. A same-value check is therefore required before interpreting any scripted defect, doping, mobility, or radiative change. Setting absorber doping to $10^{15}$~cm$^{-3}$ reproduces the file baseline, while an SI-valued input injects a million-fold overdose and creates ghost cells.
+
+A second trap concerns interface cross-sections: the script key for interface capture cross-section restructured the interface defect block in this campaign rather than scaling the addressed rate. The definition-file route reproduced the expected $N\times10$ result, while the script-key route did not. The working rule is to verify every defect-population change with a same-field query in the same script and to treat a wrong-direction efficiency move as a failed application.
+
+A near-zero radiative test at $10^{-16}$ leaves the baseline unchanged to 0.0001 points. That establishes omission as below solver sensitivity for this comparison; no unavailable external equation is cited for the built-in radiative estimate.
+
+\section{Extended screening detail}
+
+The full Round~A and Round~B leaderboards, joint-affinity extensions, gap steps, doping--affinity checks, and contact-regime variants are audit detail. Their headline-relevant conclusions are retained in the main paper: the landscape is converged rather than climbing; the joint-affinity peak is interior rather than edge-sitting; gap steps track the activation-energy landscape as well as absorption; and contact tolerance collapses as affinities move to aggressive values.
+
+The no-interface audit points are reported as disqualified by lack of radiative margin. The $N\sigma$ identities are retained as verification checks: symmetric interface scaling and bulk scaling reproduce the corresponding density-scaled runs, confirming that the tested rate scales with the intended product.
+
+\section{Optical and current diagnostics}
+
+The QE integral exceeds the converged IV current by 1.19~mA~cm$^{-2}$: 22.39 versus 21.20. The IV value reproduces across IV step sizes, while its internal generation/recombination integral gives 21.21. The QE curve is also identical under the tested illumination modes. Ideal step absorption gives 24.4 at 1.65~eV for the archived spectrum. After the stated 10\% front reflection, the corresponding ceiling is 21.96, below the QE integral. The IV current is therefore retained.
+
+Spectrum-file substitution through the script interface returned the default-spectrum result digit-identically, so independent spectrum discrimination was blocked rather than passed. The residual QE-path over-delivery is carried as a two-sided $\pm1.2$~mA/cm$^2$ absolute-scale systematic. A separate blue-response uncertainty of order 1~mA/cm$^2$ arises from absent dispersive parasitic absorption. These are stated as uncertainties, not corrections.
+
+Capacitance--voltage, Mott--Schottky, band-diagram, and generation/recombination outputs are solver self-consistency checks. The low-bias Mott--Schottky branch recovers the input doping, and the biased profiles locate the ceiling voltage deficit at back-interface recombination. They do not independently validate the device.
+
+\section{Prior-volume accounting}
+
+The headline envelope uses only the 95 converged in-prior runs: median 17.98\%, p5 15.55\%, p95 19.96\%, rounded to 18.0\% and 15.6--20.0\%. The eight $C_r=0$ runs have median 17.93\% and are reported separately. One edge-contact configuration diverged repeatedly and is recorded as non-convergent, not excluded as a crash.
+
+The density-of-states extension gives median 18.18\%, p5 15.76\%, and p95 20.03\%, rounded to 18.2\% and 15.8--20.0\%. Its density-of-states rank importance is near zero in-volume, even though physical density of states swings the clean corner by more than a point. Corner sensitivity and volume sensitivity are therefore different statements.
+
+Bulk and interface quality were sampled independently. Binning by the nominal interface-to-bulk velocity ratio does not reveal a clean internal crossing at this sample size. The ratio organises the two anchor regimes but does not resolve the ranking bin by bin.
+
+\section{Calibration limits}
+
+The measured-grade ladder climbs monotonically and saturates at 20.32--20.66\%, below the certified record. Published device tables do not provide enough defect-level detail to reconstruct portable bulk lifetime and interface velocity for a specific device. The ladder is therefore a transfer-error bound, not a device-specific hindcast. No posterior calibration is claimed because no device data enter the prior loop. The vapour/spin forward check (260~nm films, $N_t$ from reported lifetimes: 17.96\% vapour at $N_t=10^{13}$, 16.76\% spin at $N_t=5\times10^{14}$) recovers the correct order and plausible scale without fitting. The 22.02\% certified value (Dai et al.) is taken as the highest certified CsPbI3 value among the cited records (next certified: 21.43\% inverted, 20.35\% carbon HTL-free); the 22.16\% and 22.15\% laboratory values are carried for completeness but excluded from the certified ranking. The Xu et al.\ 22.15\% entry remains bibliographically unverified and is flagged as such in the bibliography.
+
+\section{Protocol mapping and reference notes}
+
+The main-paper checklist maps to realistic inputs, full reporting, effective spectra/absorption, SQ screening, and explained deviations. The optical transfer-matrix half is cited rather than reimplemented~\cite{Guruprasad2026}; the electrical half is implemented here. The broader survey diagnosis is cited for inflated SCAPS results and their causes~\cite{Saidarsan2025}.
+
+Shah et al.~\cite{Shah2024} is the first-author citation for the 20.6\% buried-interface result; a timeline label using only the second author's name has been corrected to Shah. Cited experimental values are taken as reported in their sources. The Zhang et al.~\cite{Zhang2026} record is cited without a DOI because no verified DOI was available in the local bibliography. The Dai et al.~\cite{Dai2026} laboratory/certified distinction is retained as 22.60\% laboratory and 22.02\% certified.
+
+\bibliographystyle{unsrtnat}
+\bibliography{references}
+
+\end{document}
