@@ -8,4 +8,8 @@ manuscript/*.out
 manuscript/*.fls
 manuscript/*.fdb_latexmk
 __pycache__/
+
+# downloaded third-party reference papers (copyrighted; kept local, not in repo)
+/9 Paper 2026.pdf
+/A-critical-review-of-unrealistic-results-in-SCAPS-1D-simulations-Causes-practical-solutions.pdf
 *.pyc

@@ -1,0 +1,25 @@
+Figure 1 (fig_timeline.png): Line-and-symbol timeline comparing certified/laboratory experimental CsPbI3 efficiencies against SCAPS-1D simulation values, with this work's ceiling star and routine-quality envelope band marked.
+Figure 2 (fig_JVboth.png): Current-voltage curves comparing the re-parameterised baseline cell against the joint-affinity champion cell under one-sun illumination.
+Figure 3 (fig_contour.png): Contour map of efficiency versus absorber thickness and bulk defect density showing the interaction between the two factors.
+Figure 4 (fig_align.png): Energy-band alignment diagram of the champion cell at zero bias across the ITO, TiO2, CsPbI3, CBTS, and Ni layers.
+Figure 5 (fig_QE.png): Quantum efficiency spectrum from 300 to 850 nanometres showing the absorption edge shift with bandgap.
+Figure 6 (fig_T.png): Temperature dependence of efficiency and fill factor from 275 to 475 kelvin at fixed illumination.
+Figure 7 (fig_audit.png): Interface dose-response curve of efficiency versus interface defect density from 1e8 to 1e12 per square centimetre.
+Figure 8 (fig_morris.png): Morris screening bar chart of mean elementary effects and spread for six screening factors.
+Table 1 (tab:lit): Literature comparison of selected experimental and simulated CsPbI3 results with stack, type, efficiency, and interface treatment.
+Table 2 (tab:in): Input parameter table for the re-parameterised baseline device layers.
+Table 3 (tab:if): Interface recombination block parameters for both heterojunctions.
+Table 4 (tab:guard): Guardrail definitions with quantitative bounds and failure flags.
+Table 5 (tab:bases): Baseline validation table comparing reproduced values against Hossain 2023.
+Table 6 (tab:champ): Champion device parameter set and current-voltage output metrics.
+Table 7 (tab:chia): Joint-affinity map summary across surveyed and adopted affinity combinations.
+Table 8 (tab:krad): Radiative recombination pricing table at capped and physical density of states.
+Table 9 (tab:rs): Series and shunt resistance sweep results to 5 ohm cm2.
+Table 10 (tab:dos): Density-of-states sensitivity rows for the ceiling-versus-record comparison.
+Table 11 (tab:stack): Stacked realistic variant efficiencies under combined assumptions.
+Table 12 (tab:calib): Measured-grade calibration ladder against published film quality anchors.
+Table 13 (tab:prior): Routine-quality prior volume ranges with measurement anchors for eight factors.
+Table 14 (tab:taus): Lifetime and velocity anchor table for interface regime analysis.
+Table 15 (tab:audit): Same-cell audit pairs with and without interface blocks.
+Table 16 (tab:loss): Fill-factor loss decomposition into resistive and recombination parts.
+Table 17 (tab:checklist): Pilot guardrailed-reporting checklist for comparable SCAPS claims.

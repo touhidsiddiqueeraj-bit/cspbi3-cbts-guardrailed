@@ -8,7 +8,7 @@
 ## Angle (decided)
 Guardrailed record + audit (main), scripting unit-trap (methods box), factorial interactions + cheap ML/SHAP-style importances (supporting). ML test R² 0.9971 (80/20 split, n=126): logNt 0.479 > Eg 0.345 > logNA 0.105 > logND 0.057 > thickness 0.014 — matches PerovskiteOpt-AI's Nt-dominance on a different (CsSnI3) stack; first such quantification for CsPbI3-CBTS.
 
-## Core numbers (all in outputs/, reproducible; manuscript r7 hierarchy)
+## Core numbers (all in outputs/, reproducible; manuscript r14/r15 hierarchy)
 - Baseline repro: 18.99% (paper 17.9–19.06%) — validates def.
 - Joint-affinity optimum ITO/TiO2/CsPbI3/CBTS/Ni: **24.95%** (Voc 1.321, Jsc 21.20, FF 89.11; 2.2µm, NA 3e16, Nt 1e12, ND_ETL 9e17, Eg 1.65/χ 3.928, χ_CBTS 3.9/χ_TiO2 3.7, IF 1e10cm⁻² both sides, Ni 5.5eV, 300K 1-sun). s22 receipt 24.9464%; def-file load 24.9441% (0.002-pt path gap, inside 0.017-pt IV-step threshold).
 - Surveyed-affinity best: 23.50% (Round B; Round A best 23.47%). Exploratory 104-config search peaks 1.87 pts below among guardrail-satisfying runs — does not bracket the champion by construction.
@@ -22,7 +22,7 @@ Guardrailed record + audit (main), scripting unit-trap (methods box), factorial 
 | Paper element | File | Status |
 |---|---|---|
 | JV champion (+baseline) | figs/fig_JVboth.png | done |
-| QE 300–850nm, edge 731→752nm | figs/fig_QE.png | done |
+| QE 300–850nm, edge 731→750nm | figs/fig_QE.png | done |
 | C-V + Mott-Schottky 1MHz | figs/fig_CV_MS.png | done |
 | Band diagram @0V | figs/fig_EB.png | done |
 | G/R profiles @0V | figs/fig_GR.png | done |
@@ -48,5 +48,5 @@ Guardrailed record + audit (main), scripting unit-trap (methods box), factorial 
 1st: Solar Energy (baseline venue, full-char fit) or Surfaces & Interfaces (ML-angle precedent 28.38% paper). Fallback: MDPI Micromachines/Energies. Decision rule: if audit margin narrative + full figs → Q1; if reviewers demand experiment → MDPI + frame as simulation-guided design.
 
 ## Left to write (no more sims needed except optional)
-- DONE in manuscript r7: prose per sections above; scripted Rs/Rsh sweeps (no analytic derate); refs.bib enriched (Dai2026 + Qiu2025 vol/pages/doi verified).
+- DONE in manuscript r14/r15: prose per sections above; scripted Rs/Rsh sweeps (no analytic derate); refs.bib enriched (Dai2026 + Qiu2025 vol/pages/doi verified).
 - Optional (only if targeting Solar Energy): ETL/HTL thickness micro-sweep (paper says insensitive — 8 sims, skip unless reviewer asks).

@@ -1,5 +1,7 @@
 # Champion device — joint-affinity optimum 24.95% + defended routine case 20.82% (restart-safe)
 
+> **Status (r15):** this document preserves the r7 champion framing. The current manuscript (r14/r15) supersedes its headline hierarchy: 24.95% remains the permissive-box ceiling, but the headlined envelope is the routine-quality prior envelope **18.0%** (15.6–20.0%), and the ceiling record comparison is DoS-conditional. QE edge shift is 731→750 nm as in `manuscript/document.tex` (earlier notes said 752 nm).
+
 ## Result
 
 | Device | Voc (V) | Jsc (mA/cm²) | FF (%) | PCE (%) |

@@ -2,12 +2,13 @@
 
 SCAPS-1D screening of an ITO/TiO₂/CsPbI₃/CBTS/Ni cell: best evaluated
 guardrailed point (**24.95%**), surveyed-affinity best (23.50%), defended
-routine-defect result (**20.82%**, 20.42% at R_s=1 Ω·cm²), interface
+routine-defect result (**20.82%**, 20.42% at R_s=1 Ω·cm²), with a
+routine-quality prior envelope of **18.0%** (15.6–20.0%), interface
 dose–response, scripted parasitics, and Morris sensitivity — with a
 reproducibility audit of published 24%+ claims.
 
 **Manuscript:** [`manuscript/document.tex`](manuscript/document.tex) →
-[`drafts/draft-jbss-r7.pdf`](drafts/draft-jbss-r7.pdf) (r7 current)
+[`drafts/draft-jbss-r15.pdf`](drafts/draft-jbss-r15.pdf) (r15 current)
 
 Headline hierarchy (see manuscript abstract): 24.95% is the box maximum
 (upper bound, not forecast); 20.82% is the number we would defend.
@@ -75,16 +76,16 @@ Morris screen (r=8 trajectories, p=4 levels, 56/56 converged):
 
 | Factor | Range | μ* | per decade |
 |---|---|---|---|
-| log N_if (both interfaces) | 10⁸–10¹² cm⁻² | 4.08 | **1.02** |
-| log N_t (absorber) | 10¹²–10¹⁵ cm⁻³ | 2.05 | 0.68 |
+| log N_if (both interfaces) | 10⁸–10¹² cm⁻² | 4.08 | **0.85** |
+| log N_t (absorber) | 10¹²–10¹⁵ cm⁻³ | 2.05 | 0.37 |
 | E_g (+χ link) | 1.65–1.75 eV | 1.75 | 17.5/eV |
 | thickness | 0.4–2.2 µm | 1.29 | 0.72/µm |
 | log N_D (ETL) | 10¹⁶–10¹⁹ cm⁻³ | 0.68 | 0.23 |
 | log N_A (absorber) | 10¹⁵–3×10¹⁶ cm⁻³ | 0.48 | 0.32 |
 
-Paired-trajectory test: |EE_Nif|−|EE_Nt| = +2.03 pts (95% CI
-[0.70, 3.51]) — interfaces genuinely lead **within the defect-floor
-regime**. At routine defects (N_t 10¹⁵) the interface dose–response goes
+Paired-trajectory test: |EE_Nif|−|EE_Nt| = +0.58 pts (95% CI
+[-0.59, 1.97]), five of eight trajectories positive — Morris alone
+does **not** establish the interface lead. At routine defects (N_t 10¹⁵) the interface dose–response goes
 nearly flat, so bulk defects dominate there. Large σ throughout = strong
 interactions; E_g confounds gap with band offset via the χ link.
 
@@ -130,7 +131,7 @@ uncertainty, IV value headlined); T-sweep 25.88% (275 K) → 18.13%
 | Path | Contents |
 |---|---|
 | `manuscript/` | paper source (`document.tex`, `references.bib`, `figs/` portable copies) |
-| `drafts/` | submission snapshots r0–r7 (r7 current, + `.docx`) |
+| `drafts/` | submission snapshots r0–r15 (r15 current, + `.docx`) |
 | `defs/` | `csPbI3-CBTS-champion24p95.def` (+`.scaps` supervisor copy), `r7` surveyed base, `noIF`, WF/σ variants + builders |
 | `outputs/` | all sweep data: `roundA/B.jsonl` (grid), `char.jsonl` (IV/T/audit/CV/QE/EB), `s1` dose+parasitics, `s5_morris.jsonl`, `s11` joint-χ, `s22` joint-IF check, `figs/` |
 | `receipts/` | champion + baseline receipts |

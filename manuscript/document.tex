@@ -10,13 +10,16 @@
 \usepackage{url}
 \usepackage[numbers,sort&compress]{natbib}
 \usepackage{fancyhdr}
-\usepackage[font=small,labelfont=bf,justification=centering]{caption}
+\usepackage[font=small,labelfont=bf,justification=raggedright,singlelinecheck=false]{caption}
 
 \linespread{1.0}
 
 % Standard numbered sections (Solar Energy / Elsevier style)
-\renewcommand{\thesection}{\arabic{section}}
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+\renewcommand{\thesection}{\Roman{section}}
+\renewcommand{\thesubsection}{\Alph{subsection}}
+\renewcommand{\thetable}{\Roman{table}}
+\renewcommand{\figurename}{FIG.}
+\renewcommand{\tablename}{TABLE}
 % JBSS tables: full grid with heavier rules
 \setlength{\arrayrulewidth}{0.8pt}
 % JBSS References heading: centered bold
@@ -36,15 +39,15 @@
 \begin{document}
 \maketitle
 
-\begin{quote}\small
-Stacked idealisations inflate SCAPS-1D CsPbI3 projections. On one fully worked CsPbI3/CBTS stack, joint optimisation of thickness, doping, defects, gap, and both transport-layer affinities gives a permissive-box ceiling of \textbf{24.95\%}. Sampling a frozen routine-quality prior volume (96-point Latin hypercube over eight factors; ranges and measured anchors in Table~\ref{tab:prior}) gives a median of \textbf{18.0\%} with a 5--95\% prior-predictive envelope of \textbf{15.6--20.0\%}. This is a sensitivity envelope under stated priors, not a confidence interval on real devices. The 2024--2026 experimental records fall above that envelope. The ceiling record comparison is density-of-states conditional: with capped density of states, literature radiative recombination ($C_r=10^{-10}$~cm$^3$/s) lowers the ceiling to 21.86\%, below the 22.02\% certified record; with effective-mass physical density of states, the same radiative term gives 23.46\% ($N_v=4.1\times10^{18}$~cm$^{-3}$) and 23.04\% ($N_v=8.9\times10^{18}$~cm$^{-3}$), above it. Interface sensitivity is regime dependent, bulk defects dominate at routine defect density, and series resistance up to 5~$\Omega$cm$^2$ closes roughly half of the six-point fill-factor gap against measured devices, with the remainder attributed to nonradiative interface recombination (ideality above unity).
-\end{quote}
+\begin{abstract}
+Stacked idealisations inflate SCAPS-1D CsPbI3 projections. Using SCAPS-1D on one fully worked ITO/TiO2/CsPbI3/CBTS/Ni stack, joint optimisation of absorber thickness, doping, bulk defects, gap, and both transport-layer affinities gives a permissive-box ceiling of \textbf{24.95\%} (Voc 1.321~V, Jsc 21.20~mA/cm$^2$, FF 89.11\%; 2.2~$\mu$m absorber, $N_A$ $3\times10^{16}$~cm$^{-3}$, $N_t$ $10^{12}$~cm$^{-3}$, $\chi_{\rm CBTS}$ 3.9~/~$\chi_{\rm TiO2}$ 3.7~eV, $10^{10}$~cm$^{-2}$ interface defects on both heterojunctions). Sampling a frozen routine-quality prior volume (96-point Latin hypercube over eight factors with published, measured-anchored ranges) gives a prior-predictive envelope of median \textbf{18.0\%} with 5--95\% range \textbf{15.6--20.0\%}, above which the 2024--2026 experimental records fall. Every load-bearing idealisation is priced individually, including radiative recombination, mobility, series resistance to 5~$\Omega$cm$^2$, contacts, affinities, optics, and density of states, for which the ceiling-versus-record comparison is reported both ways. The defended number is the 20.82\% routine-defect result, not the ceiling: the defect floor sits beyond the best reported films and both optimum affinities lie outside surveyed values.
+\end{abstract}
 
 \medskip
 \noindent{\small\textbf{Keywords:} CsPbI3; perovskite solar cell; SCAPS-1D; CBTS; reproducibility; device simulation}
 \par
 
-\section{Introduction}
+\section{INTRODUCTION}
 
 All-inorganic CsPbI3 combines improved thermal stability with a bandgap near 1.7~eV, suitable for single-junction and tandem top-cell use~\cite{Dai2026,Qiu2025}. Buried-interface engineering carried laboratory efficiencies past 20\% in 2024~\cite{Shah2024} and to 22\% in 2025--2026: 22.60\% laboratory and 22.02\% certified by moisture-responsive crystallisation~\cite{Dai2026}, 22.05\% by fluorinated interfacial dipoles~\cite{Qiu2025}, with supporting records of 21.71\% with dual-interface and bulk co-passivation at 1.27~V~\cite{Zhang2026} and 21.43\% certified for inverted cells~\cite{Joule2026}. The 22.02\% certified value of Dai et al.\ is the highest certified CsPbI3 value cited here. Each advance came from defect and interface control.
 
@@ -54,7 +57,7 @@ A survey of more than 250 SCAPS perovskite architectures attributes much of this
 
 This work contributes a five-factor guardrailed screen and joint affinity map locating the ceiling at 24.95\%; priced single-assumption corrections; stacked realistic variants; a measured-grade calibration ladder; a 95-run routine-quality envelope with a separate radiative sensitivity subset; interface dose--response in portable lifetime/velocity metrics; and a range-dependent Morris analysis.
 
-\section{Literature: CsPbI3 progress and simulation inflation}
+\section{LITERATURE: CsPbI3 PROGRESS AND SIMULATION INFLATION}
 
 Black-phase CsPbI3 progressed from 10.8\% quantum-dot films through $\gamma$-films and graded-gap devices~\cite{Swarnkar2016,Zhao2018,Bian2018}. Compositional engineering continued this rise~\cite{Xi2019,Becker2019}. The 18.4\% $\beta$-phase result then stood until buried-interface work reached 20.6\%, 20.1\% stabilised~\cite{Wang2019,Shah2024}. The 2025--2026 interface wave is shown in Figure~\ref{fig:timeline}.
 
@@ -72,24 +75,24 @@ Black-phase CsPbI3 progressed from 10.8\% quantum-dot films through $\gamma$-fil
 \small
 \begingroup
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{|p{0.22\linewidth}|p{0.30\linewidth}|p{0.08\linewidth}|p{0.15\linewidth}|p{0.11\linewidth}|}
+\begin{tabular}{|p{0.20\linewidth}|p{0.27\linewidth}|p{0.08\linewidth}|p{0.16\linewidth}|p{0.15\linewidth}|}
 \hline\hline
 Study & Stack & Type & PCE (\%) & IF \\
 \hline
-Swarnkar 2016 & TiO2/Spiro/MoOx & Exp. & 10.8~\cite{Swarnkar2016} & -- \\
-Wang 2019 & TiO2/Spiro & Exp. & 18.4~\cite{Wang2019} & -- \\
-Shah et al. 2024 & TiO2/2D-Cs2PbI2Cl2 & Exp. & 20.6 (20.1 stab.)~\cite{Shah2024} & buried-passivated \\
-Qiu 2025 & CsPbI3 + DFAz dipole & Exp. & 22.05~\cite{Qiu2025} & passivated \\
-Zhang 2026 & TiO2 dual-interface+bulk & Exp. & 21.71~\cite{Zhang2026} & co-passivated \\
-Dai 2026 & TiO2/PTABr/Spiro & Exp. & 22.60 lab / 22.02$^{c}$~\cite{Dai2026} & passivated \\
-Hu 2026 (Joule) & inverted HPDA & Exp. & 21.43$^{c}$~\cite{Joule2026} & 2D-stitched \\
-Lei 2025 & AP-modified CsPbI3 & Exp. & 22.16~\cite{Lei2025} & passivated \\
-Xu 2026 & QD-interface, inverted & Exp. & 22.15~\cite{XuQD2026} & QD-passivated \\
-Hossain 2022 & TiO2/CBTS & Sim. & 17.90~\cite{Hossain2022} & on \\
-Hossain 2023 & TiO2/CBTS/Ni & Sim. & 19.06~\cite{Hossain2023} & on \\
-Nazli 2025 & TiO2/CBTS/Ni & Sim. & 24.17~\cite{Nazli2025} & unclear \\
-Oyedele 2023 & ZnO/PTAA & Sim. & 24.24~\cite{Oyedele2023} & OFF \\
-This work$^{\star}$ & TiO2/CBTS/Ni & Sim. & 24.95 & on \\
+Swarnkar 2016 & TiO2/Spiro/MoOx & Exp. & 10.8~\cite{Swarnkar2016} & \mbox{--} \\
+Wang 2019 & TiO2/Spiro & Exp. & 18.4~\cite{Wang2019} & \mbox{--} \\
+Shah et al. 2024 & TiO2/2D-Cs2PbI2Cl2 & Exp. & 20.6 (20.1 stab.)~\cite{Shah2024} & \mbox{buried-passivated} \\
+Qiu 2025 & CsPbI3 + DFAz dipole & Exp. & 22.05~\cite{Qiu2025} & \mbox{passivated} \\
+Zhang 2026 & TiO2 dual-interface+bulk & Exp. & 21.71~\cite{Zhang2026} & \mbox{co-passivated} \\
+Dai 2026 & TiO2/PTABr/Spiro & Exp. & 22.60 lab / 22.02$^{c}$~\cite{Dai2026} & \mbox{passivated} \\
+Hu 2026 (Joule) & inverted HPDA & Exp. & 21.43$^{c}$~\cite{Joule2026} & \mbox{2D-stitched} \\
+Lei 2025 & AP-modified CsPbI3 & Exp. & 22.16~\cite{Lei2025} & \mbox{passivated} \\
+Xu 2026 & QD-interface, inverted & Exp. & 22.15~\cite{XuQD2026} & \mbox{QD-passivated} \\
+Hossain 2022 & TiO2/CBTS & Sim. & 17.90~\cite{Hossain2022} & \mbox{on} \\
+Hossain 2023 & TiO2/CBTS/Ni & Sim. & 19.06~\cite{Hossain2023} & \mbox{on} \\
+Nazli 2025 & TiO2/CBTS/Ni & Sim. & 24.17~\cite{Nazli2025} & \mbox{unclear} \\
+Oyedele 2023 & ZnO/PTAA & Sim. & 24.24~\cite{Oyedele2023} & \mbox{OFF} \\
+This work$^{\star}$ & TiO2/CBTS/Ni & Sim. & 24.95 & \mbox{on} \\
 \hline\hline
 \end{tabular}
 \endgroup
@@ -97,7 +100,11 @@ This work$^{\star}$ & TiO2/CBTS/Ni & Sim. & 24.95 & on \\
 
 The simulation studies trace a parallel inflation curve. The CBTS programme reached 17.90\% and 19.06\%~\cite{Hossain2022,Hossain2023}, the re-parameterised baseline used here. Later claims report higher values on different stacks or with unclear interface treatment. Because several published parameter tables are incomplete, other groups' cells are compared as reported, not re-placed on our curve.
 
-\section{Numerical simulations}
+The hole transport layer facilitates hole extraction while suppressing interface recombination. Cu2BaSnS4 (CBTS) is a wide-gap ($\sim$1.9~eV) inorganic hole conductor whose valence alignment with CsPbI3-class absorbers suits it to the p-side of the stack, and it is the hole transport material of the baseline programme reproduced here~\cite{Hossain2022,Hossain2023}. The electron transport layer must extract electrons at the perovskite--ETL interface while blocking holes; TiO2 is the established choice for this stack, reported as the superior ETL with the CBTS hole transport material in CsPbI3 devices~\cite{Hossain2023}.
+
+In this study, SCAPS-1D simulation is used to investigate one fixed stack, ITO/TiO2/CsPbI3/CBTS/Ni, under factorial variation of absorber thickness, doping, bulk and interface defect densities, gap, both transport-layer affinities, temperature, parasitics, and density of states. The output metrics (Voc, Jsc, FF, PCE) of each configuration are evaluated against interface-inclusive guardrails, and the surviving configurations are reported as a permissive-box ceiling, a routine-quality envelope, and a defended routine-defect result.
+
+\section{NUMERICAL SIMULATIONS}
 
 \subsection{SCAPS-1D model}
 
@@ -117,13 +124,13 @@ with Shockley--Read--Hall recombination through the specified bulk and interface
 
 \subsection{Device structure and re-parameterised baseline}
 
-Devices were simulated under AM1.5G illumination at 100~mW/cm$^2$ and 300~K unless stated. The starting point reproduces \citet{Hossain2023}: ITO, 30~nm TiO2, CsPbI3, 100~nm CBTS, and Ni. Neutral interface recombination blocks are present at both heterojunctions. The absorber uses the edge-moving absorption model. This is therefore a re-parameterised baseline, not an unmodified copy: interfaces were added and the density-of-states treatment is stated explicitly.
+Devices were simulated under AM1.5G illumination at 100~mW/cm$^2$ and 300~K unless stated, using SCAPS-1D 3.3.10 with scripted sweeps (four parallel workers) and Python (matplotlib) post-processing for analysis and figures. The starting point reproduces \citet{Hossain2023}: ITO, 30~nm TiO2, CsPbI3, 100~nm CBTS, and Ni. Neutral interface recombination blocks are present at both heterojunctions. The absorber uses the edge-moving absorption model. This is therefore a re-parameterised baseline, not an unmodified copy: interfaces were added and the density-of-states treatment is stated explicitly.
 
 The re-parameterised baseline gives 18.99\% (Voc 1.122~V, Jsc 19.68~mA/cm$^2$, FF 86.00\%), within the published 17.9--19.06\% band. Doping and defect floors remain modelling choices; measured doping is far lower~\cite{PenaCamargo2022}. Using the source paper's printed density of states instead gives 16.76\%, so baseline replication depends materially on that choice.
 
 \begin{table}[tbp]
 \centering
-\caption{Layer input parameters for the re-parameterised baseline. Screening subsequently moves ETL doping to $9\times10^{17}$~cm$^{-3}$ and explores ETL affinity; the ceiling values are in Table~\ref{tab:champ}.}
+\caption{Layer input parameters for the re-parameterised baseline. Screening subsequently moves ETL doping to $9\times10^{17}$~cm$^{-3}$ and explores ETL affinity; the ceiling values are in Table~\ref{tab:champ}. Effective densities of states are $(N_c,N_v)=(2.2\times10^{18},1.8\times10^{19})$~cm$^{-3}$ for CBTS, $(1.1\times10^{19},8.2\times10^{19})$ for CsPbI3, and $(2.0\times10^{18},1.8\times10^{19})$ for TiO2; contacts are Ni 5.5~eV (back) and ITO 4.0~eV (front) with $S_n=S_p=10^7$~cm/s. All layers use equation-based Eg-sqrt absorption with a 10\% front reflection filter. Parameters follow \citet{Hossain2023} except for the added interfaces and the stated density of states.}
 \label{tab:in}
 \resizebox{\linewidth}{!}{%
 \begin{tabular}{|l|l|l|l|l|l|l|l|}
@@ -187,8 +194,9 @@ Five bases recur in the paper and are defined once in Table~\ref{tab:bases}.
 \label{tab:bases}
 \small
 \begingroup
-\setlength{\tabcolsep}{3pt}
-\begin{tabular}{|p{0.20\linewidth}|p{0.30\linewidth}|p{0.38\linewidth}|}
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{|p{0.19\linewidth}|p{0.31\linewidth}|p{0.40\linewidth}|}
 \hline\hline
 Base & Definition & Carries \\
 \hline
@@ -202,7 +210,7 @@ Calibration & surveyed transport affinities, $E_g=1.70$, ITO 4.2~eV (dedicated d
 \endgroup
 \end{table}
 
-\section{Results and discussion}
+\section{RESULTS AND DISCUSSION}
 
 \subsection{Grid screen and permissive-box ceiling}
 
@@ -220,7 +228,7 @@ Layer & $d$ & $E_g$ (eV) & $\chi$ (eV) & Doping (cm$^{-3}$) & $N_t$ (cm$^{-3}$) 
 CBTS HTL & 100~nm & 1.9 & 3.9 & NA 1e18 & 1e15 \\
 CsPbI3 absorber & 2.2~$\mu$m & 1.65 & 3.928 & NA 3e16 & 1e12 \\
 TiO2 ETL & 30~nm & 3.2 & 3.7 & ND 9e17 & 1e15 \\
-Interfaces (both) & -- & -- & -- & -- & 1e10 cm$^{-2}$ \\
+Interfaces (both) & -- & -- & -- & -- & \mbox{1e10 cm$^{-2}$} \\
 Result & \multicolumn{5}{l|}{Voc 1.321~V, Jsc 21.20~mA/cm$^2$, FF 89.11\%, PCE 24.95\%} \\
 \hline\hline
 \end{tabular}}
@@ -228,7 +236,7 @@ Result & \multicolumn{5}{l|}{Voc 1.321~V, Jsc 21.20~mA/cm$^2$, FF 89.11\%, PCE 2
 
 Here 3.928~eV is the absorber affinity implied by the gap--affinity link at 1.65~eV, not an ETL affinity. The ETL affinity at the ceiling is 3.7~eV and the HTL affinity is 3.9~eV.
 
-\begin{table}[tbp]
+\begin{table}[p]
 \centering
 \caption{Joint affinity map at guardrailed interfaces, PCE in percent. The peak turns over past $\chi_{\mathrm{CBTS}}\approx3.95$~eV.}
 \label{tab:chia}
@@ -241,9 +249,9 @@ $\chi_{\mathrm{CBTS}}$ $\backslash$ $\chi_{\mathrm{TiO2}}$ & 3.7 & 3.8 & 3.9 & 4
 3.70 & 24.67 & 24.64 & 24.53 & 23.77 \\
 3.80 & 24.89 & 24.86 & 24.67 & 23.81 \\
 3.90 & \textbf{24.95} & 24.91 & 24.74 & 23.81 \\
-3.95 & 24.94 & 24.90 & -- & -- \\
-4.00 & 24.81 & 24.79 & -- & -- \\
-4.10 & 23.25 & 23.25 & -- & -- \\
+3.95 & 24.94 & 24.90 & -- & \mbox{--} \\
+4.00 & 24.81 & 24.79 & -- & \mbox{--} \\
+4.10 & 23.25 & 23.25 & -- & \mbox{--} \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -288,7 +296,7 @@ The QE edge moves from 731 to 750~nm between baseline and ceiling cells, support
 \label{fig:qe}
 \end{figure}
 
-The computed QE integral is 22.39~mA/cm$^2$ against the converged IV value of 21.20~mA/cm$^2$. For the stated optical stack, independently recomputed ideal step absorption gives 24.4~mA/cm$^2$ at 1.65~eV (23.4 at 1.70~eV, 19.8 at 1.80~eV; receipts \texttt{outputs/s18\_analytic.json}); after the stated 10\% front reflection the 1.65~eV ceiling is 21.96~mA/cm$^2$, below the QE integral. The IV value is therefore retained as the headlined current, with $\pm1.2$~mA/cm$^2$ carried as an absolute-scale systematic. Spectrum-file substitution was blocked by the script interface, so independent spectrum discrimination was not achieved; a manual SCAPS GUI run with the spectrum file selected remains the proposed resolution (Supplement S4 records the blocked test).
+The computed QE integral is 22.39~mA/cm$^2$ against the converged IV value of 21.20~mA/cm$^2$. For the stated optical stack, independently recomputed ideal step absorption gives 24.4~mA/cm$^2$ at 1.65~eV (23.4 at 1.70~eV, 19.8 at 1.80~eV; receipts \texttt{outputs/s18\_analytic.json}); after the stated 10\% front reflection the 1.65~eV ceiling is 21.96~mA/cm$^2$, below the QE integral. The IV value is therefore retained as the headlined current, with $\pm1.2$~mA/cm$^2$ carried as an absolute-scale systematic. Spectrum file substitution was blocked by the script interface, so independent spectrum discrimination was not achieved; a manual SCAPS GUI run with the spectrum file selected remains the proposed resolution (Supplement S4 records the blocked test).
 
 Temperature dependence follows the established trend in Figure~\ref{fig:t}: efficiency falls from 25.88\% at 275~K to 18.13\% at 475~K, while Jsc remains near 21.20~mA/cm$^2$. The high-temperature end is a solver stress test because it omits gap narrowing and phase-stability effects.
 
@@ -311,12 +319,12 @@ Scripted radiative runs show that the zero-radiative default matters most at the
 \hline\hline
 Run & Voc (V) & Jsc (mA/cm$^2$) & PCE (\%) & $\Delta$ (pts) \\
 \hline
-Joint optimum ($C_r=0$) & 1.321 & 21.20 & 24.95 & -- \\
+Joint optimum ($C_r=0$) & 1.321 & 21.20 & 24.95 & \mbox{--} \\
 $+C_r=10^{-10}$~cm$^3$/s & 1.163 & 21.08 & 21.86 & $-3.09$ \\
 $+C_r=10^{-9}$~cm$^3$/s & 1.113 & 20.43 & 19.83 & $-5.12$ \\
 $\mu_n$/$\mu_p$ 10/5 & 1.321 & 21.20 & 24.94 & $-0.00$ \\
 $\mu_n$/$\mu_p$ 5/2 & 1.321 & 21.20 & 24.94 & $-0.01$ \\
-Routine defects ($C_r=0$) & 1.147 & 20.77 & 20.82 & -- \\
+Routine defects ($C_r=0$) & 1.147 & 20.77 & 20.82 & \mbox{--} \\
 $+C_r=10^{-10}$~cm$^3$/s & 1.141 & 20.73 & 20.68 & $-0.14$ \\
 $+C_r=10^{-9}$~cm$^3$/s & 1.115 & 20.45 & 19.80 & $-1.02$ \\
 $\mu_n$/$\mu_p$ 10/5 & 1.148 & 20.60 & 20.50 & $-0.32$ \\
@@ -477,11 +485,11 @@ Removing the interface blocks inflates the surveyed-base cells by 1.26--1.66 poi
 Density & $\tau$ / $S$ & Note \\
 \hline
 $N_t=10^{12}$~cm$^{-3}$ (floor) & $\tau=100$~$\mu$s & beyond-best-film regime \\
-$N_t=10^{13}$~cm$^{-3}$ & $\tau=10$~$\mu$s & -- \\
-$N_t=10^{14}$~cm$^{-3}$ & $\tau=1$~$\mu$s & -- \\
+$N_t=10^{13}$~cm$^{-3}$ & $\tau=10$~$\mu$s & \mbox{--} \\
+$N_t=10^{14}$~cm$^{-3}$ & $\tau=1$~$\mu$s & \mbox{--} \\
 $N_t=10^{15}$~cm$^{-3}$ (routine) & $\tau=0.1$~$\mu$s & routine case \\
 $N_{if}=10^{10}$~cm$^{-2}$ (floor) & $S=100$~cm/s & floor of stated box \\
-$N_{if}=10^{11}$~cm$^{-2}$ & $S=1000$~cm/s & -- \\
+$N_{if}=10^{11}$~cm$^{-2}$ & $S=1000$~cm/s & \mbox{--} \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -524,7 +532,9 @@ The ceiling exceeds the certified record by 2.93 points at 1.65~eV (24.95 versus
 \centering
 \caption{Loss budget: permissive-box ceiling against measured devices and model limits. The Lei row mixes printed and headline values as stated in its source.}
 \label{tab:loss}
-\begin{tabular}{|l|l|l|l|l|}
+\begingroup
+\small
+\begin{tabular}{|p{0.26\linewidth}|l|p{0.20\linewidth}|l|l|}
 \hline\hline
 Device & Voc (V) & Jsc (mA/cm$^2$) & FF (\%) & PCE (\%) \\
 \hline
@@ -535,14 +545,15 @@ AP-modified CsPbI3~\cite{Lei2025} & 1.29 & 20.77 & 83.01 & 22.16 \\
 QD-interface CsPbI3~\cite{XuQD2026} & 1.28 & -- & -- & 22.15 \\
 Dual-interface CsPbI3~\cite{Zhang2026} & 1.27 & -- & -- & 21.71 \\
 Carbon HTL-free~\cite{LiCarbon2026} & 1.202 & 20.72 & 83.2 & 20.72 \\
-Model-derived radiative bound, this stack (1.65~eV) & 1.371 & 24.4 step-absorption reference & 90.5 & -- \\
+Model-derived radiative bound, this stack (1.65~eV) & 1.371 & 24.4 (step-absorption ref.) & 90.5 & \mbox{--} \\
 \hline\hline
 \end{tabular}
+\endgroup
 \end{table}
 
 The approximately six-point fill-factor discrepancy (89.11\% simulated versus $\sim$83\% measured) is the largest remaining gap and is now bounded rather than unresolved. Scripted $R_s=3$--5~$\Omega$cm$^2$ lowers ceiling fill factor to 84.50--81.45\% and routine fill factor to 82.32--78.99\% (Table~\ref{tab:rs}), so measured series resistance accounts for roughly half the gap at plausible $R_s$ values. A missing back reflector affects Jsc rather than fill factor, so it is not offered as the explanation. The remainder is attributed to nonradiative interface recombination (ideality above unity); ideality-factor and illumination-dependent data sufficient to separate the two losses exactly are unavailable, so the decomposition is reported as a bound.
 
-This is one stack, one solver, and one dimension. Several contact cliffs are SCAPS boundary behaviour as much as device physics. The checklist above (Table~\ref{tab:checklist}) is therefore a proposed pilot reporting standard, not an established publication standard.
+This is one stack, one solver, and one dimension. Several contact cliffs are SCAPS boundary behaviour as much as device physics. The checklist below (Table~\ref{tab:checklist}) is therefore a proposed pilot reporting standard, not an established publication standard.
 
 \begin{table}[tbp]
 \centering
@@ -564,31 +575,33 @@ Parasitics & $R_s$/$R_{sh}$ basis & scripted; routine case included & inputs \\
 Contacts and affinities & work functions and surveyed/adopted $\chi$ & priced & inputs \\
 Optics and current & reflection, absorption, spectrum, QE/IV treatment & uncertainty carried & spectra \\
 Radiative screen & model-derived Voc bound and deviations & 1.371~V at 1.65~eV (in-model; independent step-absorption Jsc 24.4 in \texttt{outputs/s18\_analytic.json}) & radiative check \\
-Receipts & definitions plus raw outputs & public repository, Supplement S1 & reporting \\
+Receipts & definitions plus raw outputs & from the corresponding author upon reasonable request, Supplement S1 & reporting \\
 \hline\hline
 \end{tabular}
 \endgroup
 \end{table}
 
-\section{Summary}
+\section{CONCLUSION}
 
-Factorial screening under interface-inclusive guardrails gives a 24.95\% permissive-box ceiling and an 18.0\% routine-quality prior-predictive envelope on the stated CsPbI3/CBTS stack. Every load-bearing assumption is priced: defect floors, gap, contacts, affinities, radiative recombination, mobility, parasitics to $R_s=5$~$\Omega$cm$^2$, optics, and density of states. The 2024--2026 records lie above the routine envelope. The record comparison for the ceiling is density-of-states conditional and is reported both ways. The principal remaining discrepancy is fill factor, bounded as approximately half resistive and half recombination-driven.
+This study uses SCAPS-1D simulation to evaluate the performance of CsPbI3 solar cells on the ITO/TiO2/CsPbI3/CBTS/Ni stack under interface-inclusive guardrails. Joint optimisation of thickness, doping, defects, gap, and both transport-layer affinities locates a permissive-box ceiling of 24.95\% (Voc 1.321~V, Jsc 21.20~mA/cm$^2$, FF 89.11\%; 2.2~$\mu$m absorber, $N_A$ $3\times10^{16}$~cm$^{-3}$, $N_t$ $10^{12}$~cm$^{-3}$, $\chi_{\rm CBTS}$ 3.9~/~$\chi_{\rm TiO2}$ 3.7~eV). Sampling a frozen routine-quality prior volume gives a prior-predictive envelope of median 18.0\% with 5--95\% range 15.6--20.0\%, above which the 2024--2026 experimental records fall, and the defended routine-defect result is 20.82\% (20.42\% at $R_s=1$~$\Omega$cm$^2$). Every load-bearing assumption is priced: defect floors, gap, contacts, affinities, radiative recombination, mobility, parasitics to $R_s=5$~$\Omega$cm$^2$, optics, and density of states, for which the ceiling-versus-record comparison is reported both ways. The principal remaining discrepancy is fill factor, bounded as approximately half resistive and half recombination-driven. Although the simulated ceiling reflects the theoretical potential of the stack, the defect floor sits beyond the best reported films and both optimum affinities lie outside surveyed values, so reproducing such performance experimentally requires strict oxidation control, effective defect passivation, and optimised interfaces.
 
-\section*{Data availability}
+\section*{Acknowledgements}
 
-The simulation archive is based on repository revision \texttt{6e991c1}. The revised manuscript and new supplement are text-level additions to that revision; the revision itself does not claim a new immutable archive hash. Definition files carry the base, no-interface, work-function, and cross-section variants. Sweep receipts, raw curves, scripts, verification receipts, and typeset sources are in the public repository at \url{https://github.com/touhidsiddiqueeraj-bit/Modeling-electricModeling-electrical-losses-in-CsPbI3-solar-cells-al-losses-in-CsPbI3-solar-cells-}. Copyrighted reference PDFs are listed, not redistributed.
+The authors acknowledge the Department of EEE at Leading University, Sylhet-3112, Bangladesh. The SCAPS-1D program was kindly provided by Prof.~M.~Burgelman of the University of Gent. Simulation time was provided by local workstation hardware.
+
+\section*{Conflict of interest}
+
+The authors have no conflicts to disclose.
 
 \section*{Author contributions}
 
 Hussain Touhid Siddiquee: conceptualization, methodology, software, formal analysis, investigation, data curation, visualization, validation, and writing---original draft, review and editing. Md.\ Abdul Malek Fahim: software, validation, and writing---original draft.
 
-\section*{AI-use declaration}
+\section*{Data availability}
 
-AI assistance was used during this revision for editing, consistency checking, reference-label correction, and figure-label correction. All SCAPS results come from the archived simulation receipts and were not generated by AI.
+The data that support the findings of this study are available from the corresponding author upon reasonable request.
 
-\section*{Acknowledgements}
-
-The SCAPS-1D program was kindly provided by Prof.~M.~Burgelman of the University of Gent. Simulation time was provided by local workstation hardware.
+\textit{Note on AI use: AI assistance was used during revision for editing, consistency checking, and reference-label correction. All SCAPS results come from the archived simulation receipts and were not generated by AI.}
 
 \bibliographystyle{unsrtnat}
 \bibliography{references}
